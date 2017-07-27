@@ -1,0 +1,301 @@
+@charset "UTF-8";
+.j_container{
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	min-width:320px;
+	max-width:768px;
+	margin:0 auto;
+	background:#eee;
+}
+
+
+/*头部*/
+.header {
+  width: 100%;
+  min-width:320px;
+  max-width:414px;
+  margin:0 auto;
+  height:5rem;
+  background:#fff;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  z-index:2;
+   display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -o-box;
+  display: box;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  -o-box-orient: horizontal;
+  box-orient: horizontal; 
+}
+
+  .header .back {
+    width: 5rem;
+    height: 5rem;
+    line-height:5.5rem;
+    font-size:1.4rem;
+    text-align:center;
+    display:block;
+    background: url(../images/back.png) no-repeat center center;
+    background-size: 20%;
+    }
+    .header .a_search{
+    	width: 5rem;
+	    height: 5rem;
+	    line-height:5.5rem;
+	    font-size:1.4rem;
+	    text-align:center;
+	    display:block;
+    }
+  .header .val {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -ms-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    background: #f3f3f3;
+    border-radius: 5px;
+    height: 4rem;
+    line-height:4.5rem;
+    margin-top:.5rem;
+    }
+    .header .val input {
+      border: none;
+      outline: none;
+      font-size:1.4rem;
+      text-indent: 1rem;
+      background: none; }
+      
+/*内容*/
+.j_content {
+  background: #eee;
+  min-width:320px;
+  max-width:414px;
+  margin:0 auto;
+  position: absolute;
+  top:5rem;
+  bottom:5rem;
+  left:0;
+  right:0;
+  z-index:1;
+}
+.j_content .company_show {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: -o-box;
+    display: box;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -ms-box-orient: horizontal;
+    -o-box-orient: horizontal;
+    box-orient: horizontal;
+    padding: 1.5rem;
+    padding-top:2.5rem;
+    height:10rem;
+    oveflow:hidden;
+    background: url(../images/bg.png) no-repeat;
+    background-size: 100%;
+    width:100%;
+    color: #fff; }
+    .j_content .company_show dt {
+      width: 5rem;
+      height: 5rem;
+      margin-right: 1.5rem; }
+      .j_content .company_show dt img {
+        width: 100%; }
+    .j_content .company_show dd {
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      -ms-box-flex: 1;
+      -o-box-flex: 1;
+      box-flex: 1; }
+      .j_content .company_show dd .title {
+      line-height:1.5rem;
+        font-size: 1.5rem; }
+ .j_content .company_show dd .c_p {
+	width: 23rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	line-height: 2rem; }
+.pp_show {
+  width:100%;
+  line-height:1.5rem;
+  color: #333;
+  padding:1rem;
+  background:#fff;
+}
+.pp_show .goods{
+	width: 16rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.s_show{
+	width:31rem;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/*排序*/
+.d_sub {
+  min-width:320px;
+  max-width:414px;
+  margin:0 auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -o-box;
+  display: box;
+  background:#fff;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  -o-box-orient: horizontal;
+  box-orient: horizontal;
+  border-bottom: 1px solid #eee; 
+}
+  .d_sub .sub {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -ms-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    display:block;
+    text-align:center;
+    border-top:3px solid #eee;
+    line-height: 2.6rem; }
+  .d_sub .cur {
+    border-bottom: 2px solid #ffa200;
+    color: #ffa200;
+    }
+
+  .sp dl {
+    padding: 1rem;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: -o-box;
+    display: box;
+    background:#fff;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -ms-box-orient: horizontal;
+    -o-box-orient: horizontal;
+    box-orient: horizontal;
+    border-bottom: 1px solid #eee; }
+    .sp dl dt {
+      width: 8rem;
+      height: 8rem;
+      overflow:hidden;
+      border: 1px solid #eee;
+      margin-right: 1rem; }
+      .sp dl dt img {
+        width: 100%; }
+    .sp dl dd {
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      -ms-box-flex: 1;
+      -o-box-flex: 1;
+      box-flex: 1; }
+      .sp dl dd .title {
+        line-height: 2.2rem;
+        font-weight: bold;
+        width: 16rem;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+        color: #20233d; }
+      .sp dl dd .G-g {
+        line-height: 2rem;
+        color: #949494; }
+      .sp dl dd .price {
+        color: #f6251d;
+        font-weight: bold;
+        line-height: 2.4rem; }
+      .sp dl dd .company a {
+        color: #ffa200; }
+
+
+.price-add {
+  position: relative; }
+
+.add_rule {
+  position: absolute;
+  right: 1rem; }
+
+.rule, .add {
+  border: 1px solid #999;
+  text-align: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  line-height: 1.8rem;
+  display: inline-block;
+  border-radius: 50%; }
+
+.add {
+  color: #ffa200; }
+
+.rule {
+  color: #999; }
+
+
+
+.search-footer {
+  width: 100%;
+   min-width:320px;
+  max-width:414px;
+  margin:0 auto;
+  height: 5rem;
+  line-height: 5rem;
+  border-top: 1px solid #eee;
+  z-index:2;
+  left:0;
+  right:0;
+  bottom:0;
+  background:#fff;
+  position: absolute; }
+.search-footer .addlist {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 10rem;
+    background: #ffa200;
+    color: #fff;
+    text-align: center;
+    height:5rem;
+    line-height: 5rem;
+    font-size: 1.4rem; }
+.search-footer .foot {
+    color: #666;
+    font-size: 1.3rem;
+    margin-left: 1rem; }
+.search-footer .foot .rmb {
+      color: #fa4545; }
+ /*加和减*/
+.a_r{
+	width:6rem;
+	height:2rem;
+	position:absolute;
+	right:20px;
+	margin-top:-26px;
+}
+.a_r li{
+	display:inline-block;
+	width:2rem;
+	height:2rem;
+	line-height:2rem;
+	text-align:center;
+}
+.a_r li img{
+	width:100%;
+}
+
+/*# sourceMappingURL=gys_search.css.map */

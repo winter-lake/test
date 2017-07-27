@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>编辑功能</title>
+	<link rel="stylesheet" href="../../../css/reset.css">
+	<link rel="shortcut icon" href="../../../img/favicon.ico">
+	<link rel="stylesheet" href="../../../css/common.css">
+	<!-- 第三方 start -->
+	<link rel="stylesheet" href="../../../public/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../../../public/Font-Awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../../public/leftMenu.css">
+	<link rel="stylesheet" href="../../../css/zz/menu/common_menu.css">
+</head>
+<body>
+<!--外围容器-->
+<div class="k_contaniner">
+	<!--头部开始-->
+	<div class="k_top">
+		<div class="k_logo">
+			<span class="k_logo1">
+				<img src="../../../images/share/kxwp_logo.png" alt="">
+			</span>
+			<span>
+				<img src="../../../images/share/title_zz.png" alt="">
+			</span>
+			<div class="k_Options">
+				<span>
+					<i class="icon-user" style="font-size:20px;position:relative;top:2px"></i>
+					<em id="user">管理员</em>
+				</span>&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>
+					<i>角色 :</i>
+					<em id="yygl">运营管理员</em>
+				</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>
+					<select name="" id="">
+						<option value="安全中心">安全中心</option>
+					</select>
+				</span>
+			</div>                         
+		</div>
+	</div>
+	<!--头部结束-->
+	<!--左边开始-->
+	<div class="k_left">
+		<!--菜单导航-->
+		<div class="left_menu">
+			<ul class="cd-accordion-menu animated">
+	            <li class="has-children">
+	                <input type="checkbox" name="group-1" id="group-1" checked>
+	                <label for="group-1">菜单管理</label>
+	                <ul>
+	                    <li class="has-children">
+	                        <ul>
+	                            <li><a href="add_menu.html">添加菜单</a></li>
+	                            <li><a href="#0">编辑功能</a></li>
+	                            <li><a href="#0">查看功能</a></li>
+	                        </ul>
+	                    </li>
+	                </ul>
+	            </li>
+
+	            <li class="has-children">
+	                <input type="checkbox" name="group-2" id="group-2">
+	                <label for="group-2">角色管理</label>
+	                <ul>
+	                    <li><a href="#0">添加角色</a></li>
+	                    <li><a href="#0">编辑角色</a></li>
+	                    <li><a href="#0">查看角色</a></li>
+	                </ul>
+	            </li>
+
+	            <li class="has-children">
+	                <input type="checkbox" name="group-3" id="group-3">
+	                <label for="group-3">账号管理</label>
+	                <ul>
+	                    <li><a href="#0">添加账号</a></li>
+	                    <li><a href="#0">编辑账号</a></li>
+	                    <li><a href="#0">查看账号</a></li>
+	                </ul>
+	            </li>
+
+	            <li class="has-children">
+	                <input type="checkbox" name="group-4" id="group-4">
+	                <label for="group-4">Group 4</label>
+
+	                <ul>
+	                    <li class="has-children">
+	                        <input type="checkbox" name="sub-group-3" id="sub-group-3">
+	                        <label for="sub-group-3">Sub Group 3</label>
+
+	                        <ul>
+	                            <li><a href="#0">Image</a></li>
+	                            <li><a href="#0">Image</a></li>
+	                        </ul>
+	                    </li>
+	                    <li><a href="#0">Image</a></li>
+	                    <li><a href="#0">Image</a></li>
+	                </ul>
+	            </li>
+        	</ul>
+		</div>
+		<!--end-->
+	</div>
+	<!--左边结束-->
+	<!--右边开始-->
+	<div class="k_right">
+		<div class="content">
+			<form class="form_menu" method="post" action="index.php">
+				<div><span>功能名称 :</span> <input type="text" placeholder="功能名称"></div>
+				<div><span>功能描述 :</span> <textarea name="" id="" cols="30" rows="10" placeholder="功能描述"></textarea></div>
+				<div><span>功能状态 :</span> <select name="" id=""><option value="">上线</option></select></div>
+				<div><span>所属系统 :</span> <select name="" id=""><option value="">请选择</option></select></div>
+				<div><span>父节点 :</span> <p><select name="" id=""><option value="">商品管理</option></select></p>&nbsp;&nbsp; <em class="icon-plus-sign-alt" id="add_son">(添加子菜单)</em></div>
+				<div><span>URL :</span><p><input type="text"></p> &nbsp;&nbsp; <em class="icon-plus-sign-alt" id="add_url">(添加模块URL)</em></div>
+				<div><input type="submit" class="yes" value="确认"><input type="reset" class="reset" value="重置"></div>
+			</form>
+		</div>
+	</div>
+	<!--右边结束-->
+	<!--面包屑导航-->
+	<div class="k_breadcrumb">
+		<ol class="breadcrumb" style="background:#fff">
+		  	<li><a href="#">总站管理中心</a></li>
+		  	<li><a href="#">添加资源</a></li>
+		</ol>
+		<a href="menu.html" class="add_menu"><i class="icon-plus"></i>菜单列表</a>
+	</div>
+	<!--面包屑导航结束-->
+	<!--footer开始-->
+	<div class="k_footer">
+		<p>版权所有 @ 北京快消互联科技发展有限公司 未经许可 严禁复制</p>
+		<p>京ICP备16000340 号</p>
+		<p>北京经济技术开发区地盛南街9号1栋 电话 : 010-58046928</p>
+	</div>
+	<!--footer结束-->
+</div>	
+<!--end-->
+<script src="../../../public/jquery-2.1.4.min.js"></script>
+<script src="../../../public/layer/layer.js"></script>
+<script src="../../../public/bootstrap/js/bootstrap.js"></script>
+<script src="../../../public/common.js"></script>
+<script src="../../../public/leftMenu.js"></script>
+<script src="../../../public/main.js"></script>
+<script src="../../../js/zz/menu.js"></script>
+<script>
+$(function(){
+	Menu.addmenu();
+})
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+ 

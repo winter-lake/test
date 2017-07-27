@@ -1,0 +1,25 @@
+.message{
+	width:400px;
+	margin:200px auto;
+	font-family:"微软雅黑";
+}
+.message dt{
+	float:left;
+	width:80px;
+	margin-right:10px;
+}
+.message dt img{
+	width:100%;
+}
+.message dd h4{
+	font-weight:bold;
+	line-height:40px;
+}
+.message dd p{
+	color:#999;
+}
+.message textarea{
+	width:300px;
+	height:100px;
+	resize:none;
+}

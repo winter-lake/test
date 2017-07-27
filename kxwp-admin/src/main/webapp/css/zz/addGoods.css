@@ -1,0 +1,278 @@
+/*通用的样式*/
+.dis_inb {
+	display: inline-block;
+}
+
+/*标题样式*/
+h4 {
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+	color: #999;
+	text-indent: 14px;
+	background: #f5f5f5;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+input, select {
+	border: 1px solid #d8d8d8;
+}
+/*商品基本信息*/
+.jbxx {
+	font-family: "微软雅黑";
+}
+
+.jbxx p {
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.jbxx span.input_key {
+	width: 120px;
+	text-align: right;
+	display: inline-block;
+	color: #999;
+	font-size: 15px;
+	margin-right: 10px;
+}
+
+.jbxx input {
+	width: 150px;
+	height: 30px;
+	text-indent: 8px;
+	color: #999;
+}
+
+.jbxx select {
+	width: 150px;
+	height: 30px;
+	color: #999;
+	margin-right: 7px;
+}
+
+.jbxx em {
+	color: #999;
+}
+
+.jbxx h5 {
+	padding-left: 130px;
+}
+
+.jbxx h5 label {
+	width: 120px;
+	height: 120px;
+	border: 1px dashed #333;
+	display: inline-block;
+	margin: 10px;
+	background: #f5f5f5;
+	font-size: 40px;
+	line-height: 120px;
+	text-align: center;
+	color: #999;
+	cursor: pointer;
+}
+
+.jbxx h5 label.w_filebox input {
+	display: none;
+}
+
+.jbxx h5 label.w_view_pic {
+	position: relative;
+}
+
+.jbxx h5 label.w_view_pic:hover {
+	border: 1px solid #66779c;
+}
+
+.jbxx h5 label.w_view_pic:hover b.del {
+	display: block;
+}
+
+.jbxx h5 label.w_view_pic img {
+	width: 100%;
+	height: 100%;
+	vertical-align: top;
+}
+
+.jbxx h5 label.w_view_pic b.del {
+	position: absolute;
+	right: -9px;
+	top: -9px;
+	display: none;
+	height: 20px;
+	width: 20px;
+	line-height: 20px;
+	font-size: 12px;
+	border-radius: 19px;
+	color: #fff;
+	background: #66779c;
+	text-align: center;
+}
+
+.jbxx h5 .right_line {
+	width: 1px;
+	margin: 0 5px;
+	display: inline-block;
+	height: 100px;
+	background: #66779c;
+	vertical-align: -34px;
+}
+
+.jbxx .desc {
+	color: #999;
+}
+
+.jbxx .desc .main {
+	text-align: center;
+	margin-right: 10px;
+}
+
+.jbxx .desc .detail {
+	text-align: center;
+	margin-left: 30px;
+}
+
+.jbxx .select2-container .select2-selection--single .select2-selection__rendered
+	{
+	padding-left: 0;
+}
+
+/*商品服务信息*/
+.fwxx p {
+	position: relative;
+	margin-bottom: 20px;
+	font-family: "微软雅黑";
+}
+
+.fwxx span {
+	width: 120px;
+	text-align: right;
+	display: inline-block;
+	color: #999;
+	font-size: 15px;
+	margin-right: 10px;
+}
+
+.fwxx input[type='text'] {
+	width: 150px;
+	height: 30px;
+}
+
+.fwxx select {
+	width: 150px;
+	height: 30px;
+}
+
+.fwxx .ts {
+	font-size: 10px;
+	color: #e23838;
+	cursor: pointer;
+}
+
+.fwxx div span {
+	float: left;
+	width: 120px;
+	text-align: right;
+	display: inline-block;
+	color: #999;
+	font-size: 15px;
+	font-family: "微软雅黑";
+}
+
+.fwxx div h6 {
+	display: inline-block;
+	font-family: "微软雅黑";
+	position: relative;
+	top: -5px;
+	margin-left:20px;
+}
+
+.j_ladder_item {
+	width: 700px;
+}
+
+.fwxx div h6 input[type="checkbox"] {
+	width: 13px;
+	position: relative;
+	top: 11px;
+	margin-right: 3px;
+}
+
+.fwxx div h6 input[type="text"] {
+	margin-left: 5px;
+	width: 150px;
+	margin-right: 5px;
+	margin-top: 15px;
+}
+
+.fwxx div h6 label {
+	color: 10px;
+	font-weight: 100;
+}
+
+/*商品配送信息*/
+.psxx span.input_key {
+	width: 120px;
+	text-align: right;
+	display: inline-block;
+	color: #999;
+	font-size: 15px;
+	margin-right: 10px;
+	font-family: "微软雅黑";
+}
+
+.psxx input, .psxx select {
+	width: 150px;
+	height: 30px;
+	font-family: "微软雅黑";
+}
+
+// .psxx label {
+// 	margin-left: 130px;
+// 	width: 700px;
+// }
+
+.psxx .w_label_box  {
+	padding-left: 134px;
+	width: 600px;
+}
+.psxx .w_label_box input[type="checkbox"] {
+	width: auto;
+	height: auto;
+}
+.psxx em {
+	width: 150px;
+	height: 30px;
+	font-size: 12px;
+	font-weight: 100;
+	font-family: "微软雅黑";
+	display: inline-block;
+}
+
+.psxx b {
+	margin-left: 134px;
+	line-height: 30px;
+	font-size: 12px;
+	font-weight: 100;
+	font-family: "微软雅黑";
+}
+
+button {
+	width: 100px;
+	height: 30px;
+	border: none;
+	border-radius: 5px;
+	outline: none;
+	font-family: "微软雅黑";
+	margin-left: 200px;
+}
+
+.submit {
+	background: #3e89ce;
+	color: #fff;
+}
+
+.reset {
+	background: #d4d4d4;
+}

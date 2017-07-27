@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>添加供应商</title>
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<!-- 第三方 start -->
+	<link rel="stylesheet" href="../../public/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../../public/Font-Awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../public/leftNav/leftMenu.css">
+	<link rel="stylesheet" href="../../css/gys/gys_view.css">
+</head>
+<body>
+<!--外围容器-->
+<div class="k_contaniner">
+	<!--头部开始-->
+	<div class="k_top">
+		<div class="k_logo">
+			<span class="k_logo1">
+				<img src="../../images/share/kxwp_logo.png" alt="">
+			</span>
+			<span>
+				<img src="../../images/share/title_zz.png" alt="">
+			</span>
+			<div class="k_Options">
+				<span>
+					<i class="icon-user" style="font-size:20px;position:relative;top:2px"></i>
+					<em id="user">管理员</em>
+				</span>&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>
+					<i>角色 :</i>
+					<em id="yygl">运营管理员</em>
+				</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>
+					<select name="" id="">
+						<option value="安全中心">安全中心</option>
+					</select>
+				</span>
+			</div>                         
+		</div>
+	</div>
+	<!--头部结束-->
+	<!--左边开始-->
+	<div class="k_left">
+		<!--菜单导航-->
+		<div class="left_menu">
+	  		<ul class="cd-accordion-menu animated">
+	            <li class="has-children">
+	                <input type="checkbox" name="group-1" id="group-1" checked>
+	                <label for="group-1">菜单管理</label>
+	                <ul>
+	                    <li class="has-children">
+	                        <ul>
+	                            <li><a href="add_menu.html">添加菜单</a></li>
+	                            <li><a href="#0">编辑功能</a></li>
+	                            <li><a href="#0">查看功能</a></li>
+	                        </ul>
+	                    </li>
+	                </ul>
+	            </li>
+
+	            <li class="has-children">
+	                <input type="checkbox" name="group-2" id="group-2">
+	                <label for="group-2">角色管理</label>
+	                <ul>
+	                    <li><a href="#0">添加角色</a></li>
+	                    <li><a href="#0">编辑角色</a></li>
+	                    <li><a href="#0">查看角色</a></li>
+	                </ul>
+	            </li>
+
+	            <li class="has-children">
+	                <input type="checkbox" name="group-3" id="group-3">
+	                <label for="group-3">账号管理</label>
+	                <ul>
+	                    <li><a href="#0">添加账号</a></li>
+	                    <li><a href="#0">编辑账号</a></li>
+	                    <li><a href="#0">查看账号</a></li>
+	                </ul>
+	            </li>
+
+	            <li class="has-children">
+	                <input type="checkbox" name="group-4" id="group-4">
+	                <label for="group-4">Group 4</label>
+
+	                <ul>
+	                    <li class="has-children">
+	                        <input type="checkbox" name="sub-group-3" id="sub-group-3">
+	                        <label for="sub-group-3">Sub Group 3</label>
+
+	                        <ul>
+	                            <li><a href="#0">Image</a></li>
+	                            <li><a href="#0">Image</a></li>
+	                        </ul>
+	                    </li>
+	                    <li><a href="#0">Image</a></li>
+	                    <li><a href="#0">Image</a></li>
+	                </ul>
+	            </li>
+        	</ul>
+		</div>
+		<!--end-->
+	</div>
+	<!--左边结束-->
+	<!--右边开始-->
+	<div class="k_right">
+		<div class="content">
+			<h2 class="title">账户信息</h2>
+			<div class="row">
+			  <div class="col-md-2">姓名 :</div>
+			  <div class="col-md-4">刘涛</div>
+			</div>
+			<div class="row">
+			  <div class="col-md-2">绑定手机号 :</div>
+			  <div class="col-md-4">13612345678</div>
+			</div>
+			<h2 class="title">企业信息</h2>
+			<div class="row">
+			  <div class="col-md-2">企业名称 :</div>
+			  <div class="col-md-4">快消互联科技发展有限公司</div>
+			</div>
+			<div class="row">
+			  <div class="col-md-2">企业法人 :</div>
+			  <div class="col-md-4">刘涛</div>
+			</div>
+			<div class="row">
+			  <div class="col-md-2">业务员 :</div>
+			  <div class="col-md-4">和新</div>
+			</div>
+			<div class="row">
+			  <div class="col-md-2">固定电话 :</div>
+			  <div class="col-md-4">010-123456</div>
+			</div>
+			<div class="row">
+			  <div class="col-md-2">供货商地址:</div>
+			  <div class="col-md-4">北京市大兴区亦庄经济开发区地盛南街9号1栋327室</div>
+			</div>
+			<h2 class="title">服务信息</h2>
+			<div class="row">
+			  <div class="col-md-2">供货商地址:</div>
+			  <div class="col-md-4"><select><option>北京市</option></select><select><option>北京</option></select></div>
+			</div>
+			<div class="row">
+			  <div class="col-md-2"></div>
+			  <div class="col-md-4">
+			  	<label class="checkbox-inline">
+				  <input type="checkbox" id="inlineCheckbox1" value="option1" disabled="disabled"> 大兴区
+				</label>
+				<ul class="two">
+					<label class="checkbox-inline">
+					  <input type="checkbox" id="inlineCheckbox1" value="option1"disabled="disabled"> 亦庄
+					</label>
+					<li>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox1" value="option1"disabled="disabled"> 荣京街道
+						</label>
+					</li>
+					<li>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox1" value="option1"disabled="disabled"> 安外街道
+						</label>
+					</li>
+					<li>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox1" value="option1"disabled="disabled"> 建外大街
+						</label>
+					</li>
+				</ul>
+				<ul class="two">
+					<label class="checkbox-inline">
+					  <input type="checkbox" id="inlineCheckbox1" value="option1"disabled="disabled"> 黄村
+					</label>
+					<li>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox1" value="option1"disabled="disabled"> 拱辰街道
+						</label>
+					</li>
+					<li>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox1" value="option1"disabled="disabled"> 黄良街道
+						</label>
+					</li>
+				</ul>
+				<ul class="two">
+					<label class="checkbox-inline">
+					  <input type="checkbox" id="inlineCheckbox1" value="option1"disabled="disabled"> 天宫院
+					</label>
+					<li>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox1" value="option1"disabled="disabled"> 迎泽大街
+						</label>
+					</li>
+					<li>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox1" value="option1"disabled="disabled"> 滨河大道
+						</label>
+					</li>
+				</ul>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-md-2">经营范围:</div>
+			  <div class="col-md-4">
+			  	<label class="checkbox-inline">
+				  <input type="checkbox" id="inlineCheckbox1" value="option1" disabled="disabled"> 日用百货
+				</label>
+				<label class="checkbox-inline">
+				  <input type="checkbox" id="inlineCheckbox1" value="option1" disabled="disabled"> 洗涤用品
+				</label>
+				<label class="checkbox-inline">
+				  <input type="checkbox" id="inlineCheckbox1" value="option1" disabled="disabled"> 食品
+				</label>
+				<label class="checkbox-inline">
+				  <input type="checkbox" id="inlineCheckbox1" value="option1"> 美妆日化
+				</label>
+				<label class="checkbox-inline">
+				  <input type="checkbox" id="inlineCheckbox1" value="option1"> 服装鞋帽
+				</label>
+				<label class="checkbox-inline">
+				  <input type="checkbox" id="inlineCheckbox1" value="option1"> 办公用品
+				</label>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-md-2">供货商地址:</div>
+			  <div class="col-md-4">北京市大兴区亦庄经济开发区地盛南街9号1栋327室</div>
+			</div>
+			<div class="row">
+			  <div class="col-md-2">代理品牌:</div>
+			  <div class="col-md-4">
+			  	<button type="button" class="btn btn-success">农夫山泉</button>
+			  	<button type="button" class="btn btn-success">农夫山泉</button>
+			  	<button type="button" class="btn btn-success">农夫山泉</button>
+			  	<button type="button" class="btn btn-success">农夫山泉</button>
+			  	<button type="button" class="btn btn-success">农夫山泉</button>
+			  	<button type="button" class="btn btn-success">农夫山泉</button>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-md-2">社会统一信用代码:</div>
+			  <div class="col-md-4">123456789123456789</div>
+			</div>
+			<div class="row">
+			  <div class="col-md-2">营业执照扫描件:</div>
+			  <div class="col-md-4"><img src="..." alt="..." class="img-rounded"></div>
+			</div>
+			<div class="row">
+			  <div class="col-md-2">身份证号:</div>
+			  <div class="col-md-4">123456789123456789</div>
+			</div>
+			<div class="row">
+			  <div class="col-md-2">身份证扫描件:</div>
+			  <div class="col-md-4"><img src="..." alt="..." class="img-rounded"></div>
+			</div>
+			<div class="row">
+			  <div class="col-md-3"><button type="button" class="btn btn-success">确认</button></div>
+			  <div class="col-md-3"><button type="button" class="btn btn-primary">返回</button>
+</div>
+			</div>
+		</div>
+	</div>
+	<!--右边结束-->
+	<!--面包屑导航-->
+	<div class="k_breadcrumb">
+		<ol class="breadcrumb" style="background:#fff">
+		  	<li><a href="#">总站管理中心</a></li>
+		  	<li><a href="#">添加资源</a></li>
+		</ol>
+		<a href="menu.html" class="add_menu"><i class="icon-plus"></i>菜单列表</a>
+	</div>
+	<!--面包屑导航结束-->
+	<!--footer开始-->
+	<div class="k_footer">
+		<p>版权所有 @ 北京快消互联科技发展有限公司 未经许可 严禁复制</p>
+		<p>京ICP备16000340 号</p>
+		<p>北京经济技术开发区地盛南街9号1栋 电话 : 010-58046928</p>
+	</div>
+	<!--footer结束-->
+</div>	
+<!--end-->
+<script src="../../public/jquery-2.1.4.min.js"></script>
+<script src="../../public/layer/layer.js"></script>
+<script src="../../public/bootstrap/js/bootstrap.js"></script>
+<script src="../../public/common.js"></script>
+<script src="../../public/leftNav/leftMenu.js"></script>
+<script src="../../public/leftNav/main.js"></script>
+<script src="../../js/zz/menu.js"></script>
+<script type="text/javascript" src="../../public/jquery.validate.js"></script>
+<script type="text/javascript" src="../../public/messages_zh_TW.js"></script>
+<script src="../../js/gys/add_gys.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

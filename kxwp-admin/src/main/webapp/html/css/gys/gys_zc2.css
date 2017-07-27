@@ -1,0 +1,107 @@
+.jdt{
+	width:1000px;
+	margin:0 auto;
+	height:204px;
+}
+.jdt dl{
+	display:inline-block;
+	width:240px;
+	padding-top:50px;
+	text-align:center;
+}
+.jdt dl dt.cur{
+	background:#50b0df;
+	color:#fff;
+}
+.jdt dl dt{
+	width:50px;
+	height:50px;
+	border-radius:50%;
+	background:#fff;
+	color:#50b0df;
+	line-height:50px;
+	margin:0 auto;
+	font-weight:bold;
+	border:2px solid #50b0df;
+	font-size:20px;
+}
+.jdt dl dd{
+	line-height:24px;
+	font-size:16px;
+	color:#676b6d;
+	font-family:"微软雅黑";
+	margin-top:10px;
+}
+.qyxx{
+	width:1000px;
+	border:1px solid #eee;
+	border-radius:10px;
+	margin:0 auto;
+	margin-bottom:100px;
+	padding-bottom:60px;
+}
+.qyxx h4{
+	text-align:center;
+	line-height:60px;
+	font-size:18px;
+	color:#50b0df;
+	font-family:"微软雅黑";
+}
+.qyxx p{
+	width:800px;
+	margin:10px auto;
+	padding-left:150px;
+}
+.qyxx p span{
+	width:120px;
+	text-align:left;
+	display:inline-block;
+	font-size:14px;
+	font-family:"微软雅黑";
+}
+.qyxx p i{
+	width:320px;
+	height:230px;
+	border-radius:8px;
+	border:1px solid #ccc;
+	display:inline-block;
+	overflow:hidden;
+}
+.qyxx p input{
+	width:320px;
+	height:35px;
+	border:1px solid #ccc;
+}
+.qyxx p em{
+	width:80px;
+	height:35px;
+	border-radius:9px;
+	background:#50b0df;
+	color:#fff;
+	line-height:35px;
+	text-align:center;
+	display:inline-block;
+	margin-left:10px;
+	font-family:"微软雅黑";
+	cursor:pointer;
+}
+.qyxx p select{
+	width:100px;
+	height:30px;
+	border:1px solid #ccc;
+	color:#999;
+	font-family:"微软雅黑";
+}
+.next{
+	width:500px;
+	height:45px;
+	margin-top:10px;
+	border-radius:10px;
+	line-height:45px;
+	color:#fff;
+	text-align:center;
+	font-family:"微软雅黑";
+	background: #50b0df;
+	border:none;
+	cursor:pointer;
+}

@@ -1,0 +1,14 @@
+$(document).on('touchmove',function(e){e.preventDefault();})
+$(function(){
+	$(".exit").click(function(){
+		window.location.href="/h5/user/logout.do";
+	})
+	$('.Safety').click(function(event){
+		event.preventDefault();
+		common.msg("正在开发中...");
+	})
+	$('.own').click(function(event){
+		event.preventDefault();
+		common.msg("正在开发中...");
+	})
+})

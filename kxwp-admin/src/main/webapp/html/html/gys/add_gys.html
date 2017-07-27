@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>添加供应商</title>
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<!-- 第三方 start -->
+	<link rel="stylesheet" href="../../public/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../../public/Font-Awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../public/leftNav/leftMenu.css">
+	<link rel="stylesheet" href="../../css/gys/add_gys.css">
+</head>
+<body>
+<!--外围容器-->
+<div class="k_contaniner">
+	<!--头部开始-->
+	<div class="k_top">
+		<div class="k_logo">
+			<span class="k_logo1">
+				<img src="../../images/share/kxwp_logo.png" alt="">
+			</span>
+			<span>
+				<img src="../../images/share/title_zz.png" alt="">
+			</span>
+			<div class="k_Options">
+				<span>
+					<i class="icon-user" style="font-size:20px;position:relative;top:2px"></i>
+					<em id="user">管理员</em>
+				</span>&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>
+					<i>角色 :</i>
+					<em id="yygl">运营管理员</em>
+				</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>
+					<select name="" id="">
+						<option value="安全中心">安全中心</option>
+					</select>
+				</span>
+			</div>                         
+		</div>
+	</div>
+	<!--头部结束-->
+	<!--左边开始-->
+	<div class="k_left">
+		<!--菜单导航-->
+		<div class="left_menu">
+	  		<ul class="cd-accordion-menu animated">
+	            <li class="has-children">
+	                <input type="checkbox" name="group-1" id="group-1" checked>
+	                <label for="group-1">菜单管理</label>
+	                <ul>
+	                    <li class="has-children">
+	                        <ul>
+	                            <li><a href="add_menu.html">添加菜单</a></li>
+	                            <li><a href="#0">编辑功能</a></li>
+	                            <li><a href="#0">查看功能</a></li>
+	                        </ul>
+	                    </li>
+	                </ul>
+	            </li>
+
+	            <li class="has-children">
+	                <input type="checkbox" name="group-2" id="group-2">
+	                <label for="group-2">角色管理</label>
+	                <ul>
+	                    <li><a href="#0">添加角色</a></li>
+	                    <li><a href="#0">编辑角色</a></li>
+	                    <li><a href="#0">查看角色</a></li>
+	                </ul>
+	            </li>
+
+	            <li class="has-children">
+	                <input type="checkbox" name="group-3" id="group-3">
+	                <label for="group-3">账号管理</label>
+	                <ul>
+	                    <li><a href="#0">添加账号</a></li>
+	                    <li><a href="#0">编辑账号</a></li>
+	                    <li><a href="#0">查看账号</a></li>
+	                </ul>
+	            </li>
+
+	            <li class="has-children">
+	                <input type="checkbox" name="group-4" id="group-4">
+	                <label for="group-4">Group 4</label>
+
+	                <ul>
+	                    <li class="has-children">
+	                        <input type="checkbox" name="sub-group-3" id="sub-group-3">
+	                        <label for="sub-group-3">Sub Group 3</label>
+
+	                        <ul>
+	                            <li><a href="#0">Image</a></li>
+	                            <li><a href="#0">Image</a></li>
+	                        </ul>
+	                    </li>
+	                    <li><a href="#0">Image</a></li>
+	                    <li><a href="#0">Image</a></li>
+	                </ul>
+	            </li>
+        	</ul>
+		</div>
+		<!--end-->
+	</div>
+	<!--左边结束-->
+	<!--右边开始-->
+	<div class="k_right">
+		<div class="content">
+				<form class="add_gys">
+					<h4 class="title">账户信息</h4>
+					<p class="p-g">
+						<i>*</i>
+						<span class="s-n">服务站名称</span>
+						<select>
+							<option>快消易购服务站</option>
+						</select>
+					</p>
+					<p class="p-g">
+						<i>*</i>
+						<span class="s-n">姓名</span>
+						<input type="text" name="">
+					</p>
+					<p class="p-g">
+						<i>*</i>
+						<span class="s-n">绑定手机号</span>
+						<input type="text" name="" placeholder="请输入11位手机号码">
+					</p>
+					<p class="p-g">
+						<i>*</i>
+						<span class="s-n">密码</span>
+						<input type="text" name="">
+						<em>生成动态密码</em>
+					</p>
+					<h4 class="title">供应商信息</h4>
+					<p class="p-g">
+						<i>*</i>
+						<span class="s-n">供应商名称</span>
+						<input type="text" name="">
+					</p>
+					<p class="p-g">
+						<i>*</i>
+						<span class="s-n">企业法人</span>
+						<input type="text" name="">
+					</p>
+					<p class="p-g">
+						<i>*</i>
+						<span class="s-n">业务员</span>
+						<input type="text" name="">
+					</p>
+					<p class="p-g">
+						<i>*</i>
+						<span class="s-n">固定电话</span>
+						<input type="text" name="">
+					</p>
+					<p class="p-g">
+						<i>*</i>
+						<span class="s-n">供货商地址</span>
+						<select>
+							<option>请选择</option>
+						</select>
+					</p>
+					<p class="p-g">
+						<i>*</i>
+						<span class="s-n">详细地址</span>
+						<input type="text" name="">
+					</p>
+					<h4 class="title">服务信息</h4>
+					<p class="p-g">
+						<i>*</i>
+						<span class="s-n">配送范围</span>
+						<select>
+							<option>北京市</option>
+						</select>
+						<select>
+							<option>东城区</option>
+						</select>
+						<em class="qu">
+							<label><input type="checkbox">  <i class="text">东城区</i></label>
+							<label><input type="checkbox">  <i class="text">东城区</i></label>
+							<label><input type="checkbox">  <i class="text">东城区</i></label>
+							<label><input type="checkbox">  <i class="text">东城区</i></label>
+							<label><input type="checkbox">  <i class="text">东城区</i></label>
+							<label><input type="checkbox">  <i class="text">东城区</i></label>
+							<label><input type="checkbox">  <i class="text">东城区</i></label>
+							<label><input type="checkbox">  <i class="text">东城区</i></label>
+							<label><input type="checkbox">  <i class="text">东城区</i></label>
+							<label><input type="checkbox">  <i class="text">东城区</i></label>
+							<label><input type="checkbox">  <i class="text">东城区</i></label>
+							<label><input type="checkbox">  <i class="text">东城区</i></label>
+							<label><input type="checkbox">  <i class="text">东城区</i></label>
+							<label><input type="checkbox">  <i class="text">东城区</i></label>
+							<label><input type="checkbox">  <i class="text">东城区</i></label>
+							<label><input type="checkbox">  <i class="text">东城区</i></label>
+						</em>
+					</p>
+					<p class="p-g">
+						<i>*</i>
+						<span class="s-n">经营范围</span>
+						<em class="qu-2">
+							<label><input type="checkbox">  <i class="text">小鱼仔</i></label>
+							<label><input type="checkbox">  <i class="text">小鱼仔</i></label>
+							<label><input type="checkbox">  <i class="text">小鱼仔</i></label>
+							<label><input type="checkbox">  <i class="text">小鱼仔</i></label>
+							<label><input type="checkbox">  <i class="text">小鱼仔</i></label>
+							<label><input type="checkbox">  <i class="text">小鱼仔</i></label>
+							<label><input type="checkbox">  <i class="text">小鱼仔</i></label>
+							<label><input type="checkbox">  <i class="text">小鱼仔</i></label>
+							<label><input type="checkbox">  <i class="text">小鱼仔</i></label>
+							<label><input type="checkbox">  <i class="text">小鱼仔</i></label>
+							<label><input type="checkbox">  <i class="text">小鱼仔</i></label>
+							<label><input type="checkbox">  <i class="text">小鱼仔</i></label>
+							<label><input type="checkbox">  <i class="text">小鱼仔</i></label>
+							<label><input type="checkbox">  <i class="text">小鱼仔</i></label>
+							<label><input type="checkbox">  <i class="text">小鱼仔</i></label>
+							<label><input type="checkbox">  <i class="text">小鱼仔</i></label>
+						</em>
+					</p>
+					<p class="p-g">
+						<span class="s-n">最低起送金额</span>
+						<input type="text" name=""> 元
+					</p>
+					<div class="add-pp">
+						<span class="s-n">代理品牌</span><button class="add_btn">添加品牌</button>
+						<h5>
+							<span class="s-n">已选品牌</span>
+							<ul class="add-end">
+								<li>德芙  <i class="remove">×</i></li>
+								<li>德芙  <i class="remove">×</i></li>
+								<li>德芙  <i class="remove">×</i></li>
+								<li>德芙  <i class="remove">×</i></li>
+								<li>德芙  <i class="remove">×</i></li>
+								<li>德芙  <i class="remove">×</i></li>
+								<li>德芙  <i class="remove">×</i></li>
+								<li>德芙  <i class="remove">×</i></li>
+							</ul>
+						</h5>
+					</div>
+					<h4 class="title">认证信息</h4>
+					<p class="p-g">
+						<span class="s-n">社会同意信用代码</span>
+						<input type="text" name="">
+					</p>
+					<p class="p-g">
+						<span class="s-n">营业执照扫描件</span>
+						<em class="img"></em>
+						<button class="upload">上传图片</button>
+					</p>
+					<p class="p-g">
+						<span class="s-n">省份证号</span>
+						<input type="text" name="">
+					</p>
+					<p class="p-g">
+						<span class="s-n">身份证扫描件</span>
+						<em class="img"></em>
+						<button class="upload">上传图片</button>
+					</p>
+					<p class="p-g">
+						<span class="s-n">备注</span>
+						<textarea></textarea>
+					</p>
+					<p class="p-g">
+						<button type="submit">确认</button>
+						<button>返回</button>
+					</p>
+				</form>
+		</div>
+	</div>
+	<!--右边结束-->
+	<!--面包屑导航-->
+	<div class="k_breadcrumb">
+		<ol class="breadcrumb" style="background:#fff">
+		  	<li><a href="#">总站管理中心</a></li>
+		  	<li><a href="#">添加资源</a></li>
+		</ol>
+		<a href="menu.html" class="add_menu"><i class="icon-plus"></i>菜单列表</a>
+	</div>
+	<!--面包屑导航结束-->
+	<!--footer开始-->
+	<div class="k_footer">
+		<p>版权所有 @ 北京快消互联科技发展有限公司 未经许可 严禁复制</p>
+		<p>京ICP备16000340 号</p>
+		<p>北京经济技术开发区地盛南街9号1栋 电话 : 010-58046928</p>
+	</div>
+	<!--footer结束-->
+</div>	
+<!--end-->
+<script src="../../public/jquery-2.1.4.min.js"></script>
+<script src="../../public/layer/layer.js"></script>
+<script src="../../public/bootstrap/js/bootstrap.js"></script>
+<script src="../../public/common.js"></script>
+<script src="../../public/leftNav/leftMenu.js"></script>
+<script src="../../public/leftNav/main.js"></script>
+<script src="../../js/zz/menu.js"></script>
+<script type="text/javascript" src="../../public/jquery.validate.js"></script>
+<script type="text/javascript" src="../../public/messages_zh_TW.js"></script>
+<script src="../../js/gys/add_gys.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

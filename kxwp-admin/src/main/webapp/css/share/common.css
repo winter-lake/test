@@ -1,0 +1,430 @@
+i{
+	font-style:normal;
+}
+*{
+	font-family:"微软雅黑";
+}
+/*外围容器*/
+.k_contaniner{
+	position:fixed;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	background:#f1f1f9;
+	overflow:hidden;
+}
+/*头部*/
+.k_top{
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	height:90px;
+	background:#fff;
+	line-height:90px;
+	font-size:22px;
+	text-indent:20px;
+	color:blue;
+	font-weight:bold;
+}
+.k_logo1{
+	width:210px;
+	height:90px;
+	display:inline-block;
+	background:#000;
+	line-height:90px;
+	float:left;
+}
+.k_logo1 img{
+	width:180px;
+}
+.yh{
+	font-weight:100;
+	position:relative;
+	top:-1px;
+	margin-right:10px;
+}
+#user,#yygl{
+	font-size:12px;
+	color:#333;
+}
+.yh i,.js i{
+	font-weight:bold;
+}
+
+.js{
+	margin-right:100px;
+	font-weight:100;
+	position:relative;
+	top:-1px;
+}
+
+/*退出系统样式*/
+
+.k_Options{
+	position:absolute;
+	right:0;
+	top:0;
+	padding-right:15px;
+	font-size:14px;
+	color:#424f63;
+	font-family:"微软雅黑";
+}
+.k_Options select{
+	border:none;
+}
+.k_Options .safe_center {
+	line-height: 1.5;
+	position: absolute;
+	right: 15px;
+	top: 28px;
+}
+.k_Options .safe_center .btn {
+	border: none;
+}
+.k_Options .safe_center .dropdown-menu-right{
+	right: 0;
+	left: auto;
+	min-width: auto;
+	text-align: right;
+	overflow: hidden;
+}
+.dropdown-menu.dropdown-menu-right > li > a {
+	margin-left: -40px;
+}
+
+/*服务站编号*/
+.fwz-number{
+	position:absolute;
+	right:30px;
+	bottom:5px;
+	font-size:12px;
+	line-height: 1.5;
+	color:#428bca;
+	font-weight:100;
+}
+/*左部*/
+.k_left{
+	width:210px;
+	position:absolute;
+	left:0;
+	top:90px;
+	bottom:65px;
+	// overflow-y:auto;
+	z-index:101;
+	// background:#fff;
+	background: #41414A;
+	-webkit-transition: width ease 0.3s;
+	-moz-transition: width ease 0.3s;
+	-ms-transition: width ease 0.3s;
+}
+/*谷歌导航美化*/
+/* .k_left::-webkit-scrollbar{
+	width:0px;
+}
+.k_right::-webkit-scrollbar{
+	background-color:#eee;    
+   outline-offset:-2px;  
+   outline:2px solid #fff;  
+   -webkit-border-radius:17px;  
+   border: 1px solid #fff; 
+} */
+/*footer*/
+.k_footer{
+	width:100%;
+	height:65px;
+	background:#41414a;
+	position:absolute;
+	bottom:0;
+	left:0;
+	right:0;
+	z-index:102;
+	padding-top:5px;
+}
+.k_footer .f-p{
+	text-align:center;
+	line-height:18px;
+	color:#fff;
+	font-size:10px;
+	font-family:"微软雅黑";
+	margin:0!important;
+}
+/*查询样式*/
+.k_change{
+	padding:20px;
+	overflow:auto;
+	padding-right:140px;
+}
+.k_change .k-b{
+	margin-right:5px!important;
+	//width:300px!important;
+	font-weight:100!important;
+	display:inline-block;
+}
+.k_change .k-b i{
+	min-width:50px;
+	display:inline-block;
+	text-align:center;
+}
+.k_change select,.k_change input[type="text"]{
+	width:190px!important;
+	height:30px;
+	text-indent:5px;
+	display:inline-block;
+	margin-bottom:20px;
+	border:1px solid #ccc!important;
+}
+.Inquire,#Inquire{
+	width:80px;
+	height:30px;
+	background:#ff6600;
+	display:inline-block;
+	position:absolute;
+	right:20px;
+	top:20px;
+	color:#fff;
+	border:none;
+	border-radius:5px;
+	outline:none;
+}
+
+/*插件样式*/
+
+/*右侧内容块*/
+.k_right{
+	position:absolute;
+	top:140px;
+	left:215px;
+	bottom:60px;
+	right:5px;
+	background:#fff;
+	margin:10px;
+	border-radius:5px;
+	overflow:auto;
+	-webkit-transition: left ease 0.3s;
+	-moz-transition: left ease 0.3s;
+	-ms-transition: left ease 0.3s;
+}
+/*面包屑导航*/
+.k_breadcrumb{
+	position:absolute;
+	top:90px;
+	line-height:26px;
+	left:215px;
+	right:5px;
+	margin:10px;
+	border-radius:5px;
+	font-size:13px;
+	font-family:"微软雅黑";
+	webkit-transition: left ease 0.3s;
+	-moz-transition: left ease 0.3s;
+	-ms-transition: left ease 0.3s;
+}
+
+/**========= 左侧收起时布局 ========**/
+/*左侧*/ 
+.k_contaniner.fold .k_left {
+	width: 46px;
+}
+.k_contaniner.fold .k_right {
+	left: 51px;
+}
+.k_contaniner.fold .k_breadcrumb {
+	left: 51px;
+}
+/*菜单样式*/ 
+.k_contaniner.fold .w_side_menu .icon-angle-right,
+.k_contaniner.fold .w_side_menu .icon-angle-left
+{
+	display: none;
+}
+.k_contaniner.fold .w_side_menu .module > a {
+	position: relative;
+}
+.k_contaniner.fold .w_side_menu .module .name {
+	position: absolute;
+    left: -100px;
+    top: 6px;
+    // display: none;
+	white-space: nowrap;
+	background: #84B6BB;
+	background: rgba(132, 182, 187, 0.7);
+    width: 72px;
+    text-align: center;
+    border-radius: 3px;
+    height: 32px;
+    line-height: 32px;
+}
+.k_contaniner.fold .w_side_menu .module > a:hover .name {
+	// display: inline-block;
+	left: 55px;
+	transition: 0.3s;
+	-webkit-transition: 0.3s;
+	-moz-transition: 0.3s;
+	-ms-transition: 0.3s;
+}
+.k_contaniner.fold .w_side_menu .module .name:after {
+	position: absolute;
+	content: "\f0d9";
+	font-family: FontAwesome;
+    left: -7px;
+    font-size: 20px;
+    color: #84B6BB;
+	color: rgba(132, 182, 187, 0.7);
+}
+.k_contaniner.fold .w_side_menu .switch {
+  -webkit-transition: left ease 0.3s;
+  -moz-transition: left ease 0.3s;
+  -ms-transition: left ease 0.3s;
+  left: 46px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0px 0px 0 rgba(0, 0, 0, 0.3), 2px 0px 10px rgba(0, 0, 0, 0.3), 0px -2px 2px rgba(0, 0, 0, 0.3), 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.k_contaniner.fold .w_side_menu .switch .before {
+  display: none;
+}
+.k_contaniner.fold .w_side_menu .switch .after {
+  display: inline;
+}
+.k_contaniner.fold .w_side_menu ul > li.active:not(.end-li) {
+  border-bottom: 1px solid #555;
+}
+
+/*添加菜单*/
+.add_menu{
+	width:90px;
+	height:26px;
+	line-height:26px;
+	text-align:center;
+	background:#286090;
+	display:inline-block;
+	border-radius:5px;
+	font-size:12px;
+	font-family:"微软雅黑";
+	position:absolute;
+	top:9px;
+	right:10px;
+	cursor:pointer;
+	color:#fff;
+}
+.add_menu:hover{
+	color:#fff;
+	text-decoration:none;
+}
+/*离职账号*/
+.Quit_number{
+	width:90px;
+	height:26px;
+	line-height:26px;
+	text-align:center;
+	background:#286090;
+	display:inline-block;
+	border-radius:5px;
+	font-size:12px;
+	font-family:"微软雅黑";
+	position:absolute;
+	top:9px;
+	right:120px;
+	cursor:pointer;
+	color:#fff;
+}
+.Quit_number:hover{
+	color:#fff;
+	text-decoration:none;
+}
+
+/*左侧菜单样式*/
+.cd-accordion-menu input[type=checkbox] {
+  /* hide native checkbox */
+  position: absolute;
+  opacity: 0;
+}
+.cd-accordion-menu label, .cd-accordion-menu a {
+  position: relative;
+  display: block;
+  padding: 14px 14px 14px 60px;
+  color:#fff;
+  margin-bottom:0px;
+  box-shadow:1px 1px 1px #ccc;
+  cursor:pointer;
+}   
+.cd-accordion-menu label{
+	background:#cee0f1;
+	font-size:14px;
+	color:#fff;
+	box-shadow:0 1px 5px #fff;
+} 
+.cd-accordion-menu a{
+	font-size:12px;
+	color:#999;
+}
+.cd-accordion-menu a:hover{
+	background:#61729e;
+	color:#fff;
+	text-decoration:none;
+}  
+.table tr td{
+	max-width:220px!important;
+	width:220px!important;
+	min-width:40px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+
+/*分页*/
+.paging{
+	width:800px;
+	margin:20px auto;
+}
+.pull-right{
+	margin-top:24px;
+}
+
+/*去掉谷歌自带的默认输入框背景*/
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+
+/*组件样式，以w_ 开头*/
+.w_autosuggest span.select2-container {
+	width: auto;
+}
+
+/*文本类*/
+.tx_red {
+	color: #f20;
+}
+
+.input_key .icon-asterisk {
+	font-size: 10px;
+}
+
+.w_select_box .select2-container .select2-selection--single .select2-selection__rendered {
+	padding-left: 0;
+}
+/*按钮样式*/
+.btn-sm{
+	width:70px;
+	margin-bottom:4px;
+}
+
+
+
+
+
+
+/*自定义弹框*/
+.txt{
+	width:280px;
+	height:100px;
+	margin:10px;
+	resize:none;
+	color:#999;
+	text-indent:5px;
+}

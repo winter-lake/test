@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>角色添加</title>
+	<link rel="stylesheet" href="../../../css/reset.css">
+	<link rel="shortcut icon" href="../../../img/favicon.ico">
+	<link rel="stylesheet" href="../../../css/common.css">
+	<!-- 第三方 start -->
+	<link rel="stylesheet" href="../../../public/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../../../public/Font-Awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../../public/leftMenu.css">
+	<!-- 第三方end -->
+	<link rel="stylesheet" href="../../../css/zz/role/common_role.css">
+</head>
+<body>
+<!--外围容器-->
+<div class="k_contaniner">
+	<!--头部开始-->
+	<div class="k_top">
+		<div class="k_logo">
+			<span class="k_logo1">
+				<img src="../../../images/share/kxwp_logo.png" alt="">
+			</span>
+			<span>
+				<img src="../../../images/share/title_zz.png" alt="">
+			</span>
+			<div class="k_Options">
+				<span>
+					<i class="icon-user" style="font-size:20px;position:relative;top:2px"></i>
+					<em id="user">管理员</em>
+				</span>&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>
+					<i>角色 :</i>
+					<em id="yygl">运营管理员</em>
+				</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>
+					<select name="" id="">
+						<option value="安全中心">安全中心</option>
+					</select>
+				</span>
+			</div>                         
+		</div>
+	</div>
+	<!--头部结束-->
+	<!--左边开始-->
+	<div class="k_left">
+		<!--菜单导航-->
+		<div class="left_menu">
+			<ul class="cd-accordion-menu animated">
+	            <li class="has-children">
+	                <input type="checkbox" name="group-1" id="group-1" checked>
+	                <label for="group-1">菜单管理</label>
+	                <ul>
+	                    <li class="has-children">
+	                        <ul>
+	                            <li><a href="add_menu.html">添加菜单</a></li>
+	                            <li><a href="#0">编辑功能</a></li>
+	                            <li><a href="#0">查看功能</a></li>
+	                        </ul>
+	                    </li>
+	                </ul>
+	            </li>
+
+	            <li class="has-children">
+	                <input type="checkbox" name="group-2" id="group-2">
+	                <label for="group-2">角色管理</label>
+	                <ul>
+	                    <li><a href="#0">添加角色</a></li>
+	                    <li><a href="#0">编辑角色</a></li>
+	                    <li><a href="#0">查看角色</a></li>
+	                </ul>
+	            </li>
+
+	            <li class="has-children">
+	                <input type="checkbox" name="group-3" id="group-3">
+	                <label for="group-3">账号管理</label>
+	                <ul>
+	                    <li><a href="#0">添加账号</a></li>
+	                    <li><a href="#0">编辑账号</a></li>
+	                    <li><a href="#0">查看账号</a></li>
+	                </ul>
+	            </li>
+
+	            <li class="has-children">
+	                <input type="checkbox" name="group-4" id="group-4">
+	                <label for="group-4">Group 4</label>
+
+	                <ul>
+	                    <li class="has-children">
+	                        <input type="checkbox" name="sub-group-3" id="sub-group-3">
+	                        <label for="sub-group-3">Sub Group 3</label>
+
+	                        <ul>
+	                            <li><a href="#0">Image</a></li>
+	                            <li><a href="#0">Image</a></li>
+	                        </ul>
+	                    </li>
+	                    <li><a href="#0">Image</a></li>
+	                    <li><a href="#0">Image</a></li>
+	                </ul>
+	            </li>
+        	</ul>
+		</div>
+		<!--end-->
+	</div>
+	<!--左边结束-->
+	<!--右边开始-->
+	<div class="k_right">
+		<div class="content">
+			<form class="add_form_role" method="post" action="">
+				<div>
+					<span>角色名 :</span>
+				    <input type="text" placeholder="角色名" style="width:250px;border:1px solid #eee;height:30px;">
+				</div>
+				<div>
+					<span>角色描述 :</span> 
+				    <textarea name="" id="" cols="30" rows="10" placeholder="角色描述" style="width:250px;border:1px solid #eee"></textarea>
+				</div>
+				<h4>权限选择</h4>
+				<div>
+					<p class="b_em"><input type="checkbox"> 全选</p>
+				</div>
+				<div>
+					<p class="b_em"><input type="checkbox"> 超市管理</p> 
+					<p><input type="checkbox"> 超市列表</p>
+					<p><input type="checkbox"> 超市会员注册资料</p>
+				</div>
+				<div>
+					<p class="b_em"><input type="checkbox"> 供应商管理</p> 
+					<p><input type="checkbox"> 供应商列表</p>
+					<p><input type="checkbox"> 供应商会员注册信息</p>
+				</div>
+				<div>
+					<p class="b_em"><input type="checkbox"> 服务站管理</p>
+				    <p><input type="checkbox"> 服务站列表</p>
+				    <p><input type="checkbox"> 服务站订单信息</p>
+				    <p><input type="checkbox"> 添加服务站</p>
+				    <p><input type="checkbox"> 服务站财务信息</p>
+				    <p><input type="checkbox"> 服务站广告审核</p>
+				</div>
+				<div>
+					<p class="b_em"><input type="checkbox"> 权限管理</p>
+				    <p><input type="checkbox"> 子账号列表</p>
+				    <p><input type="checkbox"> 角色管理</p>
+				</div>
+				<div>
+					<p class="b_em"><input type="checkbox"> 财务管理</p>
+				    <p><input type="checkbox"> 服务站财务信息</p>
+				</div>
+				<div>
+					<p class="b_em"><input type="checkbox"> 商品管理</p>
+				    <p><input type="checkbox"> 供应商上传商品查看</p>
+				</div>
+				<div>
+					<p class="b_em"><input type="checkbox"> 订单管理</p>
+				    <p><input type="checkbox"> 服务站订单</p>
+				    <p><input type="checkbox"> 供应商订单</p>
+				    <p><input type="checkbox"> 超市订单</p>
+				</div>
+				<div>
+					<p class="b_em"><input type="checkbox"> 品牌库管理</p>
+				    <p><input type="checkbox"> 品牌添加</p>
+				    <p><input type="checkbox"> 品牌删除</p>
+				    <p><input type="checkbox"> 品牌列表</p>
+				    <p><input type="checkbox"> 品牌详情查看</p>
+				</div>
+				<div>
+					<p class="b_em"><input type="checkbox"> 商品库管理</p>
+				    <p><input type="checkbox"> 商品添加</p>
+				    <p><input type="checkbox"> 商品删除</p>
+				    <p><input type="checkbox"> 商品列表</p>
+				    <p><input type="checkbox"> 商品详情查看</p>
+				</div>
+				<div>
+					<p class="b_em"><input type="checkbox"> 公告管理</p>
+				    <p><input type="checkbox"> 品台公告</p>
+				    <p><input type="checkbox"> 服务站广告审核</p>
+				</div>
+				<div>
+					<p class="b_em"><input type="checkbox"> 优惠券管理</p>
+				    <p><input type="checkbox"> 优惠券管理</p>
+				    <p><input type="checkbox"> 优惠码管理</p>
+				    <p><input type="checkbox"> 历史优惠券</p>
+				</div>
+				<div>
+					<input type="submit" id="yes" value="确认"><input type="reset" id="reset" value="重置">
+				</div>
+			</form>
+		</div>
+	</div>
+	<!--右边结束-->
+	<!--面包屑导航-->
+	<div class="k_breadcrumb">
+		<ol class="breadcrumb" style="background:#fff">
+		  	<li><a href="#">总站管理中心</a></li>
+		  	<li><a href="#">添加资源</a></li>
+		</ol>
+		<a href="role.html" class="add_menu"><i class="icon-plus"></i>角色列表</a>
+	</div>
+	<!--面包屑导航结束-->
+	<!--footer开始-->
+	<div class="k_footer">
+		<p>版权所有 @ 北京快消互联科技发展有限公司 未经许可 严禁复制</p>
+		<p>京ICP备16000340 号</p>
+		<p>北京经济技术开发区地盛南街9号1栋 电话 : 010-58046928</p>
+	</div>
+	<!--footer结束-->
+</div>	
+<!--end-->
+<script src="../../../public/jquery-2.1.4.min.js"></script>
+<script src="../../../public/layer/layer.js"></script>
+<script src="../../../public/bootstrap/js/bootstrap.js"></script>
+<script src="../../../public/common.js"></script>
+<script src="../../../public/leftMenu.js"></script>
+<script src="../../../public/main.js"></script>
+<script>
+$(document).ready(function() {
+	Common.paging();
+	Common.table();
+})
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+ 

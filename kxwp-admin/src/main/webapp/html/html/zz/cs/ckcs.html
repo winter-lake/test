@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>会员列表</title>
+	<link rel="stylesheet" href="../../../css/reset.css">
+	<link rel="stylesheet" href="../../../css/common.css">
+	<!-- 第三方 start -->
+	<link rel="stylesheet" href="../../../public/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../../../public/Font-Awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../../public/leftNav/leftMenu.css">
+	<link rel="stylesheet" type="text/css" href="../../../public/paging/kkpager_blue.css">
+	<!-- 第三方end -->
+	<link rel="stylesheet" type="text/css" href="../../../css/zz/cs/ckcs.css">
+	<script src="../../../public/jquery-2.1.4.min.js"></script>
+	<script src="../../../public/layer/layer.js"></script>
+	<script src="../../../public/bootstrap/js/bootstrap.js"></script>
+	<script src="../../../public/common.js"></script>
+	<script src="../../../public/leftNav/leftMenu.js"></script>
+	<script src="../../../public/leftNav/main.js"></script>
+	<script type="text/javascript" src="../../../public/paging/kkpager.js"></script>
+</head>
+<body>
+<!--外围容器-->
+<div class="k_contaniner">
+	<!--头部开始-->
+	<div class="k_top">
+		<div class="k_logo">
+			<span class="k_logo1">
+				<img src="../../../images/share/kxwp_logo.png" alt="">
+			</span>
+			<span>
+				<img src="../../../images/share/title_zz.png" alt="">
+			</span>
+			<div class="k_Options">
+				<span>
+					<i class="icon-user" style="font-size:20px;position:relative;top:2px"></i>
+					<em id="user">管理员</em>
+				</span>&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>
+					<i>角色 :</i>
+					<em id="yygl">运营管理员</em>
+				</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>
+					<select name="" id="zx">
+						<option value="安全中心">安全中心</option>
+						<option value="重置密码">重置密码</option>
+						<option value="注销账户">退出系统</option>
+					</select>
+				</span>
+			</div>                         
+		</div>
+	</div>
+	<!--头部结束-->
+	<!--左边开始-->
+	<div class="k_left">
+		<!--菜单导航-->
+		<div class="left_menu">
+			<ul class="cd-accordion-menu animated">
+	            <li class="has-children">
+	                <input type="checkbox" name="group-1" id="group-1" checked>
+	                <label for="group-1">菜单管理</label>
+	                <ul>
+	                    <li class="has-children">
+	                        <ul>
+	                            <li><a href="add_menu.html">添加菜单</a></li>
+	                            <li><a href="#0">编辑功能</a></li>
+	                            <li><a href="#0">查看功能</a></li>
+	                        </ul>
+	                    </li>
+	                </ul>
+	            </li>
+
+	            <li class="has-children">
+	                <input type="checkbox" name="group-2" id="group-2">
+	                <label for="group-2">角色管理</label>
+	                <ul>
+	                    <li><a href="#0">添加角色</a></li>
+	                    <li><a href="#0">编辑角色</a></li>
+	                    <li><a href="#0">查看角色</a></li>
+	                </ul>
+	            </li>
+
+	            <li class="has-children">
+	                <input type="checkbox" name="group-3" id="group-3">
+	                <label for="group-3">账号管理</label>
+	                <ul>
+	                    <li><a href="#0">添加账号</a></li>
+	                    <li><a href="#0">编辑账号</a></li>
+	                    <li><a href="#0">查看账号</a></li>
+	                </ul>
+	            </li>
+
+	            <li class="has-children">
+	                <input type="checkbox" name="group-4" id="group-4">
+	                <label for="group-4">Group 4</label>
+
+	                <ul>
+	                    <li class="has-children">
+	                        <input type="checkbox" name="sub-group-3" id="sub-group-3">
+	                        <label for="sub-group-3">Sub Group 3</label>
+
+	                        <ul>
+	                            <li><a href="#0">Image</a></li>
+	                            <li><a href="#0">Image</a></li>
+	                        </ul>
+	                    </li>
+	                    <li><a href="#0">Image</a></li>
+	                    <li><a href="#0">Image</a></li>
+	                </ul>
+	            </li>
+        	</ul>
+		</div>
+		<!--end-->
+	</div>
+	<!--左边结束-->
+	<!--右边开始-->
+	<div class="k_right">
+		<div class="content">
+			<div class="csck">
+				<h4>账户信息</h4>
+				<p>
+					<span>手机号</span>
+					<input type="text" name="">
+				</p>
+				<h4>企业信息</h4>
+				<p>
+					<span>超市名称</span>
+					<input type="text" name="" placeholder="易购超市">
+				</p>
+				<p>
+					<span>收货地址</span>
+					<select>
+						<option>北京</option>
+					</select>
+					<select>
+						<option>大兴区</option>
+					</select>
+					<select>
+						<option>亦庄经济开发区</option>
+					</select>
+				</p>
+				<p>
+					<span>详细地址</span>
+					<input type="text" name="" placeholder="地上南街9号">
+				</p>
+				<p>
+					<span>收货人</span>
+					<input type="text" name="" placeholder="刘涛">
+				</p>
+				<p>
+					<span>联系方式</span>
+					<input type="text" name="" placeholder="13613525453">
+				</p>
+				<p>
+					<span>服务站</span>
+					<input type="text" name="" placeholder="亦庄服务站">
+				</p>
+				<p>
+					<span>业务员</span>
+					<input type="text" name="" placeholder="和新">
+				</p>
+				<p>
+					<span>社会统一信用代码</span>
+					<input type="text" name="" placeholder="123456789987654321">
+				</p>
+				<p>
+					<span>营业执照扫描件</span>
+					<i><img src="../ii.png"></i>
+				</p>
+				<p>
+					<span>身份证扫描件</span>
+					<i><img src="../ii.png"></i>
+				</p>
+			</div>
+		</div>
+	</div>
+	<!--右边结束-->
+	<!--面包屑导航-->
+	<div class="k_breadcrumb">
+		<ol class="breadcrumb" style="background:#fff">
+		  	<li><a href="#">总站管理中心</a></li>
+		  	<li><a href="#">添加资源</a></li>
+		</ol>
+		<a href="add_menu.html" class="add_menu">会员列表</a>
+	</div>
+	<!--面包屑导航结束-->
+	<!--footer开始-->
+	<div class="k_footer">
+		<p>版权所有 @ 北京快消互联科技发展有限公司 未经许可 严禁复制</p>
+		<p>京ICP备16000340 号</p>
+		<p>北京经济技术开发区地盛南街9号1栋 电话 : 010-58046928</p>
+	</div>
+	<!--footer结束-->
+</div>	
+<!--end-->
+
+<script>
+$(document).ready(function() {
+	Common.paging2();
+})
+</script>
+</body>
+</html>

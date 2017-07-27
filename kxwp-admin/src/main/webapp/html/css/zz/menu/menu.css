@@ -1,0 +1,89 @@
+span,div,p,em,a,i,h1,h2,h3,h4,h5,h6{
+	font-family:"微软雅黑";
+}
+/*下拉列表*/
+.k_change{
+	padding:30px;
+}
+.k_change span{
+	width:180px;
+	height:30px;
+	margin-right:100px;
+}
+.k_change span select{
+	width:100px;
+	height:30px;
+	border:1px solid #eee;
+	color:#ccc;
+	display:inline-block;
+}
+/*查询*/
+#Inquire{
+	width:90px;
+	height:35px;
+	border-radius:5px;
+	background:#ff6600;
+	color:#fff;
+	line-height:35px;
+	text-align:center;
+	display:inline-block;
+	float:right;
+	cursor:pointer;
+	border:none;
+}
+/*表格样式*/
+.k_table{
+	width:100%;
+	border:1px solid #eee;
+}
+.k_table thead td{
+	font-weight:bold;
+	background:#f7f7f8;
+}
+.k_table td{
+	text-align:center;
+	line-height:55px;
+	padding:0 10px 0 10px;
+}
+/*编辑及查询*/
+.t_edit,.t_view{
+	width:90px;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+	border-radius:5px;
+	color:#fff;
+	margin-left:15px;
+	margin-right:15px;
+	cursor:pointer;
+	display:inline-block;
+}
+.t_edit:hover,.t_view:hover{
+	color:#fff;
+	text-decoration:none;
+}
+.t_edit{
+	background:#ffa200;
+}
+.t_view{
+	background:#336ea5;
+}
+
+/*批量操作*/
+.batch_up,.batch_down{
+	width:100px;
+	height:35px;
+	border-radius:5px;
+	background:#2a9fc2;
+	color:#fff;
+	line-height:35px;
+	text-align:center;
+	margin:0 15px 0 15px;
+	display:inline-block;
+	cursor:pointer;
+}
+
+
+
+
+

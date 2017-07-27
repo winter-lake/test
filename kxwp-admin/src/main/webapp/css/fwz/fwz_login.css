@@ -1,0 +1,48 @@
+.form_title{
+	text-align:center;
+	line-height:50px;
+	color:#d4af03;
+	font-weight:bold;
+	padding-top:20px;
+}
+
+.content_top{
+	width:100%;
+	height:440px;
+	background:#f8ae11 url(../../images/fwz/fwz_bg.png) no-repeat 300px center;
+	padding-top:70px;
+	padding-bottom:70px;
+}
+
+.login{
+	width:100px;
+	height:42px;
+	text-align:center;
+	line-height:42px;
+	background:#d4af03;
+	color:#fff;
+	border-radius:7px;
+	display:inline-block;
+	margin-left:15px;
+	cursor:pointer;
+	border:none;
+	outline:none;
+	font-family:"微软雅黑";
+	margin-top:6px;
+}
+.reset{
+	width:100px;
+	height:42px;
+	text-align:center;
+	line-height:42px;
+	background:#d9d9d9;
+	color:#fff;
+	border-radius:7px;
+	display:inline-block;
+	margin-left:20px;
+	cursor:pointer;
+	outline:none;
+	border:none;
+	font-family:"微软雅黑";
+	margin-top:6px;
+}

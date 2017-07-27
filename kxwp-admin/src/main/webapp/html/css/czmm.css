@@ -1,0 +1,37 @@
+.czmm{
+	width:700px;
+	height:300px;
+	margin:100px auto;
+	background:#eeeded;
+	padding-top:20px;
+	border-radius:10px;
+}
+.czmm p{
+	text-align:center;
+	margin-top:20px;
+}
+.czmm p span{
+	width:100px;
+	text-align:right;
+	display:inline-block;
+	font-size:12px;
+}
+.czmm p input{
+	line-height:35px;
+	width:200px;
+	margin-left:10px;
+	text-indent:10px;
+	border:1px solid #ccc;
+}
+.bc,.cz{
+	width:90px;
+	height:30px;
+	border:none;
+	border-radius:6px;
+	margin-left:70px;
+	color:#fff;
+	outline:none;
+}   
+.bc{
+	background:#5faee3;
+}

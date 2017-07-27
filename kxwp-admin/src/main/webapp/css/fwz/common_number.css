@@ -1,0 +1,67 @@
+.form_number{
+	margin:30px auto;
+}
+.form_number .div{
+	font-family:"微软雅黑";
+	width:1000px;
+	margin:30px auto;
+}
+
+.form_number span{
+	width:90px;
+	text-align:left;
+	display:inline-block;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.form_number span input[type=checkbox]{
+	position:relative;
+	top:1px;
+}
+.form_number input[type=text]{
+	width:240px;
+	height:30px;
+	border:1px solid #eee;
+	display:inline-block;
+}
+.form_number h4{
+	line-height:40px;
+	background:#eee;
+	text-indent:20px;
+	font-size:14px;
+	font-family:"微软雅黑";
+}
+
+.yes,.reset{
+	width:90px;
+	height:35px;
+	border-radius:6px;
+	line-height:35px;
+	text-align:center;
+	display:inline-block;
+	color:#fff;
+	cursor:pointer;
+	outline:none;
+	border:none;
+}
+.yes{
+	background:#ff6600;
+}
+.reset{
+	background:#336ea5;
+	margin-left:50px;
+}
+
+
+/*动态生成密码*/
+.dt_pwd{
+	width:99px;
+	height:35px;
+	border:none;
+	outline:none;
+	background:#2a9fc2;
+	color:#fff;
+	margin-left:25px;
+	border-radius:7px;
+}

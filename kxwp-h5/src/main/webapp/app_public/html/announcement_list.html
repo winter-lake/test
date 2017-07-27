@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>快销公告</title>
+	<link rel="stylesheet" href="../../css/widget.css">
+	<link rel="stylesheet" href="../css/announcement_list.css">
+	<link rel="stylesheet" href="../../js/layer/need/layer.css">
+</head>
+<body>
+	<div class="j_container">
+		<section class="j_content">
+			<div class="message_box">
+			<script type="text/html" id="message_tpl">
+				{{each list as value i}}
+					<div class="list" data_id="{{value.id}}">
+						<div class="time">{{value.pushTime}}</div>
+						<div class="d_box">
+							<a href="/announcement/get.do?id={{value.id}}">
+							<h4 class="title">{{value.announcementName}}</h4>
+							<p class="img"><img src="{{value.pictureUrl}}" alt=""></p>
+							<p class="msg">{{value.content}}</p>
+							<p class="detail">
+								<span>查看详情</span>
+								<span class="go"></span>
+							</p>
+							</a>
+						</div>
+					</div>
+				{{/each}}
+			</script>
+			</div>
+		</section>
+	</div>
+	<script src="../../js/zepto-v.1.1.6.min.js"></script>
+	<script src="../../js/global.kxapp.js"></script>
+	<script src="../../js/knockout.js"></script>
+	<script src="../../js/template.js"></script>
+	<script src="../../js/global.model.js"></script>
+	<script src="../../js/zepto.callbacks.js"></script>
+	<script src="../../js/zepto.deferred.js"></script>
+	<script src="../../js/zepto.touch.js"></script>
+	<script src="../../js/zepto.dropload.js"></script>
+	<script src="../../js/layer/layer.js"></script>
+	<script src="../../js/Common.js"></script>
+	<script src="../js/announcement_list.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+i{
+	font-style:normal;
+}
+/*外围容器*/
+.k_contaniner{
+	position:fixed;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	background:#f1f1f9;
+	overflow:hidden;
+}
+/*头部*/
+.k_top{
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	height:90px;
+	background:#fff;
+	line-height:90px;
+	font-size:22px;
+	text-indent:20px;
+	color:blue;
+	font-weight:bold;
+}
+.k_logo1{
+	width:210px;
+	height:90px;
+	display:inline-block;
+	background:#000;
+	line-height:90px;
+	float:left;
+}
+.k_logo1 img{
+	width:180px;
+}
+.k_Options{
+	float:right;
+	padding-right:15px;
+	font-size:13px;
+	color:#424f63;
+	font-family:"微软雅黑";
+}
+.k_Options select{
+	border:none;
+}
+/*左部*/
+.k_left{
+	width:210px;
+	position:absolute;
+	left:0;
+	top:90px;
+	bottom:90px;
+	overflow-y:auto;
+	z-index:101;
+	background:#fff;
+}
+/*谷歌导航美化*/
+.k_left::-webkit-scrollbar{
+	width:0px;
+}
+.k_right::-webkit-scrollbar{
+	width:0px;
+}
+/*footer*/
+.k_footer{
+	width:100%;
+	height:85px;
+	background:#41414a;
+	position:absolute;
+	bottom:0;
+	left:0;
+	right:0;
+	z-index:102;
+	padding-top:5px;
+}
+.k_footer p{
+	text-align:center;
+	line-height:20px;
+	color:#fff;
+	font-size:12px;
+}
+
+
+/*插件样式*/
+
+/*右侧内容块*/
+.k_right{
+	position:absolute;
+	top:140px;
+	left:215px;
+	bottom:90px;
+	right:5px;
+	background:#fff;
+	margin:10px;
+	border-radius:5px;
+	overflow:auto;
+}
+/*面包屑导航*/
+.k_breadcrumb{
+	position:absolute;
+	top:90px;
+	line-height:26px;
+	left:215px;
+	right:5px;
+	margin:10px;
+	border-radius:5px;
+}
+/*添加菜单*/
+.add_menu{
+	width:90px;
+	height:26px;
+	line-height:26px;
+	text-align:center;
+	background:#286090;
+	display:inline-block;
+	border-radius:5px;
+	font-size:12px;
+	font-family:"微软雅黑";
+	position:absolute;
+	top:9px;
+	right:10px;
+	cursor:pointer;
+	color:#fff;
+}
+.add_menu:hover{
+	color:#fff;
+	text-decoration:none;
+}
+/*离职账号*/
+.Quit_number{
+	width:90px;
+	height:26px;
+	line-height:26px;
+	text-align:center;
+	background:#286090;
+	display:inline-block;
+	border-radius:5px;
+	font-size:12px;
+	font-family:"微软雅黑";
+	position:absolute;
+	top:9px;
+	right:120px;
+	cursor:pointer;
+	color:#fff;
+}
+.Quit_number:hover{
+	color:#fff;
+	text-decoration:none;
+}
+
+/*左侧菜单样式*/
+.cd-accordion-menu input[type=checkbox] {
+  /* hide native checkbox */
+  position: absolute;
+  opacity: 0;
+}
+.cd-accordion-menu label, .cd-accordion-menu a {
+  position: relative;
+  display: block;
+  padding: 14px 14px 14px 60px;
+  color:#fff;
+  margin-bottom:0px;
+  box-shadow:1px 1px 1px #ccc;
+  cursor:pointer;
+}   
+.cd-accordion-menu label{
+	background:#cee0f1;
+	font-size:14px;
+	color:#fff;
+	box-shadow:0 1px 5px #fff;
+} 
+.cd-accordion-menu a{
+	font-size:12px;
+	color:#999;
+}
+.cd-accordion-menu a:hover{
+	background:#61729e;
+	color:#fff;
+	text-decoration:none;
+}  
+
+/*分页*/
+.paging{
+	width:800px;
+	margin:20px auto;
+}
+.pull-right{
+	margin-top:24px;
+}
+
+/*验证样式*/
+label.error{margin-left: 10px; color: red;font-size:10px;font-family:"微软雅黑";}  
+
+
+
+

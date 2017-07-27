@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>超市会员</title>
+	<link rel="stylesheet" href="../../../css/reset.css">
+	<link rel="stylesheet" href="../../../css/common.css">
+	<!-- 第三方 start -->
+	<link rel="stylesheet" href="../../../public/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../../../public/Font-Awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../../public/leftNav/leftMenu.css">
+	<link rel="stylesheet" type="text/css" href="../../../public/paging/kkpager_blue.css">
+	<!-- 第三方end -->
+	<link rel="stylesheet" type="text/css" href="../../../css/zz/cs/cs.css">
+	<link rel="stylesheet" type="text/css" href="../../../public/select2/css/select2.css">
+	<script src="../../../public/jquery-2.1.4.min.js"></script>
+	<script src="../../../public/layer/layer.js"></script>
+	<script src="../../../public/bootstrap/js/bootstrap.js"></script>
+	<script src="../../../public/common.js"></script>
+	<script type="text/javascript" src="../../../public/My97Date/WdatePicker.js"></script>
+	<script src="../../../public/leftNav/leftMenu.js"></script>
+	<script src="../../../public/leftNav/main.js"></script>
+	<script type="text/javascript" src="../../../public/paging/kkpager.js"></script>
+	<script type="text/javascript" src="../../../js/zz/cs.js"></script>
+	<script type="text/javascript" src="../../../public/select2/js/select2.js"></script>
+</head>
+<body>
+<!--外围容器-->
+<div class="k_contaniner">
+	<!--头部开始-->
+	<div class="k_top">
+		<div class="k_logo">
+			<span class="k_logo1">
+				<img src="../../../images/share/kxwp_logo.png" alt="">
+			</span>
+			<span>
+				<img src="../../../images/share/title_zz.png" alt="">
+			</span>
+			<div class="k_Options">
+				<span>
+					<i class="icon-user" style="font-size:20px;position:relative;top:2px"></i>
+					<em id="user">管理员</em>
+				</span>&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>
+					<i>角色 :</i>
+					<em id="yygl">运营管理员</em>
+				</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>
+					<select name="" id="zx">
+						<option value="安全中心">安全中心</option>
+						<option value="重置密码">重置密码</option>
+						<option value="注销账户">退出系统</option>
+					</select>
+				</span>
+			</div>                         
+		</div>
+	</div>
+	<!--头部结束-->
+	<!--左边开始-->
+	<div class="k_left">
+		<!--菜单导航-->
+		<div class="left_menu">
+			<ul class="cd-accordion-menu animated">
+	            <li class="has-children">
+	                <input type="checkbox" name="group-1" id="group-1" checked>
+	                <label for="group-1">菜单管理</label>
+	                <ul>
+	                    <li class="has-children">
+	                        <ul>
+	                            <li><a href="add_menu.html">添加菜单</a></li>
+	                            <li><a href="#0">编辑功能</a></li>
+	                            <li><a href="#0">查看功能</a></li>
+	                        </ul>
+	                    </li>
+	                </ul>
+	            </li>
+
+	            <li class="has-children">
+	                <input type="checkbox" name="group-2" id="group-2">
+	                <label for="group-2">角色管理</label>
+	                <ul>
+	                    <li><a href="#0">添加角色</a></li>
+	                    <li><a href="#0">编辑角色</a></li>
+	                    <li><a href="#0">查看角色</a></li>
+	                </ul>
+	            </li>
+
+	            <li class="has-children">
+	                <input type="checkbox" name="group-3" id="group-3">
+	                <label for="group-3">账号管理</label>
+	                <ul>
+	                    <li><a href="#0">添加账号</a></li>
+	                    <li><a href="#0">编辑账号</a></li>
+	                    <li><a href="#0">查看账号</a></li>
+	                </ul>
+	            </li>
+
+	            <li class="has-children">
+	                <input type="checkbox" name="group-4" id="group-4">
+	                <label for="group-4">Group 4</label>
+
+	                <ul>
+	                    <li class="has-children">
+	                        <input type="checkbox" name="sub-group-3" id="sub-group-3">
+	                        <label for="sub-group-3">Sub Group 3</label>
+
+	                        <ul>
+	                            <li><a href="#0">Image</a></li>
+	                            <li><a href="#0">Image</a></li>
+	                        </ul>
+	                    </li>
+	                    <li><a href="#0">Image</a></li>
+	                    <li><a href="#0">Image</a></li>
+	                </ul>
+	            </li>
+        	</ul>
+		</div>
+		<!--end-->
+	</div>
+	<!--左边结束-->
+	<!--右边开始-->
+	<div class="k_right">
+		<div class="content">
+			<!--查询等功能-->
+			<form class="k_change" method="post" action="">
+				<b>
+					<i>注册时间</i>
+					<input type="text" name="" id="date-start">
+					<i>至</i>
+					<input type="text" name="" placeholder="请输入时间" id="date-end">
+				</b>
+				<b>
+					<i>所属服务站</i>
+					<select id="sel_menu2">
+						<option value="">请选择</option>
+						<option>请选择</option>
+						<option>请选择</option>
+						<option>请选择</option>
+
+						<option>请选择</option>
+						<option>请选择</option>
+					</select>
+				</b>
+				<b>
+					<i>服务站名称</i>
+					<input type="text" name="" id="sjh">
+				</b>
+				<b>
+					<i>状态</i>
+					<select id="zt">
+						<option>全部</option>
+						<option>待审核</option>
+						<option>已启用</option>
+						<option>已停用</option>
+						<option>未通过</option>
+						<option>未匹配</option>
+					</select>
+				</b>
+				<input type="submit" class="Inquire" value="查询" id="cscx">
+			</form>
+			<!--table-->
+			<table class="table table-bordered" style="text-align:center">
+			  	<thead style="background:#eee">
+					<tr>
+						<td><input type="checkbox" name="b"></td>
+						<td>编号</td>
+						<td>手机号</td>
+						<td>超市名称</td>
+						<td>收货地址</td>
+						<td>所属大兴服务站</td>
+						<td>收货人</td>
+						<td>收货人手机号</td>
+						<td>业务员</td>
+						<td>注册时间</td>
+						<td>最后登录时间</td>
+						<td>状态</td>
+						<td>操作</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input type="checkbox" name="a"></td>
+						<td>1</td>
+						<td>13613525453</td>
+						<td>小鱼仔超市</td>
+						<td>地盛南街9号1栋3层327快消互联</td>
+						<td>大兴服务站</td>
+						<td>刘涛</td>
+						<td>13522438263</td>
+						<td>和新</td>
+						<td>2015-2-1</td>
+						<td>2015-5-6</td>
+						<td>已开启</td>
+						<td><a href="javascriptt:;" class="show">查看</a></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="a"></td>
+						<td>1</td>
+						<td>13613525453</td>
+						<td>小鱼仔超市</td>
+						<td>地盛南街9号1栋3层327快消互联</td>
+						<td>大兴服务站</td>
+						<td>刘涛</td>
+						<td>13522438263</td>
+						<td>和新</td>
+						<td>2015-2-1</td>
+						<td>2015-5-6</td>
+						<td>已开启</td>
+						<td><a href="javascriptt:;" class="show">查看</a></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="a"></td>
+						<td>1</td>
+						<td>13613525453</td>
+						<td>小鱼仔超市</td>
+						<td>地盛南街9号1栋3层327快消互联</td>
+						<td>大兴服务站</td>
+						<td>刘涛</td>
+						<td>13522438263</td>
+						<td>和新</td>
+						<td>2015-2-1</td>
+						<td>2015-5-6</td>
+						<td>已开启</td>
+						<td><a href="javascriptt:;" class="show">查看</a></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="a"></td>
+						<td>1</td>
+						<td>13613525453</td>
+						<td>小鱼仔超市</td>
+						<td>地盛南街9号1栋3层327快消互联</td>
+						<td>大兴服务站</td>
+						<td>刘涛</td>
+						<td>13522438263</td>
+						<td>和新</td>
+						<td>2015-2-1</td>
+						<td>2015-5-6</td>
+						<td>已开启</td>
+						<td><a href="javascriptt:;" class="show">查看</a></td>
+					</tr>
+				</tbody>
+			</table>
+			<!--批量操作及分页-->
+			<div class="batch">
+				<!--分页-->
+				<div class="paging">
+					<div id="kkpager"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--右边结束-->
+	<!--面包屑导航-->
+	<div class="k_breadcrumb">
+		<ol class="breadcrumb" style="background:#fff">
+		  	<li><a href="#">总站管理中心</a></li>
+		  	<li><a href="#">添加资源</a></li>
+		</ol>
+		<a href="add_menu.html" class="add_menu"><i class="icon-plus"></i>添加会员</a>
+	</div>
+	<!--面包屑导航结束-->
+	<!--footer开始-->
+	<div class="k_footer">
+		<p>版权所有 @ 北京快消互联科技发展有限公司 未经许可 严禁复制</p>
+		<p>京ICP备16000340 号</p>
+		<p>北京经济技术开发区地盛南街9号1栋 电话 : 010-58046928</p>
+	</div>
+	<!--footer结束-->
+</div>	
+<!--end-->
+
+<script>
+$(document).ready(function() {
+	Common.paging2();
+	Common.date();
+	Csmenu.render();
+	$("#sel_menu2").select2({
+		tags: true,
+		maximumSelectionLength: 3, //最多可以选择的个数
+		language: "zh-CN",
+		ajax:{
+			url:"/zz/supermarket/ajax/registerSupermarketAccount.do",
+			dataType:'json',
+			delay:250,
+			data:function(param){
+				console.log(param)
+				return {
+					q:param.term,
+					page:param.page
+				}
+			},
+			processResults: function (data, params) {
+	            params.page = params.page || 1;
+
+	            return {
+	                results: data.items,
+	                pagination: {
+	                    more: (params.page * 10) < data.total_count
+	                }
+	            };
+	        },
+	        cache: true
+		},
+		escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+	    minimumInputLength: 1,
+	    templateResult: formatRepoProvince, // omitted for brevity, see the source of this page
+	    templateSelection: formatRepoProvince // omitted for brevity, see the source of this page
+	})
+	function formatRepoProvince(repo) {
+	    if (repo.loading) return repo.text;
+	    var markup = "<div>"+repo.name+"</div>";
+	    return markup;
+	}
+})
+</script>
+</body>
+</html>

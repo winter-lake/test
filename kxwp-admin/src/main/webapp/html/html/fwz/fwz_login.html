@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>服务站登录</title>
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../../css/common.css">
+	<!-- 第三方 start -->
+	<link rel="stylesheet" href="../../public/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../../public/Font-Awesome/css/font-awesome.min.css">
+	<!-- 第三方end -->
+	<link rel="stylesheet" href="../../css/gys/gys_login.css">
+	<link rel="stylesheet" type="text/css" href="../../css/fwz/fwz_login.css">
+</head>
+<body>
+	<div class="k_container">
+		<div class="k_top">
+			<a href=""><img src="../../images/share/kxwp_logo.png"></a>
+			<a href=""><img src="../../images/fwz/fwz_logo.png"></a>
+		</div>
+		<div class="k_content">
+			<div class="content_top">
+				<form class="form" method="" action="">
+					<p class="form_title"><span>供应商管理系统登录</span></p>
+					<p class="form_user"><i class="icon-user"></i><input type="text" placeholder="请输入手机号" id="user_name"></p>
+					<p class="form_pwd"><i class="icon-lock"></i><input type="password" id="pwd" placeholder="密码"></p>
+					<h6><a href="" class="wjmm">忘记密码?</a></h6>
+					<p class="form_btn">
+						<span class="login">登录</span>
+						<input type="reset" class="reset" value="重置">
+					</p>
+				</form>
+			</div>
+			<div class="gys_tab">
+				<a href=""><img src="../../images/gys/g_zz.png">总站</a>
+				<a href=""><img src="../../images/gys/g_fwz.png">服务站</a>
+				<a href=""><img src="../../images/gys/g_kxgw.png">快消官网</a>
+			</div>
+		</div>
+		<div class="k_footer">
+			<p>版权所有 @ 北京快消互联科技发展有限公司 未经许可 严禁复制</p>
+			<p>京ICP备16000340 号</p>
+			<p>北京经济技术开发区地盛南街9号1栋 电话 : 010-58046928</p>
+		</div>
+	</div>
+	<script src="../../public/jquery-2.1.4.min.js"></script>
+	<script src="../../public/layer/layer.js"></script>
+	<script>
+	$(document).ready(function() {
+	    
+	});
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=========登录=========*/
+var Login = (function(){
+	var login = {
+			/*常规登录*/
+			login:function(){
+				var self = this;
+				$('.login').click(function(){
+					var user_name = $.trim($('#user_name').val());
+					var pwd = $.trim($('#pwd').val());
+					var data={
+						login_mobile:user_name,
+						login_password      :pwd
+					}	
+					if(user_name=="" && pwd==""){
+						layer.alert('用户名或密码不能为空', {
+						  skin: 'layui-layer-molv' //样式类名
+						  ,closeBtn: 0
+						});
+					}else if(!Common.checkPhone(user_name)){
+						layer.alert('请输入正确的手机号', {
+						  skin: 'layui-layer-molv' //样式类名
+						  ,closeBtn: 0
+						});
+					}
+					else{
+						$('.login').html('<i class="fa fa-spinner fa-spin"></i> 正在登录..');
+						$.ajax({
+							url:'/zz/user/ajax/login.do',
+							type:'post',
+							dataType: 'json',
+				            contentType:"application/json",
+							data:JSON.stringify(data),
+							success:function(data){
+								if(data.callStatus=='FAIL'){
+									layer.alert(data.message, {
+				                      skin: 'layui-layer-molv' //样式类名
+				                      ,closeBtn: 0
+				                    });
+									$('.login').html('<i class="fa fa-spinner fa-spin"></i> 登录');
+								}else{
+									self.loginSuccess(data);
+									$('.login').html('<i class="fa fa-spinner fa-spin"></i> 登录成功');
+								}
+							},
+							error:function(){
+								$('.login').html('失败重试');
+							}
+						})
+					}
+				})
+			},
+			/*自动登录*/
+			autoLogin:function(){
+				var self=this;
+				$.ajax({
+					url:'/zz/user/ajax/autoLogin.do',
+					type:'post',
+					dataType: 'json',
+					data:{},
+					success:function(data){
+						if(data.callStatus=='FAIL'){
+							$('#user_name').focus();
+						}else{
+							self.loginSuccess(data);
+						}
+					},
+					error:function(){
+						$('.login').html('失败重试');
+					}
+				})
+			},
+			/*登陆成功*/
+			loginSuccess:function(data){
+				window.location.href="/zz/user/gotoDashboard.do"
+			},
+			/*绑定登陆事件*/
+			sjbd:function(){
+				/*绑定键盘*/
+	            $("#user_name").on('keyup', function(event) {
+	                if(event.keyCode == 13){
+	                    var user_name = $.trim($("#user_name").val());
+	                    var user_pass = $.trim($("#pwd").val());
+	                    if(user_name !== "" && user_pass !== ""){
+	                        $(".login").trigger('click');
+	                    }else{
+	                        if(user_name !== ""){
+	                            $("#pwd").focus();
+	                        }
+	                    }
+	                }
+	            });
+	            $("#pwd").on('keyup', function(event) {
+	                if(event.keyCode == 13){
+	                    var user_name = $.trim($("#user_name").val());
+	                    var user_pass = $.trim($("#pwd").val());
+	                    if(user_name !== "" && user_pass !== ""){
+	                        $(".login").trigger('click');
+	                    }
+	                }
+	            });
+			},
+			/*初始化函数*/
+			init:function(){
+				var self=this;
+				self.autoLogin();
+				self.login();
+				self.sjbd();
+			}
+	}
+	return login;
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+

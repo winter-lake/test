@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>菜单管理</title>
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="shortcut icon" href="../../img/favicon.ico">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../public/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../../public/Font-Awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../css/menu/menu.css">
+</head>
+<body>
+<!--外围容器-->
+<div class="k_contaniner">
+	<!--头部开始-->
+	<div class="k_top">
+		<div class="k_logo">
+			<span class="k_logo1">
+				<img src="../../img/k_logo1.png" alt="">
+			</span>
+			<span>
+				<img src="../../img/k_logo2.png" alt="">
+			</span>
+			<div class="k_Options">
+				<span>
+					<i class="icon-user" style="font-size:20px;position:relative;top:2px"></i>
+					<em id="user">管理员</em>
+				</span>&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>
+					<i>角色 :</i>
+					<em id="yygl">运营管理员</em>
+				</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>
+					<select name="" id="">
+						<option value="安全中心">安全中心</option>
+					</select>
+				</span>
+			</div>                         
+		</div>
+	</div>
+	<!--头部结束-->
+	<!--左边开始-->
+	<div class="k_left">
+		<!--菜单导航-->
+		<div class="left_menu">
+			<ul class="nav" id="side-menu">
+			    <li >
+			        <a href="menu.html"><i class="fa fa-wrench fa-fw"></i> 菜单管理 <span class="fa arrow"></span></a>
+			        <ul class="nav nav-second-level ">
+			            <li >
+			                <a href="menu.html">添加菜单 <span class="label label-info pull-right">+10</span></a>
+			            </li>
+			            <li >
+			                <a href="edit_menu.html">编辑功能</a>
+			            </li>
+			            <li >
+			                <a href="View_menu.html">查看功能 <span class="label label-info pull-right">NEW</span></a>
+			            </li>
+			            <li >
+			                <a href="role.html">角色管理</a>
+			            </li>
+			            <li >
+			                <a href="add_role.html">添加角色</a>
+			            </li>
+			            <li >
+			                <a href="edit_role.html"> 编辑角色<span class="label label-warning pull-right">NEW</span></a>
+			            </li>
+			            <!-- <li >
+			                <a href="noui-sliders.html">NoUI Range Sliders</a>
+			            </li> -->
+			            <li >
+			                <a href="View_role.html">查看角色 <span class="label label-info pull-right">+2</span></a>
+			            </li>
+			            <li >
+			                <a href="icons.html">Icons</a>
+			            </li>
+			            <li >
+			                <a href="#">Notifications <span class="fa arrow"></span></a>
+			                <ul class="nav nav-third-level ">
+			                    <li >
+			                        <a href="notifications.html">Default Notifications</a>
+			                    </li>
+			                    <li >
+			                        <a href="desktop-notifications.html">Desktop Notifications
+			                        <span class="label label-warning pull-right">NEW</span></a>
+			                    </li>
+			                </ul>
+			            </li>
+			            <li >
+			                <a href="widgets.html">Widgets <span class="label label-info pull-right">+3</span></a>
+			            </li>
+			            <li >
+			                <a href="typography.html">Typography</a>
+			            </li>
+			            <li >
+			                <a href="grid.html">Grid</a>
+			            </li>
+			        </ul>
+			        <!-- /.nav-second-level -->
+			    </li>
+			    <li >
+			        <a href="#"><i class="fa fa-edit fa-fw"></i> Forms <span class="fa arrow"></span></a>
+			        <ul class="nav nav-second-level ">
+			            <li >
+			                <a href="form-elements.html">Form elements</a>
+			            </li>
+			            <li >
+			                <a href="validation.html">Form validation</a>
+			            </li>
+			            <li >
+			                <a href="file-manager.html">File manager</a>
+			            </li>
+			            <li >
+			                <a href="dropzone.html">DropZone</a>
+			            </li>
+			            <li >
+			                <a href="editor.html">WYSIWYG Editor</a>
+			            </li>
+			        </ul>
+			        <!-- /.nav-second-level -->
+			    </li>
+				<li >
+				    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts <span class="fa arrow"></span></a>
+				    <ul class="nav nav-second-level ">
+				        <li >
+				            <a href="flot.html">Flot Charts</a>
+				        </li>
+				        <li >
+				            <a href="morris.html">Morris.js Charts</a>
+				        </li>
+				        <li >
+				            <a href="c3-charts.html">C3 Charts <span class="label label-info pull-right">new</span></a>
+				        </li>
+				    </ul>
+				    <!-- /.nav-second-level -->
+				</li>
+			    <li class="active">
+			        <a href="mail.html"><i class="fa fa-envelope fa-fw"></i> Mail</a>
+			    </li>
+			    <li >
+			        <a href="financial.html"><i class="fa fa-money fa-fw"></i> Financial  <span class="fa arrow"></span></a>
+			        <ul class="nav nav-second-level ">
+			            <li >
+			                <a href="invoice.html">Invoice</a>
+			            </li>
+			            <li >
+			                <a href="finances.html">Finances</a>
+			            </li>
+			        </ul>
+			        <!-- /.nav-second-level -->
+			    </li>
+			    <li >
+			        <a href="fleet.html"><i class="fa fa-automobile fa-fw"></i> Fleet Management  <span class="fa arrow"></span></a>
+			        <ul class="nav nav-second-level ">
+			            <li >
+			                <a href="fleet-dashboard.html">Dashboard</a>
+			            </li>
+			            <li >
+			                <a href="fleet-view-vehicle.html">View Vehicle</a>
+			            </li>
+			        </ul>
+			        <!-- /.nav-second-level -->
+			    </li>
+			    <li >
+			        <a href="maps.html"><i class="fa fa-map-marker fa-fw"></i> Maps</a>
+			    </li>
+			    <li >
+			        <a href="calendar.html"><i class="fa fa-calendar-o fa-fw"></i> Calendar</a>
+			    </li>
+			    <li >
+			        <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables  <span class="fa arrow"></span></a>
+			        <ul class="nav nav-second-level ">
+			            <li >
+			                <a href="tables.html">Default and DataTables</a>
+			            </li>
+			            <li >
+			                <a href="pricing_tables.html">Pricing Tables</a>
+			            </li>
+			        </ul>
+			        <!-- /.nav-second-level -->
+			    </li>    
+			    <li >
+			        <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages <span class="fa arrow"></span></a>
+			        <ul class="nav nav-second-level ">
+			            <li >
+			                <a href="blank.html">Blank Page</a>
+			            </li>
+			            <li >
+			                <a href="page-tour.html">Page Tour</a>
+			            </li>
+			            <li >
+			                <a href="login.html">Login</a>
+			            </li>
+			            <li >
+			                <a href="register.html">Register</a>
+			            </li>
+			            <li >
+			                <a href="404.html">404 Error</a>
+			            </li>
+			            <li >
+			                <a href="500.html">500 Error</a>
+			            </li>
+			        </ul>
+			        <!-- /.nav-second-level -->
+			    </li>
+			</ul>
+		</div>
+		<!--end-->
+	</div>
+	<!--左边结束-->
+	<!--右边开始-->
+	<div class="k_right">
+		<div class="content">
+			<!--查询等功能-->
+			<form class="k_change" method="post" action="">
+				<span>
+					<i>系统 :</i>
+					<select name="" id="x_t">
+						<option value="">请选择</option>
+						<option value="">总站</option>
+						<option value="">服务站</option>
+						<option value="">供应商</option>
+					</select>
+				</span>
+				<span>
+					<i>状态 :</i>
+					<select name="" id="z_t">
+						<option value="">全部状态</option>
+						<option value="">上线</option>
+						<option value="">下线</option>
+					</select>
+				</span>
+				<input type="submit" id="Inquire" value="查询">
+			</form>
+			<!--table-->
+			<table class="table table-bordered" style="text-align:center">
+			  	<thead style="background:#eee">
+					<tr>
+						<td><input type="checkbox" name="id"></td>
+						<td>编号</td>
+						<td>功能名称</td>
+						<td>功能描述</td>
+						<td>父节点</td>
+						<td>所属系统</td>
+						<td>状态</td>
+						<td>URL</td>
+						<td>操作</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input type="checkbox" name="id"></td>
+						<td>1</td>
+						<td>资源列表</td>
+						<td>管理该账号下所有资源</td>
+						<td>资源管理</td>
+						<td>服务站</td>
+						<td>上线</td>
+						<td>http://www.kxp1688.com:5000/</td>
+						<td><a href="edit_menu.html" class="t_edit">编辑</a><a href="View_menu.html" class="t_view">查看</a></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="id"></td>
+						<td>1</td>
+						<td>资源列表</td>
+						<td>管理该账号下所有资源</td>
+						<td>资源管理</td>
+						<td>服务站</td>
+						<td>上线</td>
+						<td>http://www.kxp1688.com:5000/</td>
+						<td><a href="edit_menu.html" class="t_edit">编辑</a><a href="View_menu.html" class="t_view">查看</a></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="id"></td>
+						<td>1</td>
+						<td>资源列表</td>
+						<td>管理该账号下所有资源</td>
+						<td>资源管理</td>
+						<td>服务站</td>
+						<td>上线</td>
+						<td>http://www.kxp1688.com:5000/</td>
+						<td><a href="edit_menu.html" class="t_edit">编辑</a><a href="View_menu.html" class="t_view">查看</a></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="id"></td>
+						<td>1</td>
+						<td>资源列表</td>
+						<td>管理该账号下所有资源</td>
+						<td>资源管理</td>
+						<td>服务站</td>
+						<td>上线</td>
+						<td>http://www.kxp1688.com:5000/</td>
+						<td><a href="edit_menu.html" class="t_edit">编辑</a><a href="View_menu.html" class="t_view">查看</a></td>
+					</tr>
+				</tbody>
+			</table>
+			<!--批量操作及分页-->
+				<span class="batch_up">批量上线</span>
+				<span class="batch_down">批量下线</span>
+				<!--分页-->
+				<div class="paging">
+					<ul class="wave-sync-pagination pagination pagination-sm" id="top_wavePagenation">
+					 	<li class="first disabled"><a href="#">首页</a></li>
+					 	<li class="prev disabled"><a href="#">上一页</a></li>
+					 	<li class="page active"><a href="#">1</a></li>
+					 	<li class="page"><a href="#">2</a></li>
+					 	<li class="next"><a href="#">下一页</a></li>
+					 	<li class="last"><a href="#">末页</a></li>
+					 </ul>
+					 <span class="pull-right higo-title-right">
+			            <span class="text-primary">显示
+			                <select id="wave_showlength">
+			                    <option value="10">10</option>
+			                    <option value="20">20</option>
+			                    <option value="50">50</option>
+			                </select>
+			            </span>
+			            <span class="text-primary higo-maginL-10" id="wave_totalpages">共 1 页</span>
+			            <span class="text-primary higo-maginL-10" id="wave_totals">17 条记录</span>
+			        </span>
+				</div>
+		</div>
+	</div>
+	<!--右边结束-->
+	<!--面包屑导航-->
+	<div class="k_breadcrumb">
+		<ol class="breadcrumb" style="background:#fff">
+		  	<li><a href="#">总站管理中心</a></li>
+		  	<li><a href="#">添加资源</a></li>
+		</ol>
+		<a href="add_menu.html" class="add_menu"><i class="icon-plus"></i>添加菜单</a>
+	</div>
+	<!--面包屑导航结束-->
+	<!--footer开始-->
+	<div class="k_footer">
+		<p>版权所有 @ 北京快消互联科技发展有限公司 未经许可 严禁复制</p>
+		<p>京ICP备16000340 号</p>
+		<p>北京经济技术开发区地盛南街9号1栋 电话 : 010-58046928</p>
+	</div>
+	<!--footer结束-->
+</div>	
+<!--end-->
+<script src="../../js/jquery-1.9.1.min.js"></script>
+<script src="../../public/bootstrap/js/bootstrap.js"></script>
+<script src="../../public/layer/layer.js"></script>
+<!--以上为第三方-->
+<script src="../../js/common.js"></script>
+<script src="../../js/menu/menu.js"></script>
+
+<script>
+$(document).ready(function() {
+	Menu.init();
+	Menu.dialog();
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kxwp.admin.mapper.masterStation.MasterStationAccountMapper" >
+  <resultMap id="BaseResultMap" type="com.kxwp.admin.entity.masterStation.MasterStationAccount" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="master_station_id" property="masterStationId" jdbcType="BIGINT" />
+    <result column="user_no" property="userNo" jdbcType="VARCHAR" />
+    <result column="alias" property="alias" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="user_password" property="userPassword" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="BIGINT" />
+    <result column="account_status" property="accountStatus" jdbcType="VARCHAR" typeHandler="org.apache.ibatis.type.EnumTypeHandler" />
+    <result column="parent_id" property="parentId" jdbcType="BIGINT" />
+    <result column="grade" property="grade" jdbcType="VARCHAR" />
+    <result column="create_user_id" property="createUserId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+            <foreach collection="criteria.accountStatusCriteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value,typeHandler=org.apache.ibatis.type.EnumTypeHandler}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value,typeHandler=org.apache.ibatis.type.EnumTypeHandler} and #{criterion.secondValue,typeHandler=org.apache.ibatis.type.EnumTypeHandler}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem,typeHandler=org.apache.ibatis.type.EnumTypeHandler}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, master_station_id, user_no, alias, name, user_password, mobile, account_status, 
+    parent_id, grade, create_user_id, create_time, update_time
+  </sql>
+  
+  <select id="selectByAlive" resultMap="BaseResultMap" parameterType="com.kxwp.admin.query.common.AccountQuery" >
+    select 
+    <include refid="Base_Column_List" />
+    from ms_master_station_account
+    <where>
+    	<if test="accountStatus != null">
+	    and	account_status = #{accountStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler}
+	    </if>
+    	<if test="name != null">
+	    and	name like CONCAT('%',#{name,jdbcType=VARCHAR},'%')
+	    </if>
+    	<if test="mobile != null">
+	    and	mobile like CONCAT('%',#{mobile,jdbcType=VARCHAR},'%')
+	    </if>
+	    and account_status not in('DIMISSION') 
+    </where>
+    <if test="offset != null">
+    	limit  #{pageSize,jdbcType=INTEGER} offset  #{offset,jdbcType=INTEGER}
+    </if>
+  </select>
+  
+  <select id="selectAlivePhone"  parameterType="java.lang.Long"  resultType="java.lang.Integer">
+  	select 
+   	count(*)
+    from ms_master_station_account
+    where mobile = #{mobile,jdbcType=BIGINT}
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from ms_master_station_account
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectByCondition" resultMap="BaseResultMap" parameterType="com.kxwp.admin.query.common.AccountQuery" >
+    select 
+    <include refid="Base_Column_List" />
+    from ms_master_station_account
+    <where>
+	    <if test="accountStatus != null">
+	    	and account_status = #{accountStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler}
+	    </if>
+	    <if test="name != null">
+	    and	name like CONCAT('%',#{name,jdbcType=VARCHAR},'%')
+	    </if>
+    	<if test="mobile != null">
+	    and	mobile like CONCAT('%',#{mobile,jdbcType=VARCHAR},'%')
+	    </if>
+    </where>
+    <if test="offset != null">
+    	limit  #{pageSize,jdbcType=INTEGER} offset  #{offset,jdbcType=INTEGER}
+    </if>
+  </select>
+  
+  <select id="msLogin" resultMap="BaseResultMap" parameterType="com.kxwp.admin.form.user.LoginForm" >
+    select 
+    <include refid="Base_Column_List" />
+    from ms_master_station_account
+    where mobile=#{login_mobile,jdbcType=BIGINT} AND user_password=#{login_password,jdbcType=VARCHAR}
+    limit 1
+  </select>
+  
+  <update id="resetPWD" parameterType="com.kxwp.admin.form.user.ResetPWDForm" >
+  	update ms_master_station_account
+ 	set user_password = #{new_password,jdbcType=VARCHAR}
+	where mobile = #{reset_mobile,jdbcType=BIGINT}
+  </update>
+  
+  <update id="forgotPWD" parameterType="com.kxwp.admin.form.user.ForgotPWDForm" >
+  	update ms_master_station_account
+ 	set user_password = #{new_password,jdbcType=VARCHAR}
+	where mobile = #{forgot_mobile,jdbcType=BIGINT}
+  </update>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from ms_master_station_account
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.kxwp.admin.entity.masterStation.MasterStationAccount" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      select last_insert_id()
+    </selectKey>
+    insert into ms_master_station_account (master_station_id, user_no, alias, 
+      name, user_password, mobile, 
+      account_status, 
+      parent_id, grade, create_user_id, 
+      create_time, update_time)
+    values (#{masterStationId,jdbcType=BIGINT}, #{userNo,jdbcType=VARCHAR}, #{alias,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{userPassword,jdbcType=VARCHAR}, #{mobile,jdbcType=BIGINT}, 
+      #{accountStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler}, 
+      #{parentId,jdbcType=BIGINT}, #{grade,jdbcType=VARCHAR}, #{createUserId,jdbcType=BIGINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kxwp.admin.entity.masterStation.MasterStationAccount" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      select last_insert_id()
+    </selectKey>
+    insert into ms_master_station_account
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="masterStationId != null" >
+        master_station_id,
+      </if>
+      <if test="userNo != null" >
+        user_no,
+      </if>
+      <if test="alias != null" >
+        alias,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="userPassword != null" >
+        user_password,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="accountStatus != null" >
+        account_status,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="grade != null" >
+        grade,
+      </if>
+      <if test="createUserId != null" >
+        create_user_id,
+      </if>
+        create_time,
+        update_time
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="masterStationId != null" >
+        #{masterStationId,jdbcType=BIGINT},
+      </if>
+      <if test="userNo != null" >
+        #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="alias != null" >
+        #{alias,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null" >
+        #{userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=BIGINT},
+      </if>
+      <if test="accountStatus != null" >
+        #{accountStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="grade != null" >
+        #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserId != null" >
+        #{createUserId,jdbcType=BIGINT},
+      </if>
+        NOW(),
+        NOW()
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kxwp.admin.entity.masterStation.MasterStationAccountExample" resultType="java.lang.Integer" >
+    select count(*) from ms_master_station_account
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kxwp.admin.entity.masterStation.MasterStationAccount" >
+    update ms_master_station_account
+    <set >
+      <if test="masterStationId != null" >
+        master_station_id = #{masterStationId,jdbcType=BIGINT},
+      </if>
+      <if test="userNo != null" >
+        user_no = #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="alias != null" >
+        alias = #{alias,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null" >
+        user_password = #{userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=BIGINT},
+      </if>
+      <if test="accountStatus != null" >
+        account_status = #{accountStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler},
+      </if>
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="grade != null" >
+        grade = #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserId != null" >
+        create_user_id = #{createUserId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kxwp.admin.entity.masterStation.MasterStationAccount" >
+    update ms_master_station_account
+    set master_station_id = #{masterStationId,jdbcType=BIGINT},
+      user_no = #{userNo,jdbcType=VARCHAR},
+      alias = #{alias,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      user_password = #{userPassword,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=BIGINT},
+      account_status = #{accountStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler},
+      parent_id = #{parentId,jdbcType=BIGINT},
+      grade = #{grade,jdbcType=VARCHAR},
+      create_user_id = #{createUserId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeySelectiveBatch"  parameterType="java.util.List">
+	      <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+				update ms_master_station_account
+				<set >
+			      <if test="item.masterStationId != null" >
+			        master_station_id = #{item.masterStationId,jdbcType=BIGINT},
+			      </if>
+			      <if test="item.userNo != null" >
+			        user_no = #{item.userNo,jdbcType=VARCHAR},
+			      </if>
+			      <if test="item.alias != null" >
+			        alias = #{item.alias,jdbcType=VARCHAR},
+			      </if>
+			      <if test="item.name != null" >
+			        name = #{item.name,jdbcType=VARCHAR},
+			      </if>
+			      <if test="item.userPassword != null" >
+			        user_password = #{item.userPassword,jdbcType=VARCHAR},
+			      </if>
+			      <if test="item.mobile != null" >
+			        mobile = #{item.mobile,jdbcType=BIGINT},
+			      </if>
+			      <if test="item.accountStatus != null" >
+			        account_status = #{item.accountStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler},
+			      </if>
+			      <if test="item.parentId != null" >
+			        parent_id = #{item.parentId,jdbcType=BIGINT},
+			      </if>
+			      <if test="item.grade != null" >
+			        grade = #{item.grade,jdbcType=VARCHAR},
+			      </if>
+			      <if test="item.createUserId != null" >
+			        create_user_id = #{item.createUserId,jdbcType=BIGINT},
+			      </if>
+			      <if test="item.createTime != null" >
+			        create_time = #{item.createTime,jdbcType=TIMESTAMP},
+			      </if>
+			      <if test="item.updateTime != null" >
+			        update_time = #{item.updateTime,jdbcType=TIMESTAMP},
+			      </if>
+			    </set>
+				where id = #{item.id,jdbcType=BIGINT}
+		 </foreach>
+  </update>
+</mapper>

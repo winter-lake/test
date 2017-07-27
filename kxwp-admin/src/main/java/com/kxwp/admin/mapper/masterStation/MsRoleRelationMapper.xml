@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kxwp.admin.mapper.masterStation.MsRoleRelationMapper" >
+  <resultMap id="BaseResultMap" type="com.kxwp.admin.entity.masterStation.MsRoleRelation" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="role_id" property="roleId" jdbcType="BIGINT" />
+    <result column="account_id" property="accountId" jdbcType="BIGINT" />
+    <result column="rr_status" property="rrStatus" jdbcType="VARCHAR" typeHandler="org.apache.ibatis.type.EnumTypeHandler" />
+    <result column="create_user_id" property="createUserId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+            <foreach collection="criteria.rrStatusCriteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value,typeHandler=org.apache.ibatis.type.EnumTypeHandler}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value,typeHandler=org.apache.ibatis.type.EnumTypeHandler} and #{criterion.secondValue,typeHandler=org.apache.ibatis.type.EnumTypeHandler}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem,typeHandler=org.apache.ibatis.type.EnumTypeHandler}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, role_id, account_id, rr_status, create_user_id, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from ms_role_relation
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectByCondition" resultMap="BaseResultMap" parameterType="com.kxwp.admin.entity.masterStation.MsRoleRelation" >
+    select 
+    <include refid="Base_Column_List" />
+    from ms_role_relation
+    <where>
+    	<if test="accountId != null">
+    		and account_id = #{accountId,jdbcType=BIGINT}
+    	</if>
+    	<if test="rrStatus != null">
+    		and rr_status = #{rrStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler}
+    	</if>
+    	<if test="roleId != null">
+    		and role_id = #{roleId,jdbcType=BIGINT}
+    	</if>
+    </where>
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from ms_role_relation
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByCondition" parameterType="java.lang.Long" >
+    delete from ms_role_relation
+    where account_id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.kxwp.admin.entity.masterStation.MsRoleRelation" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      select last_insert_id()
+    </selectKey>
+    insert into ms_role_relation (role_id, account_id, rr_status, 
+      create_user_id, create_time, update_time
+      )
+    values (#{roleId,jdbcType=BIGINT}, #{accountId,jdbcType=BIGINT}, #{rrStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler}, 
+      #{createUserId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kxwp.admin.entity.masterStation.MsRoleRelation" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      select last_insert_id()
+    </selectKey>
+    insert into ms_role_relation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        role_id,
+      </if>
+      <if test="accountId != null" >
+        account_id,
+      </if>
+      <if test="rrStatus != null" >
+        rr_status,
+      </if>
+      <if test="createUserId != null" >
+        create_user_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        #{roleId,jdbcType=BIGINT},
+      </if>
+      <if test="accountId != null" >
+        #{accountId,jdbcType=BIGINT},
+      </if>
+      <if test="rrStatus != null" >
+        #{rrStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler},
+      </if>
+      <if test="createUserId != null" >
+        #{createUserId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+    <insert id="insertSelectiveBatch" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id" >
+     insert into ms_role_relation (role_id, account_id, rr_status, 
+      create_user_id, create_time, update_time
+      ) values
+      <foreach collection="list" item="item" index="index"  
+        separator=",">  
+        (#{item.roleId,jdbcType=BIGINT}, #{item.accountId,jdbcType=BIGINT}, #{item.rrStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler}, 
+	      #{item.createUserId,jdbcType=BIGINT}, NOW(), NOW()
+	      )
+      </foreach>  
+  </insert>
+  <select id="countByExample" parameterType="com.kxwp.admin.entity.masterStation.MsRoleRelationExample" resultType="java.lang.Integer" >
+    select count(*) from ms_role_relation
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kxwp.admin.entity.masterStation.MsRoleRelation" >
+    update ms_role_relation
+    <set >
+      <if test="roleId != null" >
+        role_id = #{roleId,jdbcType=BIGINT},
+      </if>
+      <if test="accountId != null" >
+        account_id = #{accountId,jdbcType=BIGINT},
+      </if>
+      <if test="rrStatus != null" >
+        rr_status = #{rrStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler},
+      </if>
+      <if test="createUserId != null" >
+        create_user_id = #{createUserId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kxwp.admin.entity.masterStation.MsRoleRelation" >
+    update ms_role_relation
+    set role_id = #{roleId,jdbcType=BIGINT},
+      account_id = #{accountId,jdbcType=BIGINT},
+      rr_status = #{rrStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler},
+      create_user_id = #{createUserId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

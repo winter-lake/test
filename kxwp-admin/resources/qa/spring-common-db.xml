@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd 
+http://www.springframework.org/schema/aop 
+http://www.springframework.org/schema/aop/spring-aop.xsd 
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+	<!-- druid 数据源 -->
+	<bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		init-method="init" destroy-method="close">
+		<!-- 基本属性 url、user、password -->
+		<property name="url" value="${mysql.jdbc.url}" />
+		<property name="username" value="${mysql.jdbc.username}" />
+		<property name="password" value="${mysql.jdbc.password}" />
+		<property name="driverClassName" value="${mysql.jdbc.driver}"/>
+
+		<!-- 配置初始化大小、最小、最大 -->
+		<property name="initialSize" value="${mysql.jdbc.initialSize}" />
+		<property name="minIdle" value="${mysql.jdbc.minIdle}" />
+		<property name="maxActive" value="${mysql.jdbc.maxActive}" />
+
+		<!-- 配置获取连接等待超时的时间 -->
+		<property name="maxWait" value="${mysql.jdbc.maxWait}" />
+
+		<!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+		<property name="timeBetweenEvictionRunsMillis" value="${mysql.jdbc.timeBetweenEvictionRunsMillis}" />
+
+		<!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+		<property name="minEvictableIdleTimeMillis" value="${mysql.jdbc.minEvictableIdleTimeMillis}" />
+
+		<property name="testWhileIdle" value="true" />
+		<property name="testOnBorrow" value="false" />
+		<property name="testOnReturn" value="false" />
+
+		<!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+		<property name="poolPreparedStatements" value="true" />
+		<property name="maxPoolPreparedStatementPerConnectionSize"
+			value="20" />
+
+		<!-- 配置监控统计拦截的filters -->
+		<property name="filters" value="stat,slf4j" />
+	</bean>
+
+
+	<!-- MyBatis 配置 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="druidDataSource" />
+	</bean>
+
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory" />
+	</bean>
+
+	<!-- 由spring管理mybatis的事物 -->
+	<bean id="jdbcTransactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="druidDataSource" />
+	</bean>
+
+
+	<!-- 定义拦截器，用来指定事物属性，级别，和异常处理 -->
+	<bean id="transactionInterceptor"
+		class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<property name="transactionManager" ref="jdbcTransactionManager" />
+		<property name="transactionAttributes">
+			<props>
+				<!-- PROPAGATION_SUPPORTS: 如果已经存在事务,则加入事务;如果没有事务,则以非事务的方式执行; PROPAGATION_MANDATORY: 
+					使用当前事务, 如果没有, 则抛出异常; PROPAGATION_REQUIRED:Support a current transaction; 
+					create a new one if none exists; PROPAGATION_NOT_SUPPORTED:以非事务的方式执行, 如果当前有事务, 
+					则挂起; PROPAGATION_NEVER:以非事务的方式执行, 如果当前有事务,则抛出异常; PROPAGATION_REQUIRES_NEW:每次都以新事物方式执行; 
+					+/-Exception + 表示异常出现时事物提交 -表示异常出现时事务回滚 -->
+
+				<!-- 查询事务 -->
+				<prop key="find*">PROPAGATION_SUPPORTS,readOnly</prop>
+				<prop key="get*">PROPAGATION_SUPPORTS,readOnly</prop>
+				<prop key="query*">PROPAGATION_SUPPORTS,readOnly</prop>
+				<!-- 默认事务 -->
+				<prop key="del*"> PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="cancel*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="update*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="release*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="confirm*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="generate*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="import*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="compute*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="save*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="add*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="create*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="reset*">PROPAGATION_REQUIRED,-Exception</prop>
+
+				<!-- 每次使用新事物 -->
+                <prop key="migrate*">PROPAGATION_REQUIRES_NEW,-Exception</prop>
+                
+                
+				<prop key="*">PROPAGATION_SUPPORTS,readOnly,-Exception</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- 用来定义那些类需要采用事物管理 spring 事物的动态代理类 BeanNameAutoProxyCreator 根据类名自动代理，接受表达式 -->
+	<bean id="BeanProxy"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<!-- 对类名以Service结尾的类进行代理 -->
+			<value>*Service</value>
+		</property>
+		<!-- 对代理类进行加载拦截器(实现通知的过程) -->
+		<property name="interceptorNames">
+			<list>
+				<value>transactionInterceptor</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 扫描mybatis映射接口类 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.kxwp.common.mapper,com.kxwp.api.mapper,com.kxwp.admin.mapper" />
+	</bean>
+
+
+
+
+
+</beans>

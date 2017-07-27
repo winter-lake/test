@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>订单详情</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/common.css">
+	<!-- 第三方 start -->
+	<link rel="stylesheet" href="../public/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../public/Font-Awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../public/leftNav/leftMenu.css">
+	<!-- 第三方end -->
+	<link rel="stylesheet" href="../css/order-view.css">
+</head>
+<body>
+<!--外围容器-->
+<div class="k_contaniner">
+	<!--头部开始-->
+	<div class="k_top">
+		<div class="k_logo">
+			<span class="k_logo1">
+				<img src="../../images/share/kxwp_logo.png" alt="">
+			</span>
+			<span>
+				<img src="../../images/share/title_zz.png" alt="">
+			</span>
+			<div class="k_Options">
+				<span>
+					<i class="icon-user" style="font-size:20px;position:relative;top:2px"></i>
+					<em id="user">管理员</em>
+				</span>&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>
+					<i>角色 :</i>
+					<em id="yygl">运营管理员</em>
+				</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>
+					<select name="" id="zx">
+						<option value="安全中心">安全中心</option>
+						<option value="重置密码">重置密码</option>
+						<option value="注销账户">退出系统</option>
+					</select>
+				</span>
+			</div>                         
+		</div>
+	</div>
+	<!--头部结束-->
+	<!--左边开始-->
+	<div class="k_left">
+		<!--菜单导航-->
+		<div class="left_menu">
+			<ul class="cd-accordion-menu animated">
+	            <li class="has-children">
+	                <input type="checkbox" name="group-1" id="group-1" checked>
+	                <label for="group-1">菜单管理</label>
+	                <ul>
+	                    <li class="has-children">
+	                        <ul>
+	                            <li><a href="add_menu.html">添加菜单</a></li>
+	                            <li><a href="#0">编辑功能</a></li>
+	                            <li><a href="#0">查看功能</a></li>
+	                        </ul>
+	                    </li>
+	                </ul>
+	            </li>
+
+	            <li class="has-children">
+	                <input type="checkbox" name="group-2" id="group-2">
+	                <label for="group-2">角色管理</label>
+	                <ul>
+	                    <li><a href="#0">添加角色</a></li>
+	                    <li><a href="#0">编辑角色</a></li>
+	                    <li><a href="#0">查看角色</a></li>
+	                </ul>
+	            </li>
+
+	            <li class="has-children">
+	                <input type="checkbox" name="group-3" id="group-3">
+	                <label for="group-3">账号管理</label>
+	                <ul>
+	                    <li><a href="#0">添加账号</a></li>
+	                    <li><a href="#0">编辑账号</a></li>
+	                    <li><a href="#0">查看账号</a></li>
+	                </ul>
+	            </li>
+
+	            <li class="has-children">
+	                <input type="checkbox" name="group-4" id="group-4">
+	                <label for="group-4">Group 4</label>
+
+	                <ul>
+	                    <li class="has-children">
+	                        <input type="checkbox" name="sub-group-3" id="sub-group-3">
+	                        <label for="sub-group-3">Sub Group 3</label>
+
+	                        <ul>
+	                            <li><a href="#0">Image</a></li>
+	                            <li><a href="#0">Image</a></li>
+	                        </ul>
+	                    </li>
+	                    <li><a href="#0">Image</a></li>
+	                    <li><a href="#0">Image</a></li>
+	                </ul>
+	            </li>
+        	</ul>
+		</div>
+		<!--end-->
+	</div>
+	<!--左边结束-->
+	<!--右边开始-->
+	<div class="k_right">
+		<div class="content">
+			<div class="row" id="row">
+			  <div class="col-md-4">
+			  		<h6 class="title">订单信息</h6>
+			  		<p class="d-p">
+			  			<span class="d-s">订单号 :</span>
+			  			<em class="d-e">123456789</em>
+			  		</p>
+			  		<p class="d-p">
+			  			<span class="d-s">下单时间 :</span>
+			  			<em class="d-e">123456789</em>
+			  		</p>
+			  		<p class="d-p">
+			  			<span class="d-s">积分 :</span>
+			  			<em class="d-e">123456789</em>
+			  		</p>
+			  		<p class="d-p">
+			  			<span class="d-s">供应商 :</span>
+			  			<em class="d-e">123456789</em>
+			  		</p>
+			  </div>
+			  <div class="col-md-4">
+			  		<h6 class="title">收货信息</h6>
+			  		<p class="d-p">
+			  			<span class="d-s">收货超市 :</span>
+			  			<em class="d-e">123456789</em>
+			  		</p>
+			  		<p class="d-p">
+			  			<span class="d-s">收货人 :</span>
+			  			<em class="d-e">123456789</em>
+			  		</p>
+			  		<p class="d-p">
+			  			<span class="d-s">联系方式 :</span>
+			  			<em class="d-e">123456789</em>
+			  		</p>
+			  		<p class="d-p">
+			  			<span class="d-s">收货地址 :</span>
+			  			<em class="d-e">123456789</em>
+			  		</p>
+			  </div>
+			  <div class="col-md-4">
+			  		<h6 class="title">付款信息</h6>
+			  		<p class="d-p">
+			  			<span class="d-s">支付方式 :</span>
+			  			<em class="d-e">123456789</em>
+			  		</p>
+			  		<p class="d-p">
+			  			<span class="d-s">支付时间 :</span>
+			  			<em class="d-e">123456789</em>
+			  		</p>
+			  		<p class="d-p">
+			  			<span class="d-s">商品金额 :</span>
+			  			<em class="d-e">123456789</em>
+			  		</p>
+			  		<p class="d-p">
+			  			<span class="d-s">实付金额 :</span>
+			  			<em class="d-e">123456789</em>
+			  		</p>
+			  </div>
+			</div>
+			<div class="table-responsive">
+				<h5 class="t-title">商品信息</h5>
+				<!--table-->
+				<table class="table table-bordered" style="text-align:center">
+				  	<thead style="background:#eee">
+						<tr>
+							<td>商品名称</td>
+							<td>商品图片</td>
+							<td>包装规格</td>
+							<td>数量</td>
+							<td>商品金额</td>
+							<td>实付金额</td>
+							<td>订单状态</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>资源列表</td>
+							<td>管理该账号下所有资源</td>
+							<td>资源管理</td>
+							<td>服务站</td>
+							<td>上线</td>
+							<td>http://www.kxp1688.com:5000/</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>资源列表</td>
+							<td>管理该账号下所有资源</td>
+							<td>资源管理</td>
+							<td>服务站</td>
+							<td>上线</td>
+							<td>http://www.kxp1688.com:5000/</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="price">
+				    <p class="p-p">
+			  			<span class="d-s">商品总价 :</span>
+			  			<em class="d-e">10000</em>
+			  		</p>
+			  		<p class="p-p">
+			  			<span class="d-s">实付金额 :</span>
+			  			<em class="d-e">123456789</em>
+			  		</p>
+			  		<p class="p-p">
+			  			<span class="d-s">促销方式 :</span>
+			  			<em class="d-e">满减</em>
+			  		</p>
+			  		<p class="p-p">
+			  			<span class="d-s">优惠金额 :</span>
+			  			<em class="d-e">￥123456789</em>
+			  		</p>
+				</div>
+			</div>
+		</div>	
+	</div>
+	<!--右边结束-->
+	<!--面包屑导航-->
+	<div class="k_breadcrumb">
+		<ol class="breadcrumb" style="background:#fff">
+		  	<li><a href="#">服务站管理中心</a></li>
+		  	<li><a href="#">订单管理</a></li>
+		  	<li><a href="#">订单 :123456789</a></li>
+		</ol>
+		<a href="add_menu.html" class="add_menu"></i>订单列表</a>
+	</div>
+	<!--面包屑导航结束-->
+	<!--footer开始-->
+	<div class="k_footer">
+		<p>版权所有 @ 北京快消互联科技发展有限公司 未经许可 严禁复制</p>
+		<p>京ICP备16000340 号</p>
+		<p>北京经济技术开发区地盛南街9号1栋 电话 : 010-58046928</p>
+	</div>
+	<!--footer结束-->
+</div>	
+<!--end-->
+</body>
+</html>

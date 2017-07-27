@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kxwp.admin.mapper.masterStation.MsBrandMapper" >
+  <resultMap id="BaseResultMap" type="com.kxwp.admin.entity.masterStation.MsBrand" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="brand_name" property="brandName" jdbcType="VARCHAR" />
+    <result column="brand_name_abbr" property="brandNameAbbr" jdbcType="VARCHAR" />
+    <result column="brand_status" property="brandStatus" jdbcType="VARCHAR" typeHandler="org.apache.ibatis.type.EnumTypeHandler" />
+    <result column="fe_bid" property="feBid" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="brand_no" property="brandNo" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.kxwp.admin.entity.masterStation.MsBrand" extends="BaseResultMap" >
+    <result column="describtion" property="describtion" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+            <foreach collection="criteria.brandStatusCriteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value,typeHandler=org.apache.ibatis.type.EnumTypeHandler}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value,typeHandler=org.apache.ibatis.type.EnumTypeHandler} and #{criterion.secondValue,typeHandler=org.apache.ibatis.type.EnumTypeHandler}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem,typeHandler=org.apache.ibatis.type.EnumTypeHandler}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, brand_name, brand_name_abbr, brand_status,describtion,fe_bid, create_time, update_time, 
+    brand_no
+  </sql>
+  
+ 
+  <select id="selectDuplicate" resultType="java.lang.Integer"
+  	 parameterType="java.lang.String">
+  	select
+  	COUNT(*)
+  	from ms_brand
+  	<where> 
+		brand_name like CONCAT('%',#{brandName,jdbcType=VARCHAR},'%')
+  	</where>
+  </select>
+  
+  <select id="selectByCondition" resultMap="BaseResultMap"  
+  	parameterType="com.kxwp.admin.query.masterStation.MsBrandQuery">
+  	select
+  	<include refid="Base_Column_List"/>	
+  	from ms_brand
+  	<where> 
+	 	<if test="brandName!=null or brandNameAbbr !=null">
+			and (brand_name like CONCAT('%',#{brandName,jdbcType=VARCHAR},'%') or brand_name_abbr like CONCAT('%',#{brandNameAbbr,jdbcType=VARCHAR},'%'))
+		</if> 
+		<if test="id!=null">
+  			and id = #{id,jdbcType=BIGINT}
+  		</if>
+  		<if test="brandNo!=null">
+  			and brand_no = #{brandNo,jdbcType=VARCHAR}
+  		</if>
+  		<if test="brandStatus!=null">
+  			and brand_status = #{brandStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler}
+  		</if>
+  	</where>
+  	limit #{pager.limit,jdbcType=INTEGER} offset #{pager.offset,jdbcType=INTEGER}
+  </select>
+  
+  <select id="countByQuery" parameterType="com.kxwp.admin.query.masterStation.MsBrandQuery" resultType="int">
+    select 
+    count(id)
+    from ms_brand
+    <where> 
+	 	<if test="brandName!=null or brandNameAbbr !=null">
+			and (brand_name like CONCAT('%',#{brandName,jdbcType=VARCHAR},'%') or brand_name_abbr like CONCAT('%',#{brandNameAbbr,jdbcType=VARCHAR},'%'))
+		</if> 
+		<if test="id!=null">
+  			and id = #{id,jdbcType=BIGINT}
+  		</if>
+  		<if test="brandNo!=null">
+  			and brand_no = #{brandNo,jdbcType=VARCHAR}
+  		</if>
+  		<if test="brandStatus!=null">
+  			and brand_status = #{brandStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler}
+  		</if>
+  	</where>
+  </select>
+  
+  <sql id="Blob_Column_List" >
+    describtion
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ms_brand
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from ms_brand
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.kxwp.admin.entity.masterStation.MsBrand" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      select last_insert_id()
+    </selectKey>
+    insert into ms_brand (brand_name, brand_name_abbr, brand_status,create_time, update_time,
+      brand_no, describtion)
+    values (#{brandName,jdbcType=VARCHAR}, #{brandNameAbbr,jdbcType=VARCHAR}, #{brandStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler}, 
+      NOW(), NOW(), 
+      #{brandNo,jdbcType=VARCHAR}, #{describtion,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kxwp.admin.entity.masterStation.MsBrand" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      select last_insert_id()
+    </selectKey>
+    insert into ms_brand
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="brandName != null" >
+        brand_name,
+      </if>
+      <if test="brandNameAbbr != null" >
+        brand_name_abbr,
+      </if>
+      <if test="brandStatus != null" >
+        brand_status,
+      </if>
+      <if test="feBid != null" >
+        fe_bid,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="brandNo != null" >
+        brand_no,
+      </if>
+      <if test="describtion != null" >
+        describtion,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="brandName != null" >
+        #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="brandNameAbbr != null" >
+        #{brandNameAbbr,jdbcType=VARCHAR},
+      </if>
+      <if test="brandStatus != null" >
+        #{brandStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler},
+      </if>
+      <if test="feBid != null" >
+        #{feBid,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="brandNo != null" >
+        #{brandNo,jdbcType=VARCHAR},
+      </if>
+      <if test="describtion != null" >
+        #{describtion,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kxwp.admin.entity.masterStation.MsBrandExample" resultType="java.lang.Integer" >
+    select count(*) from ms_brand
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kxwp.admin.entity.masterStation.MsBrand" >
+    update ms_brand
+    <set >
+      <if test="brandName != null" >
+        brand_name = #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="brandNameAbbr != null" >
+         brand_name_abbr = #{brandNameAbbr,jdbcType=VARCHAR},
+      </if>
+      <if test="brandStatus != null" >
+        brand_status = #{brandStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler},
+      </if>
+      <if test="feBid != null" >
+        fe_bid = #{feBid,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = NOW(),
+      </if>
+      <if test="brandNo != null" >
+        brand_no = #{brandNo,jdbcType=VARCHAR},
+      </if>
+      <if test="describtion != null" >
+        describtion = #{describtion,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.kxwp.admin.entity.masterStation.MsBrand" >
+    update ms_brand
+    set brand_name = #{brandName,jdbcType=VARCHAR},
+      brand_name_abbr = #{brandNameAbbr,jdbcType=VARCHAR},
+      brand_status = #{brandStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler},
+      fe_bid = #{feBid,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      brand_no = #{brandNo,jdbcType=VARCHAR},
+      describtion = #{describtion,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kxwp.admin.entity.masterStation.MsBrand" >
+    update ms_brand
+    set brand_name = #{brandName,jdbcType=VARCHAR},
+      brand_name_abbr = #{brandNameAbbr,jdbcType=VARCHAR},
+      brand_status = #{brandStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler},
+      fe_bid = #{feBid,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      brand_no = #{brandNo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

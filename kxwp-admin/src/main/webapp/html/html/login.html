@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>快消互联</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="shortcut icon" href="../img/favicon.ico">
+	<link rel="stylesheet" href="../css/login.css">
+	<link rel="stylesheet" href="../public/Font-Awesome/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="k_container">
+		<div class="k_top">
+			<img src="../img/logo.png" alt="">
+		</div>
+		<div class="k_content">
+			<form class="form" method="" action="">
+				<p class="form_title"><i class="icon-desktop"></i>&nbsp; <span>登录管理系统</span></p>
+				<p class="form_user"><i class="icon-user"></i><input type="text" placeholder="用户名/手机号" id="user_name"></p>
+				<p class="form_pwd"><i class="icon-lock"></i><input type="password" id="pwd" placeholder="请输入长度为6到12位的密码"></p>
+				<p class="form_btn">
+					<span class="login">登录</span>
+					<input type="reset" class="reset" value="重置">
+				</p>
+			</form>
+		</div>
+		<div class="k_footer">
+			<p>版权所有 @ 北京快消互联科技发展有限公司 未经许可 严禁复制</p>
+			<p>京ICP备16000340 号</p>
+			<p>北京经济技术开发区地盛南街9号1栋 电话 : 010-58046928</p>
+		</div>
+	</div>
+	<script src="../js/jquery-1.9.1.min.js"></script>
+	<script src="../public/layer/layer.js"></script>
+	<script src="../js/login.js"></script>
+	<script>
+	$(document).ready(function() {
+	    Login.initPage();
+	    setTimeout(function(){
+	        $("#user").focus();
+	    },300);
+	});
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

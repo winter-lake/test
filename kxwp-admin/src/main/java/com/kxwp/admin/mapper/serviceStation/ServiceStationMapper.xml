@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kxwp.admin.mapper.serviceStation.ServiceStationMapper">
+	<resultMap id="BaseResultMap"
+		type="com.kxwp.admin.entity.serviceStation.ServiceStation">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="master_station_id" property="masterStationId"
+			jdbcType="BIGINT" />
+		<result column="service_station_name" property="serviceStationName"
+			jdbcType="VARCHAR" />
+		<result column="service_station_admin" property="serviceStationAdmin"
+			jdbcType="VARCHAR" />
+		<result column="platform_fee" property="platformFee" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      	<result column="platform_bzj" property="platformBzj" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+		<result column="phone" property="phone" jdbcType="BIGINT" />
+		<result column="province" property="province" jdbcType="INTEGER" />
+		<result column="city" property="city" jdbcType="INTEGER" />
+		<result column="county" property="county" jdbcType="INTEGER" />
+		<result column="town" property="town" jdbcType="INTEGER" />
+		<result column="adress" property="adress" jdbcType="VARCHAR" />
+		<result column="license_num" property="licenseNum" jdbcType="VARCHAR" />
+		<result column="identity_card_num" property="identityCardNum"
+			jdbcType="VARCHAR" />
+		<result column="longitude" property="longitude" jdbcType="VARCHAR" />
+		<result column="lantitude" property="lantitude" jdbcType="VARCHAR" />
+		<result column="station_status" property="stationStatus"
+			jdbcType="VARCHAR" typeHandler="org.apache.ibatis.type.EnumTypeHandler" />
+		<result column="create_user_id" property="createUserId"
+			jdbcType="BIGINT" />
+		<result column="service_staion_type" property="serviceStaionType"
+			jdbcType="VARCHAR" typeHandler="org.apache.ibatis.type.EnumTypeHandler" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+		<result column="fe_service_station_id" property="feServiceStationId" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Example_Where_Clause">
+		<where>
+			<foreach collection="oredCriteria" item="criteria" separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" suffix=")" prefixOverrides="and">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem"
+										open="(" close=")" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+						<foreach collection="criteria.stationStatusCriteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition}
+									#{criterion.value,typeHandler=org.apache.ibatis.type.EnumTypeHandler}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition}
+									#{criterion.value,typeHandler=org.apache.ibatis.type.EnumTypeHandler}
+									and
+									#{criterion.secondValue,typeHandler=org.apache.ibatis.type.EnumTypeHandler}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem"
+										open="(" close=")" separator=",">
+										#{listItem,typeHandler=org.apache.ibatis.type.EnumTypeHandler}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Base_Column_List">
+		id, master_station_id, service_station_name, service_station_admin,platform_fee,platform_bzj,
+		phone, province,
+		city, county, town, adress, license_num, identity_card_num, longitude,
+		lantitude,
+		station_status, create_user_id, service_staion_type, create_time, update_time,fe_service_station_id
+	</sql>
+	<select id="selectByFeServiceStationId" resultMap="BaseResultMap"
+		parameterType="String">
+		select
+		<include refid="Base_Column_List" />
+		from ss_service_station
+		where fe_service_station_id = #{feServiceStationId,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="searchLikeserviceStationName" resultMap="BaseResultMap"
+		parameterType="String">
+		select
+		<include refid="Base_Column_List" />
+		from ss_service_station
+		where service_station_name LIKE
+		'%${_parameter}%'
+	</select>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from ss_service_station
+		where id = #{id,jdbcType=BIGINT}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+		delete from ss_service_station
+		where id = #{id,jdbcType=BIGINT}
+	</delete>
+	<insert id="insert" parameterType="com.kxwp.admin.entity.serviceStation.ServiceStation">
+		<selectKey resultType="java.lang.Long" keyProperty="id"
+			order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into ss_service_station (master_station_id,
+		service_station_name,
+		service_station_admin,platform_fee,platform_bzj, phone, province,
+		city, county, town,
+		adress, license_num, identity_card_num,
+		longitude, lantitude, station_status,
+		create_user_id, service_staion_type,
+		create_time, update_time,fe_service_station_id)
+		values (#{masterStationId,jdbcType=BIGINT},
+		#{serviceStationName,jdbcType=VARCHAR},
+		#{serviceStationAdmin,jdbcType=VARCHAR}, 
+		#{platformFee,jdbcType=DECIMAL}, #{platformBzj,jdbcType=DECIMAL}, #{phone,jdbcType=BIGINT},
+		#{province,jdbcType=INTEGER},
+		#{city,jdbcType=INTEGER}, #{county,jdbcType=INTEGER}, #{town,jdbcType=INTEGER},
+		#{adress,jdbcType=VARCHAR}, #{licenseNum,jdbcType=VARCHAR},
+		#{identityCardNum,jdbcType=VARCHAR},
+		#{longitude,jdbcType=VARCHAR}, #{lantitude,jdbcType=VARCHAR},
+		#{stationStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler},
+		#{createUserId,jdbcType=BIGINT},
+		#{serviceStaionType,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler},
+		#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},#{feServiceStationId,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.kxwp.admin.entity.serviceStation.ServiceStation">
+		<selectKey resultType="java.lang.Long" keyProperty="id"
+			order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into ss_service_station
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="masterStationId != null">
+				master_station_id,
+			</if>
+			<if test="serviceStationName != null">
+				service_station_name,
+			</if>
+			<if test="serviceStationAdmin != null">
+				service_station_admin,
+			</if>
+			 <if test="platformFee != null" >
+		        platform_fee,
+		     </if>
+		     <if test="platformBzj != null" >
+		        platform_bzj,
+		     </if>
+			<if test="phone != null">
+				phone,
+			</if>
+			<if test="province != null">
+				province,
+			</if>
+			<if test="city != null">
+				city,
+			</if>
+			<if test="county != null">
+				county,
+			</if>
+			<if test="town != null">
+				town,
+			</if>
+			<if test="adress != null">
+				adress,
+			</if>
+			<if test="licenseNum != null">
+				license_num,
+			</if>
+			<if test="identityCardNum != null">
+				identity_card_num,
+			</if>
+			<if test="longitude != null">
+				longitude,
+			</if>
+			<if test="lantitude != null">
+				lantitude,
+			</if>
+			<if test="stationStatus != null">
+				station_status,
+			</if>
+			<if test="createUserId != null">
+				create_user_id,
+			</if>
+			<if test="serviceStaionType != null">
+				service_staion_type,
+			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
+			<if test="updateTime != null">
+				update_time,
+			</if>
+			<if test="feServiceStationId != null">
+				fe_service_station_id,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="masterStationId != null">
+				#{masterStationId,jdbcType=BIGINT},
+			</if>
+			<if test="serviceStationName != null">
+				#{serviceStationName,jdbcType=VARCHAR},
+			</if>
+			<if test="serviceStationAdmin != null">
+				#{serviceStationAdmin,jdbcType=VARCHAR},
+			</if>
+			 <if test="platformFee != null" >
+		        #{platformFee,jdbcType=DECIMAL},
+		      </if>
+		      <if test="platformBzj != null" >
+		        #{platformBzj,jdbcType=DECIMAL},
+		      </if>
+			<if test="phone != null">
+				#{phone,jdbcType=BIGINT},
+			</if>
+			<if test="province != null">
+				#{province,jdbcType=INTEGER},
+			</if>
+			<if test="city != null">
+				#{city,jdbcType=INTEGER},
+			</if>
+			<if test="county != null">
+				#{county,jdbcType=INTEGER},
+			</if>
+			<if test="town != null">
+				#{town,jdbcType=INTEGER},
+			</if>
+			<if test="adress != null">
+				#{adress,jdbcType=VARCHAR},
+			</if>
+			<if test="licenseNum != null">
+				#{licenseNum,jdbcType=VARCHAR},
+			</if>
+			<if test="identityCardNum != null">
+				#{identityCardNum,jdbcType=VARCHAR},
+			</if>
+			<if test="longitude != null">
+				#{longitude,jdbcType=VARCHAR},
+			</if>
+			<if test="lantitude != null">
+				#{lantitude,jdbcType=VARCHAR},
+			</if>
+			<if test="stationStatus != null">
+				#{stationStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler},
+			</if>
+			<if test="createUserId != null">
+				#{createUserId,jdbcType=BIGINT},
+			</if>
+			<if test="serviceStaionType != null">
+				#{serviceStaionType,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateTime != null">
+				#{updateTime,jdbcType=TIMESTAMP},
+			</if>
+			 <if test="feServiceStationId != null" >
+		        #{feServiceStationId,jdbcType=VARCHAR},
+		     </if>
+		</trim>
+	</insert>
+	<select id="countByExample"
+		parameterType="com.kxwp.admin.entity.serviceStation.ServiceStationExample"
+		resultType="java.lang.Integer">
+		select count(*) from ss_service_station
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</select>
+	<update id="updateByPrimaryKeySelective" parameterType="com.kxwp.admin.entity.serviceStation.ServiceStation">
+		update ss_service_station
+		<set>
+			<if test="masterStationId != null">
+				master_station_id = #{masterStationId,jdbcType=BIGINT},
+			</if>
+			<if test="serviceStationName != null">
+				service_station_name = #{serviceStationName,jdbcType=VARCHAR},
+			</if>
+			<if test="serviceStationAdmin != null">
+				service_station_admin = #{serviceStationAdmin,jdbcType=VARCHAR},
+			</if>
+			 <if test="platformFee != null" >
+		        platform_fee = #{platformFee,jdbcType=DECIMAL},
+		      </if>
+		      <if test="platformBzj != null" >
+		        platform_bzj = #{platformBzj,jdbcType=DECIMAL},
+		      </if>
+			<if test="phone != null">
+				phone = #{phone,jdbcType=BIGINT},
+			</if>
+			<if test="province != null">
+				province = #{province,jdbcType=INTEGER},
+			</if>
+			<if test="city != null">
+				city = #{city,jdbcType=INTEGER},
+			</if>
+			<if test="county != null">
+				county = #{county,jdbcType=INTEGER},
+			</if>
+			<if test="town != null">
+				town = #{town,jdbcType=INTEGER},
+			</if>
+			<if test="adress != null">
+				adress = #{adress,jdbcType=VARCHAR},
+			</if>
+			<if test="licenseNum != null">
+				license_num = #{licenseNum,jdbcType=VARCHAR},
+			</if>
+			<if test="identityCardNum != null">
+				identity_card_num = #{identityCardNum,jdbcType=VARCHAR},
+			</if>
+			<if test="longitude != null">
+				longitude = #{longitude,jdbcType=VARCHAR},
+			</if>
+			<if test="lantitude != null">
+				lantitude = #{lantitude,jdbcType=VARCHAR},
+			</if>
+			<if test="stationStatus != null">
+				station_status =
+				#{stationStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler},
+			</if>
+			<if test="createUserId != null">
+				create_user_id = #{createUserId,jdbcType=BIGINT},
+			</if>
+			<if test="serviceStaionType != null">
+				service_staion_type =
+				#{serviceStaionType,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateTime != null">
+				update_time = #{updateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="feServiceStationId != null" >
+	        	fe_service_station_id = #{feServiceStationId,jdbcType=VARCHAR},
+	         </if>
+		</set>
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.kxwp.admin.entity.serviceStation.ServiceStation">
+		update ss_service_station
+		set master_station_id = #{masterStationId,jdbcType=BIGINT},
+		service_station_name = #{serviceStationName,jdbcType=VARCHAR},
+		service_station_admin = #{serviceStationAdmin,jdbcType=VARCHAR},
+		platform_fee = #{platformFee,jdbcType=DECIMAL},
+      	platform_bzj = #{platformBzj,jdbcType=DECIMAL},
+		phone = #{phone,jdbcType=BIGINT},
+		province = #{province,jdbcType=INTEGER},
+		city = #{city,jdbcType=INTEGER},
+		county = #{county,jdbcType=INTEGER},
+		town = #{town,jdbcType=INTEGER},
+		adress = #{adress,jdbcType=VARCHAR},
+		license_num = #{licenseNum,jdbcType=VARCHAR},
+		identity_card_num = #{identityCardNum,jdbcType=VARCHAR},
+		longitude = #{longitude,jdbcType=VARCHAR},
+		lantitude = #{lantitude,jdbcType=VARCHAR},
+		station_status =
+		#{stationStatus,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler},
+		create_user_id = #{createUserId,jdbcType=BIGINT},
+		service_staion_type =
+		#{serviceStaionType,jdbcType=VARCHAR,typeHandler=org.apache.ibatis.type.EnumTypeHandler},
+		create_time = #{createTime,jdbcType=TIMESTAMP},
+		update_time = #{updateTime,jdbcType=TIMESTAMP},
+		fe_service_station_id = #{feServiceStationId,jdbcType=VARCHAR},
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+</mapper>

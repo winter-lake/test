@@ -1,0 +1,57 @@
+/*添加菜单*/
+.form_menu{
+	width:600px;
+	height:600px;
+	margin:30px auto;
+}
+.form_menu .div{
+	margin-bottom:15px;
+	font-family:"微软雅黑";
+}
+.form_menu div em{
+	color:#26a1d0;
+	cursor:pointer;
+}
+.form_menu span{
+	width:100px;
+	text-align:right;
+	line-height:30px;
+	margin-right:5px;
+	display:block;
+	float:left;
+}
+.form_menu p{
+	width:280px;
+	display:inline-block;
+}
+.form_menu input[type=text],.form_menu textarea,.form_menu select{
+	width:250px;
+	border:1px solid #eee;
+}
+.form_menu input[type=text],.form_menu select{
+	height:30px;
+}
+.form_menu textarea{
+	resize:none;
+}
+/*确认及重置按钮*/
+.yes,.reset{
+	width:90px;
+	height:35px;
+	border-radius:6px;
+	line-height:35px;
+	text-align:center;
+	display:inline-block;
+	color:#fff;
+	cursor:pointer;
+	outline:none;
+	border:none;
+}
+.yes{
+	background:#ff6600;
+	margin-left:120px;
+}
+.reset{
+	background:#336ea5;
+	margin-left:50px;
+}

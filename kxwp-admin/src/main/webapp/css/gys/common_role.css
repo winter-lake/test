@@ -1,0 +1,60 @@
+.add_form_role{
+	margin:30px auto;
+}
+.add_form_role .div{
+	margin-bottom:15px;
+	font-family:"微软雅黑";
+	width:700px;
+}
+
+.add_form_role span{
+	width:100px;
+	text-align:right;
+	line-height:30px;
+	margin-right:5px;
+	display:block;
+	float:left;
+}
+.add_form_role h4{
+	line-height:40px;
+	background:#eee;
+	text-indent:20px;
+	font-size:14px;
+	font-family:"微软雅黑";
+}
+.b_em{
+	font-weight:bold;
+}
+
+.add_form_role div p{
+	display:inline-block;
+	margin-left:25px;
+}
+.add_form_role div p input[type="checkbox"]{
+	position:relative;
+	top:2px;
+}
+
+.add_form_role textarea{
+	resize:none;
+}
+#yes,#reset{
+	width:90px;
+	height:35px;
+	border-radius:6px;
+	line-height:35px;
+	text-align:center;
+	display:inline-block;
+	color:#fff;
+	cursor:pointer;
+	outline:none;
+	border:none;
+}
+#yes{
+	background:#ff6600;
+	margin-left:40px;
+}
+#reset{
+	background:#336ea5;
+	margin-left:50px;
+}

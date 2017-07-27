@@ -1,0 +1,46 @@
+.content{
+	background:#eee;
+}
+#row{
+	background:#fff;
+	border-radius:8px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.row .col-md-4{
+	font-size:12px;
+	border-radius:5px;
+	padding-left:30px;
+}
+.row .col-md-4 .title{
+	font-weight:bold;
+}
+.d-s{
+	width:80px;
+	display:inline-block;
+	text-align:left;
+}
+.table-responsive{
+	padding:15px;
+	padding-top:5px;
+	font-size:13px;
+}
+.t-title{
+	font-size:12px;
+	font-weight:bold;
+}
+.d-p{
+	margin-top:10px;
+}
+.table-responsive{
+	background:#fff;
+	margin-top:10px;
+}
+.price{
+	float:right;
+}
+.price .p-p{
+	display:inline-block;
+	margin-left:40px;
+	font-size:13px;
+}

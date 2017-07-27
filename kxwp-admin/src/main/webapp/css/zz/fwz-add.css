@@ -1,0 +1,132 @@
+.fwz-add{
+
+}
+.fwz-add h4{
+	width:100%;
+	height:35px;
+	line-height:35px;
+	color:#999;
+	text-indent:14px;
+	background:#f5f5f5;
+	margin-right:10px;
+}
+//账户信息
+.zhxx p{
+	margin-bottom:20px;
+}
+.zhxx .input-group span.input-key{
+	width:120px;
+	text-align:right;
+	display:inline-block;
+	font-size:13px;
+	margin-right:10px;
+}
+.zhxx .input-group input.input-value{
+	width:220px;
+	height:30px;
+	text-indent:8px;
+	color:#333;
+	border:1px solid #ccc;
+}
+.zhxx select{
+	width:150px;
+	height:30px;
+	color:#999;
+	margin-right:7px;
+	border:1px solid #ccc;
+}
+.dtmm{
+	width:100px;
+	height:30px;
+	background:#286090;
+	color:#fff;
+	border:none;
+	border-radius:4px;
+	margin-left:20px;
+	outline:none;
+	font-family:"微软雅黑";
+}
+
+//服务信息
+.fwxx p{
+	margin-bottom:20px;
+}
+.fwxx .input-group span.input-key{
+	width:120px;
+	text-align:right;
+	display:inline-block;
+	font-size:13px;
+	margin-right:10px;
+}
+.fwxx .input-group input.input-value{
+	width:220px;
+	height:30px;
+	text-indent:8px;
+	color:#333;
+	border:1px solid #ccc;
+}
+.fwxx input[type="radio"]{
+	width:12px;
+	position:relative;
+	top:11px;
+}
+.fwxx input[type="checkbox"]{
+	width:12px;
+}
+.fwxx select{
+	width:150px;
+	height:30px;
+	color:#999;
+	margin-right:7px;
+	border:1px solid #ccc;
+}
+.fwxx b{
+	width:700px;
+	display:block;
+	margin-left:130px;
+	font-family:"微软雅黑";
+	font-weight:100;
+}
+// .fwxx label input[type="checkbox"]{
+// 	position:relative;
+// 	top:10px;
+// 	margin-right:4px;
+// }
+.fwxx label{
+	width:120px;
+	display:inline-block;
+	font-size:12px;
+	color:#999;
+	font-weight:100;
+}
+.qr,.qx{
+	width:100px;
+	height:30px;
+	margin-left:100px;
+	margin-top:10px;
+	border:none;
+	border-radius:4px;
+	outline:none;
+	font-family:"微软雅黑";
+}
+.qr{
+	background:#286090;
+	color:#fff;
+}
+
+.select2-container .select2-selection.select2-selection--single {
+	padding-left: 0;
+}
+.label_list {
+	margin-left: 128px;
+	width: 600px;
+}
+.label_list label{
+	display: inline-block;
+	width: 120px;
+	vertical-align: top;
+}
+.label_list label [type=checkbox]{
+	vertical-align: top;
+	margin-right: 5px;
+}

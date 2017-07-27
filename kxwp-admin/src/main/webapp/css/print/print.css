@@ -1,0 +1,242 @@
+@media print{
+    .no-printer{display: none;}
+    .higo-PageNext{page-break-after: always;}
+}
+.e_key {
+  font-size: 16px;
+  font-weight: 700;
+}
+.e_value {
+  font-size: 14px;
+}
+
+.no_border_b {
+  border-bottom: 0 !important;
+}
+.no_border_r {
+  border-right: 0 !important;
+}
+html {
+  font-size: 10mm;
+}
+.tx_lg {
+  font-size: 0.5rem;
+}
+.tx_md {
+  font-size: 0.4rem;
+}
+.tx_sm {
+  font-size: 0.3rem;
+}
+.tx_xs {
+  font-size: 0.25rem;
+}
+.tx_c {
+  text-align: center;
+}
+.tx_l {
+  text-align: left;
+}
+.tx_r {
+  text-align: right;
+}
+.tx_money {
+  color: #f20;
+}
+.w_multi_tx {
+  display: table;
+  padding: 0;
+}
+.w_multi_tx > div {
+  line-height: 1;
+  display: table-cell;
+  vertical-align: middle;
+}
+.p_print_box {
+  font: 0.4rem/1.5 "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", "Hiragino Sans GB", SimSun, sans-serif;
+}
+.p_print_box b {
+  font-weight: 700;
+}
+.pr_ship_order {
+  width: 20.1rem;
+  //height: 17.5rem;
+  background: #fff;
+  box-sizing: border-box;
+  //border: 0.3mm solid #000;
+ //margin-top:10px;
+ //margin-left:400px;
+
+ margin: 10px auto;
+}
+.pr_ship_order .row {
+  font-size: 0.3rem;
+  margin-right: 0px;
+  margin-left: 0px; 
+  box-sizing: border-box;
+  border-bottom: 0.3mm solid #000;
+}
+.pr_ship_order .row:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.pr_ship_order .col {
+  box-sizing: border-box;
+  padding: 0.1rem;
+  float: left;
+  height: 100%;
+  border-right: 0.3mm solid #000;
+}
+.pr_ship_order .col.w_multi_tx {
+  padding: 0;
+}
+.pr_ship_order .key_w {
+  width: 1.25rem;
+  overflow: hidden;
+}
+.pr_ship_order .value_w {
+  width: 2.5rem;
+  overflow: hidden;
+  font-size: 0.3rem;
+}
+.pr_ship_order .value_w .tx_mult {
+  line-height: 1;
+  vertical-align: middle;
+}
+.pr_ship_order .row1 {
+  height: 1.5rem;
+  border-top:.33mm solid #000;
+  border-left:.33mm solid #000;
+  border-right:.33mm solid #000;
+}
+.pr_ship_order .row1 .col1 {
+  width: 5rem;
+}
+.pr_ship_order .row1 .col1 img {
+  max-width: 4rem;
+  height: 1rem;
+  vertical-align: middle;
+}
+.pr_ship_order .row1 .col2 {
+  width: 2.5rem;
+  line-height:1.2rem;
+  font-size:10px;
+}
+.pr_ship_order .row1 .col3 {
+  width: 4.5rem;
+  line-height:1.2rem;
+  border-right:.33mm solid #000;
+}
+.pr_ship_order .row1 .col3 img {
+  height: 1rem;
+  max-width: 5rem;
+  vertical-align: -0.3rem;
+}
+.pr_ship_order .row1 .col4{
+	line-height:1.3rem;
+}
+.pr_ship_order .row2,
+.pr_ship_order .row3 {
+  height: 1.2rem;
+  line-height: 1rem;
+  border-left:.33mm solid #000;
+  border-right:.33mm solid #000;
+}
+.pr_ship_order .row4 .col1 table {
+  padding: 0;
+  border-spacing: 0;
+}
+
+.p_print_box table{
+  width: 20.1rem!important;
+  border-left:.33mm solid #000;
+  border-right:.33mm solid #000;
+ // border-top:.33mm solid #000;
+}
+.p_print_box table th:first-child{
+  width:1.2rem!important;
+}
+.pr_ship_order .row4 .col1 table th,
+.pr_ship_order .row4 .col1 table td {
+  border-bottom: 0.3mm solid #000;
+  border-right: 0.3mm solid #000;
+  text-align:center;
+}
+.pr_ship_order .row4 .col1 table th:last-child,
+.pr_ship_order .row4 .col1 table td:last-child {
+  border-right:none;
+}
+
+.pr_ship_order .row4 .col1 table th {
+  white-space: nowrap;
+  height: 1.2rem;
+}
+.pr_ship_order .row4 .col1 table td {
+  font-size: 0.25rem;
+}
+.pr_ship_order .row4 .col2 {
+  width: 3rem;
+}
+.pr_ship_order .row4 .col2 .key {
+  border-bottom: 0.3mm solid #000;
+  height: 1.2rem;
+  line-height: 1.2rem;
+}
+.pr_ship_order .row5 {
+  height: 1.2rem;
+  line-height: 1rem;
+  border-left:.33mm solid #000;
+  border-right:.33mm solid #000;
+}
+.pr_ship_order .row5 .total > span {
+  margin-left: 4rem;
+}
+.pr_ship_order .row6 {
+  height: 1.2rem;
+  line-height: 1rem;
+   border-left:.33mm solid #000;
+  border-right:.33mm solid #000;
+}
+.pr_ship_order .row7 {
+  height: 1rem;
+  line-height: .8rem;
+}
+.pr_ship_order .row7 .col {
+  width: 6.7rem;
+  border:none;
+  line-height:1rem;
+  border-bottom:0.33mm solid #000;
+  padding:0;
+}
+
+
+.pr_ship_order table th, .pr_ship_order table td{
+  padding: 0.1rem;
+}
+.pr_ship_order table tr td:first-child{
+  width:1.25rem;
+}
+.pr_ship_order table tr td:nth-child(2){
+  width:3rem;
+}
+.pr_ship_order table tr td:nth-child(3){
+  width:4rem;
+}
+.pr_ship_order table tr td:nth-child(4){
+  width:2.5rem;
+}
+.pr_ship_order table tr td:nth-child(5){
+  width:1.27rem;
+}
+.pr_ship_order table tr td:nth-child(6){
+  width:1.26rem;
+}
+.pr_ship_order table tr td:nth-child(7){
+  width:1.3rem;
+}
+.pr_ship_order table tr td:nth-child(8){
+  width:2rem;
+}

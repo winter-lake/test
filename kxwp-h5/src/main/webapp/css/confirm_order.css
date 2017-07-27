@@ -1,0 +1,224 @@
+@charset "UTF-8";
+/*主体*/
+.container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -o-box;
+  display: box;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  -o-box-orient: vertical;
+  box-orient: vertical;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  min-width: 320px;
+  max-width: 768px;
+  margin: 0 auto;
+  background: #f4f4f4; }
+
+/*头部*/
+.header {
+  width: 100%;
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+  font-size: 1.4rem;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  min-width:320px;
+  max-width:414px;
+  margin:0 auto;
+   }
+  .header .back {
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    background: url(../images/back.png) no-repeat center center;
+    background-size: 20%;
+    position: absolute;
+    left: 0;
+    top: 0; }
+
+/*内容*/
+.content {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  position:absolute;
+  top:4rem;
+  bottom:5rem;
+  left:0;
+  right:0;
+  min-width:320px;
+  max-width:414px;
+  margin:0 auto;
+  overflow: hidden; }
+
+/*信息*/
+.msg {
+  width: 100%;
+  height: 6rem;
+  padding: 1rem;
+  background: #fff; }
+  .msg .name-phone, .msg .addres {
+    height: 2rem;
+    line-height: 2rem; }
+  .msg .name-phone {
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-indent: 1.3rem; }
+    .msg .name-phone .name {
+      margin-right: 3rem; }
+  .msg .addres {
+    color: #333;
+    text-indent: 1.3rem;
+    background: url(../images/addres.png) no-repeat left center;
+    background-size: 1rem; }
+
+/*商家*/
+.s-j {
+  margin-top: .5rem;
+  background: #fff; }
+  .s-j .s-title {
+    background: url(../images/company.png) no-repeat 1rem 0.7rem;
+    background-size: 1.5rem;
+    text-indent: 1.6rem;
+    height: 3rem;
+    line-height: 3rem;
+    text-indent: 3rem; }
+  .s-j .s-dl {
+    background: #eee;
+    padding: .5rem;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: -o-box;
+    display: box;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -ms-box-orient: horizontal;
+    -o-box-orient: horizontal;
+    box-orient: horizontal; }
+    .s-j .s-dl dt {
+      width: 8rem;
+      overflow:hidden;
+      height: 8rem;
+      margin-right: 1rem; }
+      .s-j .s-dl dt img {
+        width: 100%; }
+    .s-j .s-dl dd {
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      -ms-box-flex: 1;
+      -o-box-flex: 1;
+      box-flex: 1; }
+      .s-j .s-dl dd .d-title {
+      	width:16rem;
+      	overflow: hidden;
+   		text-overflow: ellipsis;
+    	white-space: nowrap;
+        line-height: 2rem;
+        font-weight: bold; }
+      .s-j .s-dl dd .d-gg {
+        line-height: 4rem;
+        color: #6e6e6e; }
+      .s-j .s-dl dd .price-num {
+        position: relative; }
+        .s-j .s-dl dd .price-num .price {
+          color: #f6251d; }
+        .s-j .s-dl dd .price-num .number {
+          position: absolute;
+          right: 1rem;
+          color: #666666; }
+  .s-j .l-y {
+    width: 100%;
+    padding: .5rem; }
+    .s-j .l-y textarea {
+      width: 100%;
+      height: 4rem;
+      border-radius: 5px;
+      resize: none;
+      color: #999;
+      text-indent: 1rem;
+      outline: none; }
+  .s-j .z-number-price {
+    height: 2rem;
+    background: #fff;
+    position: relative; }
+    .s-j .z-number-price span {
+      position: absolute;
+      right: 1rem;
+      width: 7rem;
+      color: #666; }
+      .s-j .z-number-price span .zzz-price {
+        color: #f6251d; }
+
+/*支付*/
+.z-f{
+	margin-top:.5rem;
+}
+.z-f .zxzf {
+  line-height: 3rem;
+  height: 3rem;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding-left: 1rem;
+  font-weight: bold;
+  color: #555555;
+  margin-top: .5rem; }
+  .z-f .zxzf input[type="checkbox"] {
+    position: relative;
+    top: .2rem; }
+.z-f .hdfk {
+  line-height: 3rem;
+  height: 3rem;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding-left: 1rem;
+  font-weight: bold;
+  color: #555555; }
+  .z-f .hdfk input[type="checkbox"] {
+    position: relative;
+    top: .2rem; }
+
+/*footer*/
+.confirm_footer {
+  width: 100%;
+  height: 5rem;
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  min-width:320px;
+  max-width:414px;
+  margin:0 auto;
+  background: #fff;
+  border-top: 1px solid #ccc; }
+  .confirm_footer .f-number-price {
+    line-height: 5rem;
+    margin-left: 1rem;
+    color: #797979;
+    font-size: 1.3rem; }
+    .confirm_footer .f-number-price .f-price {
+      color: #f6251d; }
+  .confirm_footer .submit-list {
+    width: 11rem;
+    height: 5rem;
+    text-align: center;
+    line-height: 5rem;
+    position: absolute;
+    right: 0;
+    background: #fa4545;
+    color: #fff; }
+
+/*# sourceMappingURL=submit-list.css.map */

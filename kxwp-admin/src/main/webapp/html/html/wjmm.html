@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>忘记密码</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/common.css">
+	<!-- 第三方 start -->
+	<link rel="stylesheet" href="../public/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../public/Font-Awesome/css/font-awesome.min.css">
+	<!-- 第三方end -->
+	<link rel="stylesheet" type="text/css" href="../css/wjmm.css">
+</head>
+<body>
+<!--外围容器-->
+<div class="k_contaniner">
+	<!--头部开始-->
+	<div class="k_top">
+		<div class="k_logo">
+			<span class="k_logo1">
+				<img src="../../images/share/kxwp_logo.png" alt="">
+			</span>
+			<span>
+				<img src="../../images/share/title_zz.png" alt="">
+			</span>
+			<div class="k_Options">
+				<span>
+					<i class="icon-user" style="font-size:20px;position:relative;top:2px"></i>
+					<em id="user">管理员</em>
+				</span>&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>
+					<i>角色 :</i>
+					<em id="yygl">运营管理员</em>
+				</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>
+					<select name="" id="zx">
+						<option value="安全中心">安全中心</option>
+						<option value="重置密码">重置密码</option>
+						<option value="注销账户">退出系统</option>
+					</select>
+				</span>
+			</div>                         
+		</div>
+	</div>
+	<!--头部结束-->
+	<!--右边开始-->
+		<div class="main">
+			<form class="wjmm">
+				<h5 class="title">忘记密码</h5>
+				<p><span>手机验证</span><input type="text" name="" placeholder="请输入绑定手机号" class="phone"></p>
+				<p><span>验证码</span><input type="text" name="" placeholder="请输入6位验证码"><i class="hqyz">获取验证码</i></p>
+				<p><span>新密码</span><input type="text" name="" placeholder="请输入6-20位字母或数字" class="pwd"></p>
+				<p><span>确认密码</span><input type="text" name="" placeholder="请输入6-20位字母或数字" class="ypwd"></p>
+				<p style="border:none"><button type="submit" class="qdxg">确定</button></p>
+			</form>
+		</div>
+	<!--右边结束-->
+	
+	<!--footer开始-->
+	<div class="k_footer">
+		<p>版权所有 @ 北京快消互联科技发展有限公司 未经许可 严禁复制</p>
+		<p>京ICP备16000340 号</p>
+		<p>北京经济技术开发区地盛南街9号1栋 电话 : 010-58046928</p>
+	</div>
+	<!--footer结束-->
+</div>	
+<!--end-->
+<script src="../public/jquery-2.1.4.min.js"></script>
+<script src="../public/layer/layer.js"></script>
+<script src="../public/bootstrap/js/bootstrap.js"></script>
+<script src="../public/common.js"></script>
+<script type="text/javascript" src="../public/fm.validator.js"></script>
+<script>
+$(document).ready(function() {
+	$(".qdxg").click(function(e){
+		e.preventDefault();
+		var phone=$('.phone').val(),
+			pwd=$('.pwd').val(),
+			ypwd=$('.ypwd').val();
+		if(!Common.checkPhone(phone)){
+			$('.phone').attr("placeholder","手机格式不正确");
+		}else if(!Common.checkPwd(pwd)){
+			$('.pwd').attr("placeholder","密码格式不正确");
+		}else if(pwd!==ypwd){
+			$('.ypwd').attr("placeholder","两次密码不一致");
+		}
+	})
+	$(".hqyz").click(function(){
+		/*发送验证码*/
+		Common.hqyzm($(this));
+	})
+	Common.zx();
+})
+</script>
+</body>
+</html>

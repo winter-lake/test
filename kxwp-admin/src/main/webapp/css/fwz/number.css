@@ -1,0 +1,70 @@
+span,div,p,em,a,i,h1,h2,h3,h4,h5,h6{
+	font-family:"微软雅黑";
+}
+
+.k_change span{
+	width:180px;
+	height:30px;
+	margin-right:100px;
+}
+.k_change span select{
+	width:100px;
+	height:30px;
+	border:1px solid #eee;
+	color:#333;
+	display:inline-block;
+}
+
+/*表格样式*/
+.k_table{
+	width:100%;
+	border:1px solid #eee;
+}
+.k_table thead td{
+	font-weight:bold;
+	background:#f7f7f8;
+}
+.k_table td{
+	text-align:center;
+	line-height:55px;
+	padding:0 10px 0 10px;
+}
+/*编辑及查询*/
+.t_edit,.t_view,.stop,.start,.dengji{
+	width: 65px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 5px;
+    color: #fff;
+    margin-left: 5px;
+    /* margin-right: 15px; */
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.t_edit:hover,.t_view:hover,.stop:hover,.start:hover,.dengji:hover{
+	color:#fff;
+	text-decoration:none;
+}
+.t_edit{
+	background:#ffa200;
+}
+.t_view{
+	background:#ffa200;
+}
+.stop{
+	background:#336ea5;
+}
+.start{
+	background:#336ea5;
+}
+.dengji{
+	background:#336ea5;
+}
+
+
+
+
+
+

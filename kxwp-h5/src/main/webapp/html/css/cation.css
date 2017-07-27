@@ -1,0 +1,214 @@
+@charset "UTF-8";
+@import url(reset.css);
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "微软雅黑"; }
+
+*, *::after, *::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -o-text-size-adjust: none;
+  text-size-adjust: none;
+  -moz-tap-highlight-color: transparent;
+  -ms-tap-highlight-color: transparent;
+  -o-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none; }
+
+a {
+  text-decoration: none; }
+
+/*主体*/
+.container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -o-box;
+  display: box;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  -o-box-orient: vertical;
+  box-orient: vertical;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  min-width: 320px;
+  max-width: 768px;
+  margin: 0 auto;
+  background: #f4f4f4; }
+
+/*头部*/
+.header {
+  width: 100%;
+  height: 4rem;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -o-box;
+  display: box;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  -o-box-orient: horizontal;
+  box-orient: horizontal;
+  position: relative;
+  background: #e5d010; }
+
+.search {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  padding-left: 1rem;
+  margin-top: .7rem;
+  margin-left: .7rem;
+  background: #f0eaad;
+  border-radius: 5px; }
+
+.search i, .search input {
+  border: none;
+  font-size: 1.6rem;
+  background: none;
+  outline: none;
+  color: #5d5a5a; }
+
+.search input {
+  text-indent: 1rem;
+  font-size: 1.4rem; }
+
+.message {
+  width: 4rem;
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+  display: block;
+  background: url(../images/message.png) no-repeat center center;
+  background-size: 60%; }
+
+/*内容*/
+.content {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  overflow: auto; }
+
+.main {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -o-box;
+  display: box;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  -o-box-orient: horizontal;
+  box-orient: horizontal;
+  position: fixed;
+  top: 4rem;
+  bottom: 4rem;
+  left: 0;
+  right: 0;
+  min-width: 320px;
+  max-width: 768px;
+  margin: 0 auto; }
+  .main .scroll-left {
+    height: 100%;
+    overflow:hidden;
+    background: #f2f2f2;
+    width: 6rem; }
+    .main .scroll-left li {
+      height: 5rem;
+      line-height: 5rem;
+      border-bottom: 1px solid #ccc;
+      text-align: center; }
+      .main .scroll-left li a {
+        border-right: 1px solid #ccc;
+        width: 6rem;
+        height: 5rem;
+        display: inline-block; }
+    .main .scroll-left .cur {
+      background: #fff;
+      border-right: none;
+      border-left: 3px solid #ff6600;
+      display: inline-block;
+      width: 6rem;
+      height: 5rem; }
+  .main .scroll-right {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -ms-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    background: #fff;
+    overflow:hidden;
+    height: 100%;
+    padding-left: .5rem;
+    padding-right: .5rem; }
+    .main .scroll-right .title {
+      width: 95%;
+      height: 2.5rem;
+      line-height: 2.5rem;
+      text-indent: 1rem;
+      background: #eeeeee;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+      position: relative; }
+      .main .scroll-right .title .go {
+        width: 3rem;
+        height: 2.5rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: left;
+        line-height: 2.5rem; }
+    .main .scroll-right .s-p span {
+      width: 5rem;
+      height: 2.5rem;
+      line-height: 2.5rem;
+      text-align: center;
+      border-radius: 4px;
+      display: inline-block;
+      border: 1px solid #ccc;
+      margin: .3rem; }
+
+/*焦点图定义*/
+.swiper-container {
+  width: 100%;
+  height: 15rem; }
+
+.swiper-container img {
+  width: 100%;
+  height: 15rem; }
+
+/*定义iscroll*/
+
+/*# sourceMappingURL=cation.css.map */

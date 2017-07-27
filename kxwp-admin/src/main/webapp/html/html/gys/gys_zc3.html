@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>供应商注册2</title>
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../../css/common.css">
+	<!-- 第三方 start -->
+	<link rel="stylesheet" href="../../public/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../../public/Font-Awesome/css/font-awesome.min.css">
+	<!-- 第三方end -->
+	<link rel="stylesheet" href="../../css/gys/gys_zc-common.css">
+	<link rel="stylesheet" type="text/css" href="../../css/gys/gys_zc2.css">
+</head>
+<body>
+<!--外围容器-->
+<div class="k_contaniner">
+
+	<!--头部开始-->
+	<div class="k_top">
+		<div class="k_logo">
+			<span class="k_logo1">
+				<img src="../../images/share/kxwp_logo.png" alt="">
+			</span>
+			<span>
+				<img src="../../images/gys/gys_title.png" alt="">
+			</span>
+			<div class="k_Options">
+				<span class="gys_yy">已有帐号，请<a href="">登录</a></span>
+			</div>                         
+		</div>
+	</div>
+	<!--头部结束-->
+
+	<!--右边开始-->
+		<div class="main">
+			<form id="zc2">
+				<div class="jdt">
+					<dl>
+						<dt class="cur">1</dt>
+						<dd>填写企业信息</dd>
+					</dl><dl>
+						<dt>2</dt>
+						<dd>填写服务信息</dd>
+					</dl>
+					<dl>
+						<dt>3</dt>
+						<dd>平台审核</dd>
+					</dl>
+					<dl>
+						<dt>4</dt>
+						<dd>完成</dd>
+					</dl>
+				</div>
+				
+			</form>
+		</div>
+	<!--右边结束-->
+	
+	<!--footer开始-->
+	<div class="k_footer">
+		<p>版权所有 @ 北京快消互联科技发展有限公司 未经许可 严禁复制</p>
+		<p>京ICP备16000340 号</p>
+		<p>北京经济技术开发区地盛南街9号1栋 电话 : 010-58046928</p>
+	</div>
+	<!--footer结束-->
+
+</div>	
+<!--end-->
+<script src="../public/jquery-2.1.4.min.js"></script>
+<script src="../public/layer/layer.js"></script>
+<script src="../public/bootstrap/js/bootstrap.js"></script>
+<script src="../public/common.js"></script>
+<script type="text/javascript" src="../public/jquery-.validate.js"></script>
+<script type="text/javascript" src="../public/messages_zh_TW.js"></script>
+<script type="text/javascript" src="../public/jquery.validate.method.js"></script>
+<script>
+$(document).ready(function() {
+	$('.zc2').validate(
+		{onfocusout: function(element) { $(element).valid();},
+		 rules: {
+		      idcard: {
+		        required: true,
+		        minlength: 18,
+		        maxlength:18
+		      },
+		      xydm:{
+		      	required:true,
+		      	minlength:18,
+		      	maxlength:18
+		      }
+		},
+	    messages: {
+	    	  idcard:"身份证格式不正确",
+		      xydm: "格式不正确"
+	    }
+	);
+})
+</script>
+</body>
+</html>

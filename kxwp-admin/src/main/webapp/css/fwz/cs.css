@@ -1,0 +1,34 @@
+span,div,p,em,a,i,h1,h2,h3,h4,h5,h6{
+	font-family:"微软雅黑";
+}
+
+
+
+/*表格样式*/
+.k_table{
+	width:100%;
+	border:1px solid #eee;
+}
+.k_table thead td{
+	font-weight:bold;
+	background:#f7f7f8;
+}
+.k_table td{
+	text-align:center;
+	line-height:55px;
+	padding:0 10px 0 10px;
+}
+/*查看*/
+.show{
+	width:54px;
+	height:30px;
+	border-radius:5px;
+	line-height:30px;
+	text-align:center;
+	display:inline-block;
+	background:#337ab7;
+	color:#fff;
+}
+.show:hover{
+	color:#fff;
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webflow-project-description>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.7.3.201602250914-RELEASE]]></pluginVersion>
+	<configs>
+		<config>
+			<file>src/main/webapp/app_download.xml</file>
+			<name><![CDATA[app_download]]></name>
+		</config>
+	</configs>
+</webflow-project-description>

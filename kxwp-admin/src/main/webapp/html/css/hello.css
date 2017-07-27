@@ -1,0 +1,33 @@
+.k_right{
+	background:#f1f1f9;
+}
+.h_content{
+	border-radius:3px;
+}
+.cp_img img{
+	width:100%;
+	border--radius:3px;
+}
+h4{
+	height:35px;
+	line-height:35px;
+	text-indent:9px;
+	background:#fff;
+	border-radius:5px;
+	font-size:14px;
+	font-family:"微软雅黑";
+	color:#333;
+}
+.qy_js{
+	background:#fff;
+	border-radius:3px;
+}
+.qy_js p{
+	line-height:28px;
+	padding:7px;
+	font-family:"微软雅黑";
+	color:#333;
+}
+.qy_js p span{
+	font-weight:bold;
+}

@@ -1,0 +1,147 @@
+a{
+	font-family:"微软雅黑";
+}
+.k_container{
+	position:fixed;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	overflow:hidden;
+}
+.k_top{
+	width:100%;
+	height:90px;
+	padding-left:250px;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+}
+.k_top img{
+	width:10%;
+}
+.k_content{
+	position:absolute;
+	top:90px;
+	bottom:90px;
+	left:0;
+	right:0;
+	overflow: auto;
+}
+.content_top{
+	width:100%;
+	height:440px;
+	background:#d1f0ff url(../../images/gys/g_bg.png) no-repeat 300px center;
+	padding-top:70px;
+	padding-bottom:70px;
+}
+.k_content::-webkit-scrollbar{
+	width:0px;
+}
+.form{
+	width:300px;
+	height:300px;
+	background:#fff;
+	border:1px solid #eee;
+	float:right;
+	margin-right:100px;
+}
+.form_title{
+	text-align:center;
+	line-height:50px;
+	color:#17b6ff;
+	font-weight:bold;
+	padding-top:20px;
+}
+.form_title span{
+	font-size:20px;
+	position:relative;
+	top:-3px;
+	font-family:"微软雅黑";
+}
+.form_user,.form_pwd{
+	width:251px;
+	height:49px;
+	line-height:49px;
+	border:1px solid #d9d9d9;
+	border-radius:2px;
+	margin:5px auto;
+	margin-bottom:10px;
+}
+.form_user input,.form_pwd input{
+	line-height:25px;
+	border:none;
+	border-left:1px solid #d9d9d9; 
+	padding-left:12px;
+	outline:none;
+}
+.form_user i,.form_pwd i{
+	width:35px;
+	height:35px;
+	text-align:center;
+	display:inline-block;
+	border:none;
+	font-size:16px;
+	color:#d9d9d9;
+}
+.form_btn{
+	width:251px;
+	margin:30px auto;
+}
+.yhzc{
+	margin-left:35px;
+	color:#17b6ff;
+}
+.wjmm{
+	float:right;
+	margin-right:25px;
+}
+.login{
+	width:100px;
+	height:42px;
+	text-align:center;
+	line-height:42px;
+	background:#17b6ff;
+	color:#fff;
+	border-radius:7px;
+	display:inline-block;
+	margin-left:15px;
+	cursor:pointer;
+	border:none;
+	outline:none;
+	margin-top:-10px;
+	font-family:"微软雅黑";
+}
+.reset{
+	width:100px;
+	height:42px;
+	text-align:center;
+	line-height:42px;
+	background:#d9d9d9;
+	color:#fff;
+	border-radius:7px;
+	display:inline-block;
+	margin-left:20px;
+	cursor:pointer;
+	outline:none;
+	border:none;
+	margin-top:-10px;
+	font-family:"微软雅黑";
+}
+.gys_tab{
+	width:100%;
+}
+.gys_tab a{
+	text-align:center;
+	padding-top:35px;
+	padding-bottom:35px;
+	font-size:30px;
+	width:33%;
+	display:inline-block;
+	text-decoration:none;
+	color:#928989;
+}
+.gys_tab a img{
+	margin-right:20px;
+}

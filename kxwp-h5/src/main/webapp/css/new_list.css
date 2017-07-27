@@ -1,0 +1,103 @@
+@charset "UTF-8";
+.j_container{
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	display:-webkit-box;
+	display:-moz-box;
+	display:-ms-box;
+	display:-o-box;
+	display:box;
+}
+.header{
+	width:100%;
+	height:4rem;
+	line-height:4rem;
+	font-size:1.4rem;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	text-align:center;
+}
+.back{
+	width:4rem;
+	height:4rem;
+	position:absolute;
+	left:0;
+	top:0;
+	background:url(../images/back.png) no-repeat center center;
+	background-size:20%;
+}
+.setting{
+	width:4rem;
+	height:4rem;
+	position:absolute;
+	right:0;
+	top:0;
+	background:url(../images/setting_black.png) no-repeat center center;
+	background-size:40%;
+}
+.j_content{
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background:#eee;
+	overflow-y:auto;
+}
+.kx_msg,.order_msg{
+	margin-top:.4rem;
+	background:#fff;
+}
+.kx_msg dl,.order_msg dl{
+	display:-webkit-box;
+	display:-moz-box;
+	display:-ms-box;
+	display:-o-box;
+	display:box;
+	padding:.8rem;
+}
+.kx_msg dl dt,.order_msg dl dt{
+	width:5rem;
+	height:5rem;
+	overflow:hidden;
+	margin-right:.8rem;
+}
+.kx_msg dl dt img,.order_msg dl dt img{
+	width:100%;
+}
+.kx_msg dl dd,.order_msg dl dd{
+	-webkit-box-flex:1;
+	-moz-box-flex:1;
+	-ms-box-flex:1;
+	-o-box-flex:1;
+	box-flex:1;
+}
+.title{
+	width:100%;
+	height:2.5rem;
+	line-height:2.5rem;
+	font-weight:bold;
+	font-size:1.3rem;
+	position:relative;
+}
+.time{
+	position:absolute;
+	height:2.5rem;
+	line-height:2.5rem;
+	text-align:center;
+	font-weight:100;
+	color:#666;
+	right:0;
+	top:0;
+}
+.message{
+	width:24rem;
+	height:2.5rem;
+	line-height:2.5rem;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

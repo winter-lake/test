@@ -1,0 +1,66 @@
+span,div,p,em,a,i,h1,h2,h3,h4,h5,h6{
+	font-family:"微软雅黑";
+}
+/*下拉列表*/
+.k_change{
+	padding:30px;
+}
+b{
+	font-weight:100;
+}
+.k_change b{
+	width:180px;
+	height:30px;
+	margin-right:20px;	
+}
+.k_change input{
+	width:120px;
+	height:30px;
+	border-radius:7px;
+	border:1px solid #ccc;
+}
+.k_change select{
+	width:120px;
+	height:30px;
+	border-radius:7px;
+	border:1px solid #ccc;
+}
+/*查询*/
+.Inquire{
+	border-radius:5px;
+	background:#ff6600;
+	color:#fff;
+	text-align:center;
+	display:inline-block;
+	float:right;
+	cursor:pointer;
+	border:none;
+}
+/*表格样式*/
+.k_table{
+	width:100%;
+	border:1px solid #eee;
+}
+.k_table thead td{
+	font-weight:bold;
+	background:#f7f7f8;
+}
+.k_table td{
+	text-align:center;
+	line-height:55px;
+	padding:0 10px 0 10px;
+}
+/*查看*/
+.show{
+	width:90px;
+	height:30px;
+	border-radius:8px;
+	line-height:30px;
+	text-align:center;
+	display:inline-block;
+	background:#337ab7;
+	color:#fff;
+}
+.show:hover{
+	color:#fff;
+}

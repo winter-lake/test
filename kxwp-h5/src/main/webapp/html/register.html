@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" type="text/css" href="Font-Awesome/css/font-awesome.min.css">
+	<!--css-->
+	<link rel="stylesheet" type="text/css" href="Font-Awesome/css/font-awesome.min.css">    
+	<link rel="stylesheet" href="js/layer/need/layer.css" />
+	<link rel="stylesheet" type="text/css" href="css/register.css">
+	<script src="js/zepto-v.1.1.6.min.js"></script>
+	<script src="js/jquery.cxselect.min.js"></script>
+	<script src="js/iscroll.js"></script>
+	<script src="js/Common.js"></script>
+	<script src="js/layer/layer.js"></script>
+	<script src="js/register.js"></script>
+</head>
+<body>
+	<!--开始-->
+	<div class="container">
+		<!--头部-->
+		<header class="header">
+			<a href="login.html" class="back"></a>
+			<span>注册</span>
+		</header>
+		<!--头部-->
+		<!--主体-->
+		<section class="content">
+			<div class="d-g">
+				<span>手机号</span>
+				<input type="text" name="" placeholder="请输入手机号" id="user">
+			</div>
+			<div class="d-g">
+				<span>验证码</span>
+				<input type="text" name="" placeholder="请输入验证码" id="y_zm">
+				<em class="y_zm" id="sendyzm">发送验证码</em>
+			</div>
+			<div class="d-g">
+				<span>密码</span>
+				<input type="password" name="" placeholder="请输入密码" id="password">
+				<em id="open-pwd" class="close icon-eye-close"></em>
+			</div>
+			<div class="bz"><i>备注 : 将密码设置为8-20位，并且由字母，数字组成，不能与旧密码相同</i></div>
+			<div class="d-g" style="border-top:.5rem solid #f3f5f7;">
+				<span>超市名称</span>
+				<input type="text" name="" placeholder="超市名称" id="supermarketName">
+			</div>
+			<div class="d-g">
+				<span>联系方式</span>
+				<input type="text" name="" placeholder="联系方式" id="phone">
+			</div>
+			<div id="element_id">
+				<div class="d-g">
+					<span>省份</span>
+					<select class="province" id="province"></select>
+				</div>
+				<div class="d-g">
+					<span>市</span>
+					<select class="city" id="city"></select>
+				</div>
+				<div class="d-g">
+					<span>区/县</span>
+					<select class="area" id="area"></select>
+				</div>
+			</div>
+			<div class="d-g">
+				<span>详细地址</span>
+				<input type="text" name="" placeholder="请输入详细地址" id="addre">
+			</div>
+			<p class="register" id="register">注册</p>
+			<h6 class="x-y">北京快消互联科技有限公司</h6>
+			<h6 class="x-y">点击注册表示同意 <a href="" class="blue">用户注册协议</a></h6>
+		</section>
+		<!--主体-->
+	</div>
+	<!--结束-->
+</body>
+</html>

@@ -1,0 +1,251 @@
+@charset "utf-8";
+@import "reset.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family:"微软雅黑";
+}
+
+*, *::after, *::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin box($val:horizontal) {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -o-box;
+  display: box;
+  -webkit-box-orient:$val;
+  -moz-box-orient:$val;
+  -ms-box-orient:$val;
+  -o-box-orient:$val;
+  box-orient:$val;
+  //水平:horizontal 垂直: vertical
+}
+
+@mixin flex($val:1) {
+  -webkit-box-flex:$val;
+  -moz-box-flex:$val;
+  -ms-box-flex:$val;
+  -o-box-flex:$val;
+  box-flex:$val;
+}
+
+@mixin full {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+//relative,absolute,
+@mixin pos($val:relative) {
+  position:$val;
+}
+
+//clip
+@mixin textOverflow($val:ellipsis) {
+  overflow: hidden;
+  text-overflow:$val;
+  white-space: nowrap;
+}
+
+html, body {
+  @include full;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-user-select: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -o-text-size-adjust: none;
+  text-size-adjust: none;
+  -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+  -ms-tap-highlight-color: rgba(0, 0, 0, 0);
+  -o-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*主体*/
+.container{
+  @include box(vertical);
+  @include full;
+  min-width:320px;
+  max-width:768px;
+  margin:0 auto;
+}
+/*头部*/
+.header{
+  width:100%;
+  height:4rem;
+  @include box;
+  border-bottom:1px solid #eee;
+  .back{
+    width:4rem;
+    height:4rem;
+    line-height:4rem;
+    text-align:center;
+    display:block;
+    background:url(../images/back.png) no-repeat center center;
+    background-size:20%;
+  }
+  .search{
+    width:4rem;
+    height:4rem;
+    line-height:4rem;
+    text-align:center;
+    display:block;
+    color:#4a4a4a;
+  }
+  .p-center{
+    @include flex;
+    height:3rem;
+    border-radius:5px;
+    background:#f3f3f3;
+    margin-top:.5rem;
+    i{
+      width:10%;
+      height:4rem;
+      text-align:center;
+      display:inline-block;
+    }
+    input{
+      width:90%;
+      height:3rem;
+      display:inline-block;
+      border:none;
+      background:none;
+      outline:none;
+    }
+  }
+}
+
+
+
+/*内容*/
+
+.content{
+  @include flex;
+  overflow:auto;
+}
+.gys_px{
+  @include box;
+  height:3rem;
+  border-bottom:1px solid #eee;
+  @include pos;
+  .p-x{
+    @include flex;
+    height:3rem;
+    line-height:3rem;
+    text-align:center;
+    select{
+      border:none;
+      outline:none;
+    }
+  }
+  .cur{
+    color:#ffa200;
+    border-bottom:3px solid #ffa200;
+    padding-left:1rem;
+    padding-right:1rem;
+    height:3rem;
+    display:inline-block;
+  }
+  .down_list{
+    width:100%;
+    display:none;
+    background:#fff;
+    @include pos(absolute);
+    top:3rem;
+    left:0;
+    border-bottom:1px solid #000;
+    .dl{
+      @include box;
+      height:4rem;
+      a{
+        @include flex;
+        display:block;
+        border:1px solid #ccc;
+        margin:1rem;
+        text-align:center;
+        height:2.5rem;
+        line-height:2.5rem;
+        text-align:center;
+        border-radius:5px;
+      }
+    }
+  }
+  .btn{
+    @include box;
+    span{
+      @include flex;
+      display:block;
+      text-align:center;
+      border:1px solid #ccc;
+      height:2.5rem;
+      margin:1rem;
+      margin-left:3rem;
+      margin-right:3rem;
+      border-radius:5px;
+      line-height:2.5rem;
+    }
+    .reset{
+      background:#ddd;
+      color:#686868;
+    }
+    .sure{
+      background:#ffa200;
+      color:#fff;
+    }
+  }
+}
+.gys_list{
+  .list{
+    @include box;
+    padding:1rem;
+    border-bottom:1px solid #eee;
+    dt{
+      width:6rem;
+      height:6rem;
+      margin-right:1rem;
+      img{
+        width:100%;
+      }
+    }
+    dd{
+      @include flex;
+      .company{
+        line-height:2.4rem;
+        font-weight:bold;
+      }
+      .z-y{
+        line-height:2rem;
+        color:#858685;
+      }
+      .j-y{
+        color:#858685;
+      }
+    }
+  }
+}
+
+

@@ -1,0 +1,82 @@
+*{
+	margin:0;
+	padding:0;
+}
+html{
+	font-size:10px;
+}
+html,body{
+	height:100%;
+}
+.container{
+	display:flex;
+	display:-webkit-flex;
+	flex-direction:column;
+	max-width:714px;
+	margin:0 auto;
+	height:100%;
+}
+.header{
+	text-align:center;
+	line-height:4rem;
+	height:4rem;
+	border-bottom:1px solid #ccc;
+	font-size:18px;
+}
+.content{
+	flex:1;
+	-webkit-flex:1;
+	overflow-y:scroll;
+}
+.goods_list{
+	display:flex;
+	display:-webkit-flex;
+	flex-direction: column;
+}
+.goods_item{
+	height:7rem;
+	display:flex;
+	display:-webkit-flex;
+	border-bottom:1px solid #eee;
+	align-items:center;
+	background:orange;
+	color:blue;
+	font-size:12px;
+}
+.bottom_all_box{
+	height:3rem;
+	text-indent:8px;
+	line-height:3rem;
+}
+.bottom_all_box input{
+	position:relative;
+	top:3px;
+}
+.goods_item input{
+	width:3rem;
+}
+.goods_item div{
+	flex:1;
+	-webkit-flex:1;
+	text-align:center;
+}
+.footer{
+	display:flex;
+	display:-webkit-flex;
+}
+.footer div{
+	flex:1;
+	-webkit-flex:1;
+	text-indent:8px;
+	line-height:5rem;
+	height:5rem;
+	border-top:1px solid #ccc;	
+	font-size:16px;
+	color:#fff;
+}
+.allNum{
+	background:red;
+}
+.allPrice{
+	background:green;
+}

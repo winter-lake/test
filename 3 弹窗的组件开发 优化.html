@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0;}
+.dialog{border:1px solid #ccc;background:#fff;border-radius:5px;position:absolute;z-index:1001;}
+.dialog_title{height:30px;background:#ccc;position:relative;}
+.dialog_title h1{font-size:16px;font-weight:normal;line-height:30px;padding-left:15px;}
+.dialog_close{display:inline-block;width:34px;height:34px;background:url(close.png) no-repeat;position:absolute;right:-10px;top:-10px;}
+.shade{background:rgba(0,0,0,0.3);position:fixed;top:0;left:0;z-index:1000;}
+</style>
+<script>
+window.onload = function(){
+	var aInput = document.getElementsByTagName("input");
+	aInput[0].onclick = function(){
+		var d1 = new Dialog();
+		d1.init({
+			"iNow":0,			//唯一标识，让这个弹窗同时只出一个
+			"title":"登录",
+			"content":"这是一个居中登录",
+			//"shade":true		//遮罩层
+		});
+	}
+
+	aInput[1].onclick = function(){
+		var d1 = new Dialog();
+		d1.init({
+			"iNow":1,			//唯一标识，让这个弹窗同时只出一个
+			"title":"登录2",
+			"content":"这是一个居中登录2",
+			//"shade":true		//遮罩层
+		});
+	}
+
+	aInput[2].onclick = function(){
+		var d1 = new Dialog();
+		d1.init({
+			"iNow":2,			//唯一标识，让这个弹窗同时只出一个
+			"title":"登录3",
+			"content":"这是一个居中登录3",
+			//"shade":true		//遮罩层
+		});
+	}
+
+	
+}
+
+function Dialog(){
+	this.section = null;	//窗体
+	this.shadeEle = null;	//遮罩层
+	this.settings = {
+		w : 300,
+		h : 200,
+		location : "center",
+		title : "标题",
+		content : "",
+		shade : false		//遮罩
+	}
+}
+Dialog.prototype.json = {};	//建一个全局的json，每添加一个，都往这个里面加一个值。防止同时出现多个弹窗
+//
+Dialog.prototype.init = function( opt ){
+	extend( this.settings , opt );
+	if( !this.json[this.settings.iNow] ){
+		this.json[this.settings.iNow] = true;
+	}else{
+		return false;
+	}
+
+	this.create();		//创建窗体
+	this.css();			//给窗体设置样式
+	this.close();		//添加关闭事件
+	this.drag();		//添加拖拽
+	if(this.settings.shade){	//添加遮罩层
+		this.shade();
+	}
+}
+//创建元素
+Dialog.prototype.create = function(){
+	this.section = document.createElement("section");
+	this.section.className = "dialog";
+	this.section.innerHTML = '<header class="dialog_title">'+
+    '<h1>'+ this.settings.title +'</h1>'+
+    '<span class="dialog_close"></span>'+
+    '</header>'+
+    '<article class="dialog_content">'+ this.settings.content +'</article>';
+	document.body.appendChild(this.section);
+}
+//设置样式
+Dialog.prototype.css = function(){
+	var This = this;
+	var scrollTop = 0;
+	this.section.style.width = this.settings.w + "px";
+	this.section.style.height = this.settings.h + "px";
+	fnConter();
+	//如果弹窗存在，拖动滚动条时才执行
+	if( this.json[this.settings.iNow] ){
+		window.onscroll = fnConter;
+	}
+	function fnConter(){
+		scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+		if( This.settings.location == "center" ){
+			This.section.style.left = ( view().w - This.settings.w ) / 2 + "px";
+			This.section.style.top = ( scrollTop + ( view().h - This.settings.h ) / 2 ) + "px";
+		}
+	}
+}
+//关闭
+Dialog.prototype.close = function(){
+	var This = this;
+	var oColse = this.section.querySelector(".dialog_close");
+	oColse.onclick = function(){
+		this.style.cursor = "default";
+		document.body.removeChild(This.section);
+		if( This.settings.shade ){
+			document.body.removeChild(This.shadeEle);
+		}
+		This.json[This.settings.iNow] = false;
+	}
+}
+//按住标题拖动
+Dialog.prototype.drag = function(){
+	var This = this;
+	var title = this.section.querySelector(".dialog_title");
+	var disX = 0;
+	var disY = 0;
+	title.onmousedown = function(ev){
+		var ev = ev || event;
+		var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+		disX = ev.clientX - getPos(title).left;
+		disY = (ev.clientY + scrollTop) - getPos(title).top;
+		if( ev.target.nodeName.toLowerCase()  == "h1" ){
+			title.style.cursor = "move";
+		}
+		document.onmousemove = function(ev){
+			var ev = ev || event;
+			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			var L = ev.clientX - disX
+			var T = ev.clientY - disY;
+			if( L < 0 ){
+				L = 0;
+			}else if( L > view().w - This.settings.w ){
+				L = view().w - This.settings.w
+			}
+			if( T < 0 ){
+				T = 0;
+			}else if( T > view().h - This.settings.h ){
+				T = view().h - This.settings.h
+			}
+			This.section.style.left = L + "px";
+			This.section.style.top = T + scrollTop + "px";
+		}
+		
+		document.onmouseup = function(){
+			document.onmousemove = document.onmouseup = null;
+			title.style.cursor = "auto";
+		}
+		return false;
+	}
+}
+//遮罩
+Dialog.prototype.shade = function(){
+	this.shadeEle = document.createElement("div");
+	this.shadeEle.className = "shade";
+	this.shadeEle.style.width = view().w + "px";
+	this.shadeEle.style.height = view().h + "px";
+	document.body.appendChild(this.shadeEle);
+}
+
+
+
+
+function extend( obj1,obj2 ){
+	for( var attr in obj2 ){
+		obj1[attr] = obj2[attr];
+	}
+}
+function view() {
+    return {
+        w: document.documentElement.clientWidth,
+        h: document.documentElement.clientHeight
+    };
+}
+function getPos(obj) {
+	var pos = {left:0, top:0};
+	while (obj) {
+		pos.left += obj.offsetLeft;
+		pos.top += obj.offsetTop;
+		obj = obj.offsetParent;
+	};
+	return pos;
+};
+</script>
+</head>
+
+<body style="height:3000px">
+
+	<br>
+<p>
+	配置参数：	<br>
+    iNow : 标识	<br>
+    w : 300,宽	<br>
+    h : 200,高	<br>
+    location : "center",位置	<br>
+    title : "标题",标题	<br>
+    content : "",内容	<br>
+    shade : false遮罩	<br>
+</p>
+	<br>
+<p>
+	方法：	<br>
+    init	<br>
+    create	<br>
+    css	<br>
+    close	<br>
+    drag	<br>
+    shade	<br>
+</p>
+	<br>
+
+<input type="button" value="1" />
+<input type="button" value="2" />
+<input type="button" value="3" />
+
+
+<!--<section class="dialog">
+	<header class="dialog_title">
+    	<h1>标题</h1>
+        <span class="dialog_close"></span>
+    </header>
+    <article class="dialog_content"></article>
+</section>-->
+
+</body>
+</html>

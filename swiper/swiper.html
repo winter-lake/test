@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		html,body,.container{
+			width:100%;
+			height:100%;
+		}
+		.container{
+			overflow:hidden;
+		}
+		.swiper-wrap{
+			display:flex;
+			height:100%;
+		}
+		.swiper-wrap.animate{
+			transition:transform .3s linear;
+		}
+		.swiper-slide{
+			flex:1;
+			overflow:hidden;
+		}
+		.swiper-slide:nth-child(1){
+			background:red;
+		}
+		.swiper-slide:nth-child(2){
+			background:yellow;
+		}
+		.swiper-slide:nth-child(3){
+			background:blue;
+		}
+		.swiper-slide:nth-child(4){
+			background:orange;
+		}
+		nav{
+			width:100px;
+			height:100px;
+			background:#fff;
+			transform:translate3d(-100%,0,0);
+		}
+		.animate nav{
+			animation:navLeft .3s forwards;
+		}
+		@keyframes navLeft{
+			form {
+				transform:translate3d(-100%,0,0);
+			}
+			to {
+				transform:translate3d(0,0,0);
+			}
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="swiper-wrap">
+		<div class="swiper-slide">
+			<!-- <nav>
+				<ul class="list">
+					<li><a href="javascript:;">1</a></li>
+					<li><a href="javascript:;">2</a></li>
+					<li><a href="javascript:;">3</a></li>
+					<li><a href="javascript:;">4</a></li>
+					<li><a href="javascript:;">5</a></li>
+				</ul>
+			</nav> -->
+		</div>
+		<div class="swiper-slide"></div>
+		<div class="swiper-slide"></div>
+		<div class="swiper-slide"></div>
+	</div>
+</div>
+<script src="swiper.js"></script>	
+<script>
+	var slide = document.querySelectorAll('.swiper-slide');
+	new Swiper('.container',{
+		slideEnd : function(index){
+			for(var i=0;i<slide.length;i++){
+				slide[i].classList.remove('animate');
+			}
+			slide[index].classList.add('animate')
+		},
+		autoplay : 1500   //参数为轮播时间
+	})
+</script>
+</body>
+</html>

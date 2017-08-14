@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta charset="utf-8">
+  	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+  	<meta content="yes" name="apple-mobile-web-app-capable"> <!-- ios7.0版本以后，safari上已看不到效果,可以删除-->
+  	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+ 	<meta content="telephone=no" name="format-detection">
+  	<meta content="email=no" name="format-detection">
+	<title>百度音乐</title>
+	<link rel="stylesheet" type="text/css" href="font/iconfont.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/> 
+	<script>
+		window.onload = function(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+			if(document.documentElement.clientWidth > 768) document.documentElement.style.fontSize = 60 + 'px';
+		}
+	</script>
+</head>
+<body>
+	<div class="b-wrap" id="b-wrap">
+		<header>
+			<div class="logo"><a href="/"><img src="img/logo.png"></a></div>
+			<div class="header-nav">
+				<div class="classify nav-item j_anchor_category"><a href="category.html">分类</a></div>
+				<div class="singer nav-item j_anchor_song-author"><a href="song-author.html">歌手</a></div>
+				<div class="list nav-item j_anchor_bd"><a href="bd.html">榜单</a></div>
+				<div class="own nav-item j_anchor_user"><a href="user.html">我的</a></div>
+			</div>
+			<div class="header search"><a href="javascript:;"><i class="iconfont">&#xe612;</i></a></div>
+		</header>
+		<section>
+			<!--今日推荐-->
+			<div class="b-tj">
+				<div class="tj-title"><span>今日推荐</span></div>
+				<div class="tj-song">
+					<script id="index_tpl" type="text/html">
+						{{each list as value i}}
+						<div class="tj-song-item">
+							<a href="javascript:;">
+								<div class="song-img">
+									<img src="{{value.pic_big}}">
+									<span class="iconfont icon-play">&#xe601;</span>
+								</div>
+								<div class="song-name">{{value.info}}</div>
+							</a>
+						</div>
+						{{/each}}
+					</script>
+					<div class="tj-song-item">
+						<a href="javascript:;">
+							<div class="song-img">
+								<img src="img/pic1.jpg">
+								<span class="iconfont icon-play">&#xe601;</span>
+							</div>
+							<div class="song-name">董小姐</div>
+						</a>
+					</div>
+					<div class="tj-song-item">
+						<a href="javascript:;">
+							<div class="song-img">
+								<img src="img/pic2.jpg">
+								<span class="iconfont icon-play">&#xe601;</span>
+							</div>
+							<div class="song-name">董小姐</div>
+						</a>
+					</div>
+					<div class="tj-song-item">
+						<a href="javascript:;">
+							<div class="song-img">
+								<img src="img/pic3.jpg">
+								<span class="iconfont icon-play">&#xe601;</span>
+							</div>
+							<div class="song-name">董小姐</div>
+						</a>
+					</div>
+					<div class="tj-song-item">
+						<a href="javascript:;">
+							<div class="song-img">
+								<img src="img/pic4.jpg">
+								<span class="iconfont icon-play">&#xe601;</span>
+							</div>
+							<div class="song-name">董小姐</div>
+						</a>
+					</div>
+					<div class="tj-song-item">
+						<a href="javascript:;">
+							<div class="song-img">
+								<img src="img/pic5.jpg">
+								<span class="iconfont icon-play">&#xe601;</span>
+							</div>
+							<div class="song-name">董小姐</div>
+						</a>
+					</div>
+					<div class="tj-song-item">
+						<a href="javascript:;">
+							<div class="song-img">
+								<img src="img/pic6.jpg">
+								<span class="iconfont icon-play">&#xe601;</span>
+							</div>
+							<div class="song-name">董小姐</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!--新歌速递-->
+			<div class="new-song-sd">
+				<div class="new-song-title">
+					<span>新歌速递</span>
+					<span class="more">更多</span>
+				</div>
+				<div class="new-song-list">
+					<div class="new-song-item">
+						<a href="javascript:;">
+							<div class="song-img">
+								<img src="img/pic6.jpg">
+								<span class="iconfont icon-play">&#xe601;</span>
+							</div>
+							<div class="song-name">《桃花朵朵开》电视机再见阿牛主题曲</div>
+							<div class="new-song-author">阿牛</div>
+						</a>
+					</div>
+					<div class="new-song-item">
+						<a href="javascript:;">
+							<div class="song-img">
+								<img src="img/pic2.jpg">
+								<span class="iconfont icon-play">&#xe601;</span>
+							</div>
+							<div class="song-name">《桃花朵朵开》电视机再见阿牛主题曲</div>
+							<div class="new-song-author">阿牛</div>
+						</a>
+					</div>
+					<div class="new-song-item">
+						<a href="javascript:;">
+							<div class="song-img">
+								<img src="img/pic4.jpg">
+								<span class="iconfont icon-play">&#xe601;</span>
+							</div>
+							<div class="song-name">《桃花朵朵开》电视机再见阿牛主题曲</div>
+							<div class="new-song-author">阿牛</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!--岁省厅-->
+			<div class="banner-sst">
+				<a href="javascript:;">
+					<img src="img/mod-sst.jpg">
+				</a>
+			</div>
+			<!--音乐榜单-->
+			<div class="song-bd">
+				<div class="song-bd-title">
+					<span>音乐榜单</span>
+					<span class="more">更多</span>
+				</div>
+				<div class="bd-bars">
+					<div class="bar on">热歌榜</div>
+					<div class="bar">新歌榜</div>
+					<div class="bar">King榜</div>
+				</div>
+				<div class="bd-list hot on">
+					<dl class="bd-item">
+						<dt>
+							<img src="img/pic5.jpg">
+							<span class="ranking">01</span>
+						</dt>
+						<dd>
+							<span class="iconfont top">&#xe607;</span>
+							<div class="bd-msg">
+								<div class="bd-sing-name">刚好遇见你 <i class="iconfont member">&#xe501;</i></div>
+								<div class="bd-sing-author">李玉刚</div>
+							</div>
+							<span class="iconfont download">&#xe61d;</span>
+						</dd>
+					</dl>
+					<dl class="bd-item">
+						<dt>
+							<img src="img/pic5.jpg">
+							<span class="ranking">01</span>
+						</dt>
+						<dd>
+							<span class="iconfont top">&#xe607;</span>
+							<div class="bd-msg">
+								<div class="bd-sing-name">刚好遇见你 <i class="iconfont member">&#xe501;</i></div>
+								<div class="bd-sing-author">李玉刚</div>
+							</div>
+							<span class="iconfont download">&#xe61d;</span>
+						</dd>
+					</dl>
+					<dl class="bd-item">
+						<dt>
+							<img src="img/pic5.jpg">
+							<span class="ranking">01</span>
+						</dt>
+						<dd>
+							<span class="iconfont top">&#xe607;</span>
+							<div class="bd-msg">
+								<div class="bd-sing-name">刚好遇见你 <i class="iconfont member">&#xe501;</i></div>
+								<div class="bd-sing-author">李玉刚</div>
+							</div>
+							<span class="iconfont download">&#xe61d;</span>
+						</dd>
+					</dl>
+					<dl class="bd-item">
+						<dt>
+							<img src="img/pic5.jpg">
+							<span class="ranking">01</span>
+						</dt>
+						<dd>
+							<span class="iconfont top">&#xe607;</span>
+							<div class="bd-msg">
+								<div class="bd-sing-name">刚好遇见你 <i class="iconfont member">&#xe501;</i></div>
+								<div class="bd-sing-author">李玉刚</div>
+							</div>
+							<span class="iconfont download">&#xe61d;</span>
+						</dd>
+					</dl>
+					<dl class="bd-item">
+						<dt>
+							<img src="img/pic5.jpg">
+							<span class="ranking">01</span>
+						</dt>
+						<dd>
+							<span class="iconfont top">&#xe607;</span>
+							<div class="bd-msg">
+								<div class="bd-sing-name">刚好遇见你 <i class="iconfont member">&#xe501;</i></div>
+								<div class="bd-sing-author">李玉刚</div>
+							</div>
+							<span class="iconfont download">&#xe61d;</span>
+						</dd>
+					</dl>
+					<div class="show-more">
+						查看该榜单>
+					</div>
+				</div>
+				<div class="bd-list new">
+					<dl class="bd-item">
+						<dt>
+							<img src="img/pic6.jpg">
+							<span class="ranking">01</span>
+						</dt>
+						<dd>
+							<span class="iconfont top">&#xe607;</span>
+							<div class="bd-msg">
+								<div class="bd-sing-name">成都<i class="iconfont member">&#xe501;</i></div>
+								<div class="bd-sing-author">赵雷</div>
+							</div>
+							<span class="iconfont download">&#xe61d;</span>
+						</dd>
+					</dl>
+					<dl class="bd-item">
+						<dt>
+							<img src="img/pic6.jpg">
+							<span class="ranking">01</span>
+						</dt>
+						<dd>
+							<span class="iconfont top">&#xe607;</span>
+							<div class="bd-msg">
+								<div class="bd-sing-name">成都<i class="iconfont member">&#xe501;</i></div>
+								<div class="bd-sing-author">赵雷</div>
+							</div>
+							<span class="iconfont download">&#xe61d;</span>
+						</dd>
+					</dl>
+					<dl class="bd-item">
+						<dt>
+							<img src="img/pic6.jpg">
+							<span class="ranking">01</span>
+						</dt>
+						<dd>
+							<span class="iconfont top">&#xe607;</span>
+							<div class="bd-msg">
+								<div class="bd-sing-name">成都<i class="iconfont member">&#xe501;</i></div>
+								<div class="bd-sing-author">赵雷</div>
+							</div>
+							<span class="iconfont download">&#xe61d;</span>
+						</dd>
+					</dl>
+					<dl class="bd-item">
+						<dt>
+							<img src="img/pic6.jpg">
+							<span class="ranking">01</span>
+						</dt>
+						<dd>
+							<span class="iconfont top">&#xe607;</span>
+							<div class="bd-msg">
+								<div class="bd-sing-name">成都<i class="iconfont member">&#xe501;</i></div>
+								<div class="bd-sing-author">赵雷</div>
+							</div>
+							<span class="iconfont download">&#xe61d;</span>
+						</dd>
+					</dl>
+					<dl class="bd-item">
+						<dt>
+							<img src="img/pic6.jpg">
+							<span class="ranking">01</span>
+						</dt>
+						<dd>
+							<span class="iconfont top">&#xe607;</span>
+							<div class="bd-msg">
+								<div class="bd-sing-name">成都<i class="iconfont member">&#xe501;</i></div>
+								<div class="bd-sing-author">赵雷</div>
+							</div>
+							<span class="iconfont download">&#xe61d;</span>
+						</dd>
+					</dl>
+					<div class="show-more">
+						查看该榜单>
+					</div>
+				</div>
+				<div class="bd-list King">
+					<div class="king-djs">
+						<div>
+							榜单数据将于<span class="date">09分20秒</span>后更新
+						</div>
+					</div>
+					<dl class="bd-item">
+						<dt>
+							<img src="img/pic5.jpg">
+							<span class="ranking">01</span>
+						</dt>
+						<dd>
+							<span class="iconfont top">&#xe607;</span>
+							<div class="bd-msg">
+								<div class="bd-sing-name">刚好遇见你 <i class="iconfont member">&#xe501;</i></div>
+								<div class="bd-sing-author">李玉刚</div>
+							</div>
+							<span class="iconfont download">&#xe61d;</span>
+						</dd>
+					</dl>
+					<dl class="bd-item">
+						<dt>
+							<img src="img/pic5.jpg">
+							<span class="ranking">01</span>
+						</dt>
+						<dd>
+							<span class="iconfont top">&#xe607;</span>
+							<div class="bd-msg">
+								<div class="bd-sing-name">刚好遇见你 <i class="iconfont member">&#xe501;</i></div>
+								<div class="bd-sing-author">李玉刚</div>
+							</div>
+							<span class="iconfont download">&#xe61d;</span>
+						</dd>
+					</dl>
+					<dl class="bd-item">
+						<dt>
+							<img src="img/pic5.jpg">
+							<span class="ranking">01</span>
+						</dt>
+						<dd>
+							<span class="iconfont top">&#xe607;</span>
+							<div class="bd-msg">
+								<div class="bd-sing-name">刚好遇见你 <i class="iconfont member">&#xe501;</i></div>
+								<div class="bd-sing-author">李玉刚</div>
+							</div>
+							<span class="iconfont download">&#xe61d;</span>
+						</dd>
+					</dl>
+					<dl class="bd-item">
+						<dt>
+							<img src="img/pic5.jpg">
+							<span class="ranking">01</span>
+						</dt>
+						<dd>
+							<span class="iconfont top">&#xe607;</span>
+							<div class="bd-msg">
+								<div class="bd-sing-name">刚好遇见你 <i class="iconfont member">&#xe501;</i></div>
+								<div class="bd-sing-author">李玉刚</div>
+							</div>
+							<span class="iconfont download">&#xe61d;</span>
+						</dd>
+					</dl>
+					<dl class="bd-item">
+						<dt>
+							<img src="img/pic5.jpg">
+							<span class="ranking">01</span>
+						</dt>
+						<dd>
+							<span class="iconfont top">&#xe607;</span>
+							<div class="bd-msg">
+								<div class="bd-sing-name">刚好遇见你 <i class="iconfont member">&#xe501;</i></div>
+								<div class="bd-sing-author">李玉刚</div>
+							</div>
+							<span class="iconfont download">&#xe61d;</span>
+						</dd>
+					</dl>
+					<div class="show-more">
+						查看该榜单>
+					</div>
+				</div>
+			</div>
+			<!--热门歌单-->
+			<div class="hot-song-list">
+				<div class="hot-song-title">
+					<span>热门歌单</span>
+					<span class="more">更多</span>
+				</div>
+				<div class="hot-song">
+					<div class="hot-song-item">
+						<a href="javascript:;">
+							<div class="song-img">
+								<img src="img/pic1.jpg">
+							</div>
+							<div class="song-js">
+								爱上一匹野马，可我的家里没有草原，这让我感到绝望，董小姐
+							</div>
+						</a>
+					</div>
+					<div class="hot-song-item">
+						<a href="javascript:;">
+							<div class="song-img">
+								<img src="img/pic2.jpg">
+							</div>
+							<div class="song-js">
+								爱上一匹野马，可我的家里没有草原，这让我感到绝望，董小姐
+							</div>
+						</a>
+					</div>
+					<div class="hot-song-item">
+						<a href="javascript:;">
+							<div class="song-img">
+								<img src="img/pic3.jpg">
+							</div>
+							<div class="song-js">
+								爱上一匹野马，可我的家里没有草原，这让我感到绝望，董小姐
+							</div>
+						</a>
+					</div>
+					<div class="hot-song-item">
+						<a href="javascript:;">
+							<div class="song-img">
+								<img src="img/pic4.jpg">
+							</div>
+							<div class="song-js">
+								爱上一匹野马，可我的家里没有草原，这让我感到绝望，董小姐
+							</div>
+						</a>
+					</div>
+					<div class="hot-song-item">
+						<a href="javascript:;">
+							<div class="song-img">
+								<img src="img/pic5.jpg">
+							</div>
+							<div class="song-js">
+								爱上一匹野马，可我的家里没有草原，这让我感到绝望，董小姐
+							</div>
+						</a>
+					</div>
+					<div class="hot-song-item">
+						<a href="javascript:;">
+							<div class="song-img">
+								<img src="img/pic6.jpg">
+							</div>
+							<div class="song-js">
+								爱上一匹野马，可我的家里没有草原，这让我感到绝望，董小姐
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!--推荐MV-->
+			<div class="tj-mv">
+				<div class="tj-mv-title">
+					<span>推荐MV</span>
+					<span class="more">更多</span>
+				</div>
+				<div class="mv-list">
+					<div class="mv-item">
+						<a href="javascript:;">
+							<div class="mv-song-img">
+								<img src="img/pic4.jpg">
+							</div>
+							<div class="mv-name">《桃花朵朵开》电视机再见阿牛主题曲</div>
+							<div class="mv-author">阿牛</div>
+						</a>
+					</div>
+					<div class="mv-item">
+						<a href="javascript:;">
+							<div class="mv-song-img">
+								<img src="img/pic4.jpg">
+							</div>
+							<div class="mv-name">《桃花朵朵开》电视机再见阿牛主题曲</div>
+							<div class="mv-author">阿牛</div>
+						</a>
+					</div>
+					<div class="mv-item">
+						<a href="javascript:;">
+							<div class="mv-song-img">
+								<img src="img/pic4.jpg">
+							</div>
+							<div class="mv-name">《桃花朵朵开》电视机再见阿牛主题曲</div>
+							<div class="mv-author">阿牛</div>
+						</a>
+					</div>
+					<div class="mv-item">
+						<a href="javascript:;">
+							<div class="mv-song-img">
+								<img src="img/pic4.jpg">
+							</div>
+							<div class="mv-name">《桃花朵朵开》电视机再见阿牛主题曲</div>
+							<div class="mv-author">阿牛</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<footer>
+				<div class="opinion">意见反馈</div>
+				<div class="footer-logo"><img src="img/footer-logo.png" alt=""></div>
+			</footer>
+		</section>
+	</div>
+	<script src="js/zepto-v.1.1.6.min.js"></script>
+	<script src="js/zepto.touch.js"></script>
+	<script src="js/zepto.callbacks.js"></script>
+	<script src="js/zepto.deferred.js"></script>
+	<script src="js/template.js"></script>
+	<script src="js/song.model.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/index.js"></script>
+</body>
+</html>

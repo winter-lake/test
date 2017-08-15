@@ -1,53 +1,15 @@
-header{
-	width:100%;
-	height:.8rem;
-	line-height:.8rem;
-	background:#f8f8f8;
-	display:flex;
-	display:-webkit-flex;
-	justify-content:space-between;
-	align-items:center;
-	padding:0 .3rem;
-	font-size:.31rem;
-	color:#999;
-}
-.logo{
-	width:.56rem;
-	height:.56rem;
-	overflow:hidden;
-}
-.logo img{
-	width:100%;
-	height:100%;
-}
-.header-nav{
-	display:flex;
-}
-.nav-item{
-	flex:1;
-	padding:0 .2rem;
-}
-.nav-item.cur{
-	color:#666;
-}
 section{
 	flex:1;
 	background:#eee;
-	overflow-y:auto;
-	-webkit-overflow-scrolling:touch!important;
+	-webkit-overflow-scrolling:touch;
+	margin-top:.8rem;
 }
 
 /*今日推荐*/
 .b-tj{
 	background:#fff;
 }
-.tj-title{
-	font-size:.4rem;
-	line-height:1rem;
-	height:1rem;
-	text-indent:.24rem;
-	font-weight:bold;
-}
+
 .tj-song,.new-song-list,.hot-song{
 	display:flex;
 	flex-wrap:wrap;
@@ -62,6 +24,7 @@ section{
 	height:2.2rem;
 	overflow:hidden;
 	position:relative;
+	margin-bottom:.1rem;
 }
 .icon-play{
 	position:absolute;
@@ -75,7 +38,6 @@ section{
 }
 .song-name,.new-song-author{
 	max-width:2rem;
-	line-height:.35rem;
 	overflow:hidden;
 	text-overflow:ellipsis;
 	white-space: nowrap; 
@@ -90,15 +52,14 @@ section{
 	margin-top:.16rem;
 }
 
-.new-song-title,.song-bd-title,.hot-song-title,.tj-mv-title{
+.new-song-title,.song-bd-title,.hot-song-title,.tj-mv-title,.tj-title{
 	font-size:.4rem;
 	line-height:1rem;
 	height:1rem;
-	text-indent:.24rem;
 	font-weight:bold;
 	display:flex;
 	justify-content:space-between;
-	padding:0 .1rem;
+	padding:0 .2rem;
 }
 .new-song-title .more,.song-bd-title .more,.hot-song-title .more,.tj-mv-title .more{
 	font-size:.26rem;
@@ -106,7 +67,6 @@ section{
 }
 .new-song-author{
 	color:#999;
-	text-indent:.1rem;
 }
 
 /*广告随省厅*/
@@ -186,7 +146,7 @@ section{
 	color:#43c7ff;
 }
 .bd-msg{
-	transform:translate3d(-1.2rem,0,0);
+	transform:translate3d(-.8rem,0,0);
 }
 .bd-sing-name{
 	color:#333;
@@ -196,6 +156,14 @@ section{
 .bd-sing-author{
 	color:#999;
 	font-size:.25rem;
+}
+.bd-sing-name,.bd-sing-author{
+	width:3rem;
+	max-width:3rem;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	text-align:left;
 }
 .king-djs{
 	display:flex;
@@ -240,56 +208,44 @@ section{
 }
 
 /*推荐mv*/
-.tj-mv{
-	background:#fff;
-	margin-top:.16rem;
-}
+/*.tj-mv{*/
+	/*background:#fff;*/
+	/*margin-top:.16rem;*/
+/*}*/
 
-.mv-list{
-	display:flex;
-	flex-wrap:wrap;
-	padding:0 .14rem;
-}
+/*.mv-list{*/
+	/*display:flex;*/
+	/*flex-wrap:wrap;*/
+	/*padding:0 .14rem;*/
+/*}*/
 
-.mv-item{
-	flex-basis:3.4rem;
-	margin:.1rem;
-}
-.mv-song-img{
-	width:3.4rem;
-	height:2.2rem;
-	overflow:hidden;
-	position:relative;
-}
+/*.mv-item{*/
+	/*flex-basis:3.4rem;*/
+	/*margin:.1rem;*/
+/*}*/
+/*.mv-song-img{*/
+	/*width:3.4rem;*/
+	/*height:2.2rem;*/
+	/*overflow:hidden;*/
+	/*position:relative;*/
+	/*margin-bottom:.1rem;*/
+/*}*/
 
-.mv-song-img img{
-	width:100%;
-	height:100%;
-}
-.mv-name,.mv-author{
-	max-width:3rem;
-	line-height:.35rem;
-	overflow:hidden;
-	text-overflow:ellipsis;
-	white-space: nowrap; 
-	font-size:.25rem;
-	color:#333;
-}
+/*.mv-song-img img{*/
+	/*width:100%;*/
+	/*height:100%;*/
+/*}*/
+/*.mv-name,.mv-author{*/
+	/*max-width:3rem;*/
+	/*overflow:hidden;*/
+	/*text-overflow:ellipsis;*/
+	/*white-space: nowrap; */
+	/*font-size:.25rem;*/
+	/*color:#333;*/
+/*}*/
 
-.mv-author{
-	color:#999;
-	text-indent:.1rem;
-}
-footer{
-	background:#fff;
-	margin-top:.16rem;
-	text-align:center;
-	font-size:.3rem;
-	color:#666;
-	padding:.4rem 0;
-}
-.footer-logo img{
-	margin-top:.2rem;
-	width:40%;
-	height:40%;
-}
+/*.mv-author{*/
+	/*color:#999;*/
+/*}*/
+
+

@@ -22,36 +22,58 @@ $(document).ready(function() {
 		}
 	}
 });
-
+(function(win) {
+    var doc = win.document;
+    var docEl = doc.documentElement;
+    var tid = null;
+    function refreshRem() {
+        var width = docEl.getBoundingClientRect().width;
+        if (width > 540) { // 最大宽度
+            width = 540;
+        }
+        var rem = width / 7.5; 
+        docEl.style.fontSize = rem + 'px';
+    }
+    win.addEventListener('resize', function() {
+        clearTimeout(tid);
+        tid = setTimeout(refreshRem, 0);
+    }, false);
+    win.addEventListener('pageshow', function(e) {
+        if (e.persisted) {
+            clearTimeout(tid);
+            tid = setTimeout(refreshRem, 0);
+        }
+    }, false);
+    refreshRem();
+})(window);
 
 (function(global){
-	global.share = {
-		mark : document.querySelector('.mark')
-	};
+	var share = {};
 	share.markTip = function(){
-		if(!this.mark){
+		if($('.mark').length == 0){
 			this.mark = document.createElement('div');
 			this.mark.className = 'mark';
 			document.body.appendChild(this.mark);
 		}
+		return false;
 	}
 	share.startLoading = function(){
-		if(!this.mark){
+		if($('.mark').length == 0){
 			this.markTip();
 		}
-		var imgBox = document.createElement('div');
-		imgBox.className = 'imgBox';
-		var loadImg = document.createElement('img');
-		loadImg.class = 'loadImg';
-		loadImg.src = "img/loading.gif";
-		imgBox.appendChild(loadImg);
-		this.mark.appendChild(imgBox);
+		if($('.imgBox').length == 0){
+			var imgBox = document.createElement('div');
+			imgBox.className = 'imgBox';
+			var loadImg = document.createElement('img');
+			loadImg.class = 'loadImg';
+			loadImg.src = "img/loading.gif";
+			imgBox.appendChild(loadImg);
+			this.mark.appendChild(imgBox);
+		}
 	}
 	share.endLoading = function(){
-		if(!this.mark){
-			document.body.removeChild(this.mark);
-		}
-		return false;
+		$('.mark').remove();
+		$('.imgBox').remove();
 	}
 	global.share = share;
 })(window)

@@ -38,9 +38,6 @@ a:hover, a:visited, a:link, a:active {
 html,body{
   width:100%;
   height:100%;
-  max-width:640px;
-  margin: 0 auto;
-  font-size: 18px;
   -webkit-text-size-adjust: none;
   -webkit-tap-highlight-color: transparent;
   -webkit-user-select: none;
@@ -96,3 +93,73 @@ html,body{
   opacity:.7;
 }
 
+header{
+  width:100%;
+  height:.8rem;
+  line-height:.8rem;
+  background:#f8f8f8;
+  display:flex;
+  display:-webkit-flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 .3rem;
+  font-size:.31rem;
+  color:#999;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:100;
+}
+.logo{
+  width:.56rem;
+  height:.56rem;
+  overflow:hidden;
+}
+.logo img{
+  width:100%;
+  height:100%;
+}
+.header-nav{
+  display:flex;
+}
+.nav-item{
+  flex:1;
+  padding:0 .2rem;
+}
+.nav-item.cur{
+  color:#666;
+}
+
+
+footer{
+  background: #fff;
+  margin-top: .16rem;
+  text-align: center;
+  font-size: .3rem;
+  color: #666;
+  padding: .1rem 0;
+}
+.footer-logo img{
+  margin-top:.2rem;
+  width:40%;
+  height:40%;
+}
+
+
+
+.player{
+  width: 100%;
+  height: 1.5rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background:#000;
+  z-index:100;
+}
+.player audio{
+  width:100%;
+  height:1.5rem;
+  background:#fff;
+}

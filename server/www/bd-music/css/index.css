@@ -1,0 +1,244 @@
+/*今日推荐*/
+.b-tj{
+	background:#fff;
+}
+
+.tj-song,.new-song-list,.hot-song{
+	display:flex;
+	flex-wrap:wrap;
+	padding:0 .14rem;
+}
+.tj-song-item,.new-song-item,.hot-song-item{
+	flex-basis:2.2rem;
+	margin:.1rem;
+}
+.song-img{
+	width:2.2rem;
+	height:2.2rem;
+	overflow:hidden;
+	position:relative;
+	margin-bottom:.1rem;
+}
+.icon-play{
+	position:absolute;
+	bottom:.1rem;
+	right:.1rem;
+	font-size:.5rem;
+}
+.song-img img{
+	width:100%;
+	height:100%;
+}
+.song-name,.new-song-author{
+	max-width:2rem;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap; 
+	font-size:.25rem;
+	color:#333;
+}
+
+/*新歌速递*/
+
+.new-song-sd{
+	background:#fff;
+	margin-top:.16rem;
+}
+
+.new-song-title,.song-bd-title,.hot-song-title,.tj-mv-title,.tj-title{
+	font-size:.4rem;
+	line-height:1rem;
+	height:1rem;
+	font-weight:bold;
+	display:flex;
+	justify-content:space-between;
+	padding:0 .2rem;
+}
+.new-song-title .more,.song-bd-title .more,.hot-song-title .more,.tj-mv-title .more{
+	font-size:.26rem;
+	color:#333;
+}
+.new-song-author{
+	color:#999;
+}
+
+/*广告随省厅*/
+.banner-sst{
+	width:100%;
+	padding:.2rem .25rem;
+}
+.banner-sst img{
+	width:100%;
+	max-width:100%;
+	vertical-align:middle;
+}
+
+/*音乐榜单*/
+.song-bd{
+	background:#fff;
+}
+.bd-bars{
+	width:100%;
+	height:.9rem;
+	line-height:.9rem;
+	display:flex;
+	padding:0 .2rem;
+}
+.bd-bars .bar{
+	height:.9rem;
+	flex:1;
+	text-align:center;
+	color:#999;
+	font-size:.35rem;
+	border-bottom:1px solid #eee;
+}
+.bd-bars .bar.on{
+	color:#299DE7;
+}
+.bd-list{
+	padding:.2rem .25rem 0 .25rem;
+	display:none;
+}
+.bd-item{
+	display:flex;
+	padding:.2rem 0;
+	border-bottom:1px solid #f0f0f0;
+}
+.bd-item dt{
+	width:1rem;
+	height:1rem;
+	overflow:hidden;
+	justify-content:center;
+	align-items:center;
+	display:flex;
+	position:relative;
+}
+.bd-item dt .ranking{
+	position:absolute;
+	bottom:.1rem;
+	right:.1rem;
+	color:#fff;
+	font-size:.15rem;
+}
+.bd-item dt img{
+	width:100%;
+	height:100%;
+}
+.bd-item dd{
+	flex:1;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	padding-left:.1rem;
+}
+.top,.download{
+	color:#999;
+	font-size:.4rem;
+}
+.member{
+	color:#43c7ff;
+}
+.bd-msg{
+	transform:translate3d(-.8rem,0,0);
+}
+.bd-sing-name{
+	color:#333;
+	padding:.1rem 0;
+	font-size:.3rem;
+}
+.bd-sing-author{
+	color:#999;
+	font-size:.25rem;
+}
+.bd-sing-name,.bd-sing-author{
+	width:3rem;
+	max-width:3rem;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	text-align:left;
+}
+.king-djs{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	font-size:.28rem;
+}
+.king-djs div{
+	border-bottom:1px solid #eee;
+	line-height:1rem;
+	padding:.1rem;
+}
+.date{
+	color:#ea4483;
+}
+.show-more{
+	height:.94rem;
+	text-align:center;
+	line-height:.94rem;
+	color:#666;
+	font-size:.25rem;
+}
+
+.bd-list.on{
+	display:block;
+}
+
+.hot-song-list{
+	background:#fff;
+	margin-top:.16rem;
+}
+.song-js{
+	font-size: .24rem;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: .35rem;
+    padding-top:.1rem;
+    max-width: 2rem;
+    max-height: 1rem;
+}
+
+/*推荐mv*/
+/*.tj-mv{*/
+	/*background:#fff;*/
+	/*margin-top:.16rem;*/
+/*}*/
+
+/*.mv-list{*/
+	/*display:flex;*/
+	/*flex-wrap:wrap;*/
+	/*padding:0 .14rem;*/
+/*}*/
+
+/*.mv-item{*/
+	/*flex-basis:3.4rem;*/
+	/*margin:.1rem;*/
+/*}*/
+/*.mv-song-img{*/
+	/*width:3.4rem;*/
+	/*height:2.2rem;*/
+	/*overflow:hidden;*/
+	/*position:relative;*/
+	/*margin-bottom:.1rem;*/
+/*}*/
+
+/*.mv-song-img img{*/
+	/*width:100%;*/
+	/*height:100%;*/
+/*}*/
+/*.mv-name,.mv-author{*/
+	/*max-width:3rem;*/
+	/*overflow:hidden;*/
+	/*text-overflow:ellipsis;*/
+	/*white-space: nowrap; */
+	/*font-size:.25rem;*/
+	/*color:#333;*/
+/*}*/
+
+/*.mv-author{*/
+	/*color:#999;*/
+/*}*/
+
+

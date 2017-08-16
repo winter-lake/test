@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="referrer" content="never">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable"> <!-- ios7.0版本以后，safari上已看不到效果,可以删除-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>百度音乐</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/category.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+</head>
+<body>
+    <div class="b-wrap" id="b-wrap">
+        <!--header-->
+        <header></header>
+        <!--section-->
+        <section>
+            <div class="fl-big-box">
+                <!--热门分类-->
+                <div class="hot-category">
+                    <div class="hot-title">热门分类</div>
+                    <div class="fl-box">
+                        <div class="fl-list">
+                            流行
+                        </div>
+                        <div class="fl-list">
+                            <div class="m-y fl-item">民谣</div>
+                            <div class="e-g fl-item">儿歌</div>
+                        </div>
+                        <div class="fl-list">
+                            <div class="w-l fl-item">网络歌曲</div>
+                            <div class="q-y fl-item">器乐</div>
+                        </div>
+                    </div>
+                </div>
+                <!--更多分类-->
+                <div class="all-fl">
+                    <div class="all-fl-title">全部分类</div>
+                    <div class="all-fl-box">
+                        <div class="table-box">
+                        <table class="all-table-fl">
+                            <thead>
+                                <tr>
+                                    <th>语种</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>华语</td>
+                                    <td>欧美</td>
+                                    <td>粤语</td>
+                                </tr>
+                                <tr>
+                                    <td>华语</td>
+                                    <td>欧美</td>
+                                    <td>粤语</td>
+                                </tr>
+                                <tr>
+                                    <td>华语</td>
+                                    <td>欧美</td>
+                                    <td>粤语</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        <div class="table-box">
+                        <table class="all-table-fl">
+                            <thead>
+                                <tr>
+                                    <th>分格</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>摇滚</td>
+                                    <td>喊麦</td>
+                                    <td>喊麦</td>
+                                </tr>
+                                <tr>
+                                    <td>喊麦</td>
+                                    <td>喊麦</td>
+                                    <td>喊麦</td>
+                                </tr>
+                                <tr>
+                                    <td>喊麦</td>
+                                    <td>喊麦</td>
+                                    <td>喊麦</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        <div class="table-box">
+                        <table class="all-table-fl">
+                            <thead>
+                                <tr>
+                                    <th>情感</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>怀旧</td>
+                                    <td>怀旧</td>
+                                    <td>怀旧</td>
+                                </tr>
+                                <tr>
+                                    <td>怀旧</td>
+                                    <td>怀旧</td>
+                                    <td>怀旧</td>
+                                </tr>
+                                <tr>
+                                    <td>怀旧</td>
+                                    <td>怀旧</td>
+                                    <td>怀旧</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        <div class="table-box">
+                        <table class="all-table-fl">
+                            <thead>
+                                <tr>
+                                    <th>主题</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>经典</td>
+                                    <td>经典</td>
+                                    <td>经典</td>
+                                </tr>
+                                <tr>
+                                    <td>经典</td>
+                                    <td>经典</td>
+                                    <td>经典</td>
+                                </tr>
+                                <tr>
+                                    <td>经典</td>
+                                    <td>经典</td>
+                                    <td>经典</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                    <div class="more-fl">展开全部分类</div>
+                </div>
+            </div>
+            
+            <!--footer-->
+            <footer></footer>
+        </section>
+        <!-- <div class="player"></div> -->
+    </div>
+
+    <script src="js/zepto-v.1.1.6.min.js"></script>
+    <script src="js/zepto.touch.js"></script>
+    <script src="js/zepto.callbacks.js"></script>
+    <script src="js/zepto.deferred.js"></script>
+    <script src="js/template.js"></script>
+    <script src="js/song.model.js"></script>
+    <!-- <script src="share/ajax.js"></script> -->
+    <script src="js/common.js"></script>
+    <script src="js/category.js"></script>
+    <script>
+        $('header').load('header.html');
+        $('footer').load('footer.html');
+        $('.player').load('player.html');
+    </script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 //所有页面的接口文档
 var SongModel = {};
 
-
+/*首页请求*/
 SongModel.index = {
 	//今日推荐
 	tj : function(){
@@ -69,13 +69,44 @@ SongModel.index = {
     },
     audio : function(){
         return $.ajax({
-            url: 'http://tingapi.ting.baidu.com/v1/restserver/ting?method=baidu.ting.song.play&songid='+toLocation()+'',
+            url: 'http://tingapi.ting.baidu.com/v1/restserver/ting?method=baidu.ting.song.play&songid=877578',
+            type: 'get',
+            contentType:"application/json",
+            dataType: 'jsonp'
+        })
+    },
+    lrc : function(){
+        return $.ajax({
+            url: 'http://tingapi.ting.baidu.com/v1/restserver/ting?method=baidu.ting.song.lry&songid=877578',
             type: 'get',
             contentType:"application/json",
             dataType: 'jsonp'
         })
     }
 }
+/*分类请求*/
+SongModel.category = {
+    hotList : function(){
+        return $.ajax({
+            url: 'http://tingapi.ting.baidu.com/v1/restserver/ting?method=baidu.ting.billboard.billList&type=11',
+            type: 'get',
+            contentType:"application/json",
+            dataType: 'jsonp'
+        })
+    }
+}
+/*歌手请求*/
+SongModel.singer = {
+    singerList : function(){
+        return $.ajax({
+            url: 'data/singer.json',
+            type: 'get',
+            contentType:"application/json",
+            dataType: 'json'
+        })
+    }
+}
+
 
 
 function toLocation(){

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+
+		}
+	</style>
+</head>
+<body>
+<input type="file" id="up">
+	<div class="img-box" id="imgBox">
+		
+	</div>
+	<script src="js/zepto-v.1.1.6.min.js"></script>
+	<script src="js/common.js"></script>
+	<script>
+		up.addEventListener('change',function(){
+			var types = ['jpeg','png','svg'];
+			var files = this.files[0];
+			var file_type = this.files[0].type.split('/')[1];
+			if(types.indexOf(file_type) === -1){
+				alert('请上传'+types.join()+'格式的图片');
+				return false;
+			}
+			var fileReady = new FileReader();
+			//设置上传图片数据/*必须*/
+			fileReady.readAsDataURL(files);	
+			fileReady.onloadstart = function(){
+				share.startLoading();
+			}
+			fileReady.onloadend = function(){
+				var img = new Image();
+				img.src = this.result;
+				imgBox.appendChild(img);
+				share.endLoading();
+			}
+			console.log(fileReady)
+		},false)
+	</script>
+</body>
+</html>

@@ -18,6 +18,7 @@ $(document).ready(function() {
 		var urls = menuData[key];
 		if($.inArray(current_url, urls) > -1) {
 			$("header").find("." + key).addClass('cur');
+			console.log($('header').find('.'+key))
 			return false;
 		}
 	}
@@ -74,6 +75,9 @@ $(document).ready(function() {
 	share.endLoading = function(){
 		$('.mark').remove();
 		$('.imgBox').remove();
+	}
+	share.removeMark = function(){
+		$('.mark').remove();
 	}
 	global.share = share;
 })(window)

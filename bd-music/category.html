@@ -3,116 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta charset="utf-8">
+    <meta name="referrer" content="never">
     <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
     <meta content="yes" name="apple-mobile-web-app-capable"> <!-- ios7.0版本以后，safari上已看不到效果,可以删除-->
     <meta content="black" name="apple-mobile-web-app-status-bar-style">
     <meta content="telephone=no" name="format-detection">
     <meta content="email=no" name="format-detection">
     <title>百度音乐</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="font/iconfont.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" type="text/css" href="css/category.css">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
-    <script>
-        document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
-    </script>
 </head>
 <body>
-<div class="b-wrap" id="b-wrap">
-    <div class="player">
-        <audio id="media" src="test.mp3"></audio>
-    </div>
-    <header>
-        <div class="logo"><a href="/"><img src="img/logo.png"></a></div>
-        <div class="header-nav">
-            <div class="classify nav-item j_anchor_category"><a href="category.html">分类</a></div>
-            <div class="singer nav-item j_anchor_song-author"><a href="song-author.html">歌手</a></div>
-            <div class="list nav-item j_anchor_bd"><a href="bd.html">榜单</a></div>
-            <div class="own nav-item j_anchor_user"><a href="user.html">我的</a></div>
-        </div>
-        <div class="header search"><a href="javascript:;"><i class="iconfont">&#xe612;</i></a></div>
-    </header>
-    <section>
-        <!--今日推荐-->
-        <div class="b-tj">
-            <div class="tj-title"><span>今日推荐</span></div>
-            <div class="tj-song"></div>
-        </div>
-        <!--新歌速递-->
-        <div class="new-song-sd">
-            <div class="new-song-title">
-                <span>新歌速递</span>
-                <span class="more">更多</span>
-            </div>
-            <div class="new-song-list"></div>
-        </div>
-        <!--岁省厅-->
-        <div class="banner-sst">
-            <a href="javascript:;">
-                <img src="img/mod-sst.jpg">
-            </a>
-        </div>
-        <!--音乐榜单-->
-        <div class="song-bd">
-            <div class="song-bd-title">
-                <span>音乐榜单</span>
-                <span class="more">更多</span>
-            </div>
-            <div class="bd-bars">
-                <div class="bar on">热歌榜</div>
-                <div class="bar">新歌榜</div>
-                <div class="bar">King榜</div>
-            </div>
-            <div class="bd-list hot on">
-                <div class="show-more">
-                    查看该榜单>
-                </div>
-            </div>
-            <div class="bd-list new">
-                <div class="show-more">
-                    查看该榜单>
-                </div>
-            </div>
-            <div class="bd-list King">
-                <div class="king-djs">
-                    <div>
-                        榜单数据将于<span class="date">09分20秒</span>后更新
+    <div class="b-wrap" id="b-wrap">
+        <!--header-->
+        <header></header>
+        <!--section-->
+        <section>
+            <!--热门分类-->
+            <div class="fl-big-box">
+                <!--热门分类-->
+                <div class="hot-category">
+                    <div class="hot-title">热门分类</div>
+                    <div class="fl-box">
+                        <div class="fl-list">
+                            流行
+                        </div>
+                        <div class="fl-list">
+                            <div class="m-y fl-item">民谣</div>
+                            <div class="e-g fl-item">儿歌</div>
+                        </div>
+                        <div class="fl-list">
+                            <div class="w-l fl-item">网络歌曲</div>
+                            <div class="q-y fl-item">器乐</div>
+                        </div>
                     </div>
                 </div>
-                <div class="show-more">
-                    查看该榜单>
+                <!--更多分类-->
+                <div class="all-fl">
+                    <div class="all-fl-title">全部分类</div>
+                    <div class="all-fl-box">
+                        <div class="table-box">
+                        <table class="all-table-fl">
+                            <thead>
+                                <tr>
+                                    <th>语种</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>华语</td>
+                                    <td>欧美</td>
+                                    <td>粤语</td>
+                                </tr>
+                                <tr>
+                                    <td>华语</td>
+                                    <td>欧美</td>
+                                    <td>粤语</td>
+                                </tr>
+                                <tr>
+                                    <td>华语</td>
+                                    <td>欧美</td>
+                                    <td>粤语</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        <div class="table-box">
+                        <table class="all-table-fl">
+                            <thead>
+                                <tr>
+                                    <th>分格</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>摇滚</td>
+                                    <td>喊麦</td>
+                                    <td>喊麦</td>
+                                </tr>
+                                <tr>
+                                    <td>喊麦</td>
+                                    <td>喊麦</td>
+                                    <td>喊麦</td>
+                                </tr>
+                                <tr>
+                                    <td>喊麦</td>
+                                    <td>喊麦</td>
+                                    <td>喊麦</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        <div class="table-box">
+                        <table class="all-table-fl">
+                            <thead>
+                                <tr>
+                                    <th>情感</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>怀旧</td>
+                                    <td>怀旧</td>
+                                    <td>怀旧</td>
+                                </tr>
+                                <tr>
+                                    <td>怀旧</td>
+                                    <td>怀旧</td>
+                                    <td>怀旧</td>
+                                </tr>
+                                <tr>
+                                    <td>怀旧</td>
+                                    <td>怀旧</td>
+                                    <td>怀旧</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        <div class="table-box">
+                        <table class="all-table-fl">
+                            <thead>
+                                <tr>
+                                    <th>主题</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>经典</td>
+                                    <td>经典</td>
+                                    <td>经典</td>
+                                </tr>
+                                <tr>
+                                    <td>经典</td>
+                                    <td>经典</td>
+                                    <td>经典</td>
+                                </tr>
+                                <tr>
+                                    <td>经典</td>
+                                    <td>经典</td>
+                                    <td>经典</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="more-fl">展开全部分类</div>
+            </div>
+            <!--热门歌单-->
+            <div class="hot-list">
+                <div class="hot-list-title">热门歌单</div>
+                <div class="hot-song-list row">
+                    
                 </div>
             </div>
-        </div>
-        <!--热门歌单-->
-        <div class="hot-song-list">
-            <div class="hot-song-title">
-                <span>热门歌单</span>
-                <span class="more">更多</span>
-            </div>
-            <div class="hot-song"></div>
-        </div>
-        <!--推荐MV-->
-        <!--<div class="tj-mv">-->
-        <!--<div class="tj-mv-title">-->
-        <!--<span>推荐MV</span>-->
-        <!--<span class="more">更多</span>-->
-        <!--</div>-->
-        <!--<div class="mv-list"></div>-->
-        <!--</div>-->
-        <footer>
-            <div class="opinion">意见反馈</div>
-            <div class="footer-logo"><img src="img/footer-logo.png" alt=""></div>
-        </footer>
-    </section>
-</div>
-<script src="js/zepto-v.1.1.6.min.js"></script>
-<script src="js/zepto.touch.js"></script>
-<script src="js/zepto.callbacks.js"></script>
-<script src="js/zepto.deferred.js"></script>
-<script src="js/template.js"></script>
-<script src="js/song.model.js"></script>
-<script src="js/common.js"></script>
-<script src="js/index.js"></script>
+            <!--footer-->
+            <footer></footer>
+        </section>
+        <!-- <div class="player"></div> -->
+    </div>
+
+    <script src="js/zepto-v.1.1.6.min.js"></script>
+    <script src="js/zepto.touch.js"></script>
+    <script src="js/zepto.callbacks.js"></script>
+    <script src="js/zepto.deferred.js"></script>
+    <script src="js/template.js"></script>
+    <script src="js/song.model.js"></script>
+    <script src="share/ajax.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/category.js"></script>
+    <script>
+        $('header').load('header.html');
+        $('footer').load('footer.html');
+        $('.player').load('player.html');
+    </script>
 </body>
 </html>

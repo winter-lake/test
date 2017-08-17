@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta charset="utf-8">
+	<meta name="referrer" content="never">
+  	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+  	<meta content="yes" name="apple-mobile-web-app-capable"> <!-- ios7.0版本以后，safari上已看不到效果,可以删除-->
+  	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+ 	<meta content="telephone=no" name="format-detection">
+  	<meta content="email=no" name="format-detection">
+	<title>百度音乐</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="font/iconfont.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/singer.css">
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+</head>
+<body>
+	<div class="b-wrap" id="b-wrap">
+		<!--header-->
+		<header></header>
+		<!--section-->
+		<section>
+			<div class="filter-box">
+				<div class="language-filter row">
+					<div class="language-item col-2 cur">全部</div>
+					<div class="language-item col-2">华语</div>
+					<div class="language-item col-2">欧美</div>
+					<div class="language-item col-2">韩国</div>
+					<div class="language-item col-2">日本</div>
+					<div class="language-item col-2">其他</div>
+				</div>
+				<div class="sex-filter row">
+					<div class="filter-item col-2 cur">全部</div>
+					<div class="filter-item col-2">男</div>
+					<div class="filter-item col-2">女</div>
+					<div class="filter-item col-2">组合</div>
+				</div>
+				<div class="hot-title">
+					<div class="hot">热门</div>
+					<div class="letter-icon">A</div>
+				</div>
+				<div class="singer-list">
+					
+				</div>
+				<div class="letter-all-box">
+					<div class="letter-title">歌手首字母</div>
+					<div class="letter-box row">
+						<div class="letter-item col-2"></div>
+					</div>
+					<div class="letter-close">关闭</div>
+				</div>
+			</div>
+			<!--footer-->
+			<footer></footer>
+		</section>
+	</div>
+
+	<script src="js/zepto-v.1.1.6.min.js"></script>
+	<script src="js/zepto.touch.js"></script>
+	<script src="js/zepto.callbacks.js"></script>
+	<script src="js/zepto.deferred.js"></script>
+	<script src="js/template.js"></script>
+	<script src="share/ajax.js"></script>
+	<script src="js/song.model.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/singer.js"></script>
+	<script>
+		$('header').load('header.html');
+		$('footer').load('footer.html');
+	</script>
+</body>
+</html>

@@ -24,8 +24,8 @@
 					var html = "";
 					var obj = data.result.list;
 					for(var i=0;i<obj.length;i++){
-						html+='<div class="tj-song-item">'+
-							'<a href="#'+obj[i].all_artist_id+'">'+
+						html+='<div class="tj-song-item col-4">'+
+							'<a href="#'+obj[i].song_id+'">'+
 								'<div class="song-img">'+
 									'<img src="'+obj[i].pic_big+'">'+
 									'<span class="iconfont icon-play">&#xe601;</span>'+
@@ -43,7 +43,7 @@
 					var html = "";
 					var obj = data.song_list;
 					for(var i=0;i<obj.length;i++){
-						html+='<div class="new-song-item">'+
+						html+='<div class="new-song-item col-4">'+
 								'<a href="javascript:;">'+
 									'<div class="song-img">'+
 										'<img src="'+obj[i].pic_big+'">'+
@@ -136,12 +136,12 @@
 					var html = "";
 					var obj = data.song_list;
 					for(var i=0;i<obj.length;i++){
-						html+='<div class="hot-song-item">'+
+						html+='<div class="hot-song-item col-4">'+
 									'<a href="javascript:;">'+
 										'<div class="song-img">'+
 											'<img src="'+obj[i].pic_big+'">'+
 										'</div>'+
-										'<div class="song-js">'+obj[i].title+'</div>'+
+										'<div class="song-name">'+obj[i].title+'</div>'+
 									'</a>'+
 							   '</div>'
 					}
@@ -176,6 +176,11 @@
 					audio.src = data.bitrate.file_link;
 					source.src = data.bitrate.file_link;
 				}
+			})
+			/*lrc*/
+			SongModel.index.lrc().then(function(data){
+				console.log(data.title)
+				console.log(data.lrcContent)
 			})
 		},
 		init : function(){

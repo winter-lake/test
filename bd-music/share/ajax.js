@@ -3,10 +3,11 @@ $.ajaxSettings = $.extend($.ajaxSettings, {
         share.startLoading();
     },
 	success : function(){
+        console.log("success")
 		share.endLoading();
 	},
     error : function(){
-    	alert('网络错误，请重试...');
+    	console.log('网络错误，请重试...');
     	return false;
     }
 });

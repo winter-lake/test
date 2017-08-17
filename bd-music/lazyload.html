@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta charset="utf-8">
+	<meta name="referrer" content="never">
+  	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+  	<meta content="yes" name="apple-mobile-web-app-capable"> <!-- ios7.0版本以后，safari上已看不到效果,可以删除-->
+  	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+ 	<meta content="telephone=no" name="format-detection">
+  	<meta content="email=no" name="format-detection">
+	<title>lazyload</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			list-style:none;
+		}
+		li{
+			width:100%;
+			text-align:center;
+			height:200px;
+			border:1px solid #ccc;
+			box-sizing:border-box;
+			line-height:200px;
+		}
+		li img{
+			vertical-align:middle;
+		}
+	</style>
+</head>
+<body>
+	<ul id="list">
+		
+	</ul>
+	<script src="js/zepto-v.1.1.6.min.js"></script>
+	<script>
+		$.ajax({
+			url:'data/img.json',
+			success : function(data){
+				var html = "";
+				for(var i=0;i<data.length;i++){
+					var img = new Image();
+					img.src = 'img/loading.gif';
+					var newLi = document.createElement('li');
+					newLi.appendChild(img);
+					list.appendChild(newLi);
+				}
+				var winh = $(window).height();
+				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+				console.log(scrollTop)
+			}
+		})
+	</script>
+</body>
+</html>

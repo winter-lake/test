@@ -65,8 +65,7 @@ $(document).ready(function() {
 		if($('.imgBox').length == 0){
 			var imgBox = document.createElement('div');
 			imgBox.className = 'imgBox';
-			var loadImg = document.createElement('img');
-			loadImg.class = 'loadImg';
+			var loadImg = new Image();
 			loadImg.src = "img/loading.gif";
 			imgBox.appendChild(loadImg);
 			this.mark.appendChild(imgBox);

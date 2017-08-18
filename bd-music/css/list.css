@@ -1,0 +1,42 @@
+.bd-list{
+	background:#fff;
+	padding:0 .3rem .3rem;
+}
+.cate-item{
+	border-bottom: 1px solid #eee;
+    padding: .3rem 0;
+}
+.item-content{
+	display:flex;
+}
+.cate-post{
+	width:2rem;
+	height:2rem;
+	overflow:hidden;
+	text-align:center;
+	position:relative;
+}
+.cate-post img{
+	width:100%;
+	height:100%;
+	vertical-align:middle;
+}
+.icon-play{
+	position:absolute;
+	bottom:.1rem;
+	right:.1rem;
+	font-size:.5rem;
+}
+.cate-hot{
+	flex:1;
+	margin-left:.3rem;
+}
+.cate-hot li{
+	padding:.17rem 0;
+	font-size:.28rem;
+}
+.ranking{
+	color:#fa6644;
+	font-weight:bold;
+	padding-right:.2rem;
+}

@@ -23,6 +23,7 @@ $(document).ready(function() {
 		}
 	}
 });
+/*rem计算*/
 (function(win) {
     var doc = win.document;
     var docEl = doc.documentElement;
@@ -47,7 +48,7 @@ $(document).ready(function() {
     }, false);
     refreshRem();
 })(window);
-
+/*遮罩层*/
 (function(global){
 	var share = {};
 	share.markTip = function(){
@@ -79,6 +80,63 @@ $(document).ready(function() {
 		$('.mark').remove();
 	}
 	global.share = share;
-})(window)
+})(window);
+
+/*图片懒加载*/
+(function(global){
+	function Lazyload(option){
+		this.img = option.img;//传入存放图片的容器
+		this.winHeight = window.innerHeight;
+		this.init();
+	}
+
+	Lazyload.prototype = {
+		constructor : Lazyload,
+		init : function(){
+			var self = this;
+			for(var i=0;i<self.img.length;i++){
+				var offsetTop = self.img[i].offsetTop;
+				if(offsetTop < self.winHeight){
+					self.img[i].src = self.img[i].getAttribute('data-img');
+				}
+			}
+			window.onscroll = function(){
+				this.scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+				for(var i=0;i<self.img.length;i++){
+					var offsetTop = self.img[i].offsetTop;
+					if((self.winHeight + this.scrollTop) > offsetTop){
+						self.img[i].src = self.img[i].getAttribute('data-img');
+					}
+				}
+			}
+		}
+	}
+
+	global.Lazyload = Lazyload;
+})(window);
+
+
+(function($){
+	$.fn.Lazyload = function(){
+		var self = this;
+		var winH = $(window).height();
+		$.each(this,function(i,v){
+			if($(this).offset().top < winH){
+				$(this).attr('src',$(this).data('img'));
+			}
+		})
+		$(window).on('scroll',function(){
+			var scrollTop = $(this).scrollTop();
+			$.each(self,function(i,v){
+				var offsetTop = $(this).offset().top;
+				if(winH + scrollTop > offsetTop){
+					$(this).attr('src',$(this).data('img'));
+				}
+			})
+		})
+	}
+})(Zepto);
+
+
 
 

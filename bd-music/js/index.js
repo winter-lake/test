@@ -20,14 +20,13 @@
 			//推荐
 			SongModel.index.tj().then(function(data){
 				if(data.error_code == '22000'){
-					console.log(data)
 					var html = "";
 					var obj = data.result.list;
 					for(var i=0;i<obj.length;i++){
 						html+='<div class="tj-song-item col-4">'+
 							'<a href="#'+obj[i].song_id+'">'+
 								'<div class="song-img">'+
-									'<img src="'+obj[i].pic_big+'">'+
+									'<img src="img/load.jpg" data-img="'+obj[i].pic_big+'" class="image">'+
 									'<span class="iconfont icon-play">&#xe601;</span>'+
 								'</div>'+
 								'<div class="song-name">'+obj[i].title+'</div>'+
@@ -46,7 +45,7 @@
 						html+='<div class="new-song-item col-4">'+
 								'<a href="javascript:;">'+
 									'<div class="song-img">'+
-										'<img src="'+obj[i].pic_big+'">'+
+										'<img src="img/load.jpg" data-img="'+obj[i].pic_big+'">'+
 										'<span class="iconfont icon-play">&#xe601;</span>'+
 									'</div>'+
 									'<div class="song-name">'+obj[i].title+'</div>'+
@@ -55,6 +54,7 @@
 							  '</div>'
 					}
 					self.new_song_list.innerHTML = html;
+					//$('self.new_song_list img').Lazyload();
 				}
 			})
 			//音乐榜单
@@ -66,7 +66,7 @@
 					for(var i=0;i<obj.length;i++){
 						html+='<dl class="bd-item">'+
 									'<dt>'+
-										'<img src="'+obj[i].pic_big+'">'+
+										'<img src="img/load.jpg" data-img="'+obj[i].pic_big+'">'+
 										'<span class="ranking">'+obj[i].album_no+'</span>'+
 									'</dt>'+
 									'<dd>'+
@@ -80,6 +80,7 @@
 								'</dl>'
 					}
 					$(html).insertBefore($(self.hot.querySelector('.show-more')));
+					///$('self.hot img').Lazyload();
 				}
 			})
 			/*新歌榜*/
@@ -90,7 +91,7 @@
 					for(var i=0;i<obj.length;i++){
 						html+='<dl class="bd-item">'+
 								'<dt>'+
-								'<img src="'+obj[i].pic_big+'">'+
+								'<img src="img/load.jpg" data-img="'+obj[i].pic_big+'">'+
 								'<span class="ranking">'+obj[i].album_no+'</span>'+
 								'</dt>'+
 								'<dd>'+
@@ -104,6 +105,7 @@
 							  '</dl>'
 					}
 					$(html).insertBefore($(self.new.querySelector('.show-more')));
+					//$('self.new img').Lazyload();
 				}
 			})
 			/*king榜*/
@@ -114,7 +116,7 @@
 					for(var i=0;i<obj.length;i++){
 						html+='<dl class="bd-item">'+
 							'<dt>'+
-							'<img src="'+obj[i].pic_big+'">'+
+							'<img src="img/load.jpg" data-img="'+obj[i].pic_big+'">'+
 							'<span class="ranking">'+obj[i].album_no+'</span>'+
 							'</dt>'+
 							'<dd>'+
@@ -128,6 +130,7 @@
 							'</dl>'
 					}
 					$(html).insertBefore($(self.King.querySelector('.show-more')));
+					//$('self.King img').Lazyload();
 				}
 			})
 			/*热门歌单*/
@@ -139,13 +142,14 @@
 						html+='<div class="hot-song-item col-4">'+
 									'<a href="javascript:;">'+
 										'<div class="song-img">'+
-											'<img src="'+obj[i].pic_big+'">'+
+											'<img src="img/load.jpg" data-img="'+obj[i].pic_big+'">'+
 										'</div>'+
 										'<div class="song-name">'+obj[i].title+'</div>'+
 									'</a>'+
 							   '</div>'
 					}
 					$(self.hot_song).html(html);
+					//$('self.hot_song img').Lazyload();
 				}
 			})
 			/*mv*/
@@ -169,7 +173,6 @@
 			// })
 			/*audio*/
 			SongModel.index.audio().then(function(data){
-				console.log(data)
 				if(data.error_code == '22000'){
 					var audio = document.querySelector('.player audio');
 					var source = document.querySelector('.player audio source');
@@ -179,8 +182,7 @@
 			})
 			/*lrc*/
 			SongModel.index.lrc().then(function(data){
-				console.log(data.title)
-				console.log(data.lrcContent)
+				
 			})
 		},
 		init : function(){
@@ -195,6 +197,6 @@
 			this.hot_song = this.$el.querySelector('.hot-song');
 			this.mv_List = this.$el.querySelector('.mv-list');
 		}
-	};
+	}
 	page.init();
 })()

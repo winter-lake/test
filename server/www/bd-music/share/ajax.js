@@ -3,7 +3,6 @@ $.ajaxSettings = $.extend($.ajaxSettings, {
         share.startLoading();
     },
 	success : function(){
-        console.log("success")
 		share.endLoading();
 	},
     error : function(){

@@ -34,40 +34,8 @@
 		
 	</ul>
 <script src="js/zepto-v.1.1.6.min.js"></script>
+<script src="js/common.js"></script>
 <script>
-	(function(){
-		function Lazyload(option){
-			this.parent = option.parent;//传入存放图片的容器
-			this.winHeight = window.innerHeight;
-			this.init();
-		}
-
-		Lazyload.prototype = {
-			constructor : Lazyload,
-			init : function(){
-				var self = this;
-				for(var i=0;i<self.parent.length;i++){
-					var offsetTop = self.parent[i].offsetTop;
-					if(offsetTop+20 < self.winHeight){
-						self.parent[i].querySelector('img').src = self.parent[i].querySelector('img').getAttribute('data-img');
-					}
-				}
-				window.onscroll = function(){
-					this.scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-					for(var i=0;i<self.parent.length;i++){
-						var offsetTop = self.parent[i].offsetTop;
-						if((self.winHeight + this.scrollTop) > offsetTop){
-							self.parent[i].querySelector('img').src = self.parent[i].querySelector('img').getAttribute('data-img');
-						}
-					}
-				}
-			}
-		}
-		window.Lazyload = Lazyload;
-	})()
-
-
-
 	$(function(){
 		var list = $('#list');
 		$.ajax({
@@ -78,9 +46,7 @@
 					html+='<li><img src="img/loading.gif" data-img="'+v.img+'" alt="歌星图片" /></li>'
 				})
 				list.html(html);
-				new Lazyload({
-					parent : document.querySelectorAll('li')
-				})
+				$('img').Lazyload();
 			}
 		})
 	})

@@ -200,3 +200,8 @@
 	}
 	page.init();
 })()
+
+
+document.onload = function(){
+	
+}

@@ -49,6 +49,10 @@
 			render(data)
 		}
 	})
+	// fetch('http://192.168.0.101:3000/api')
+	// 	.then(function(resp){
+	// 		console.log(resp)
+	// 	})
 	function render(data){
 		var obj = data.cinemas;
 		var html = "";
@@ -78,7 +82,22 @@
 			      `
 		})
 
-		$('#list').html(html)
+		$('#list').append(html);
+		var last = $('#list section:last-child');
+		var lastoffsetTop = last.offset().top;
+		var winh = $(window).height();
+		$(window).on('scroll',function(){
+			var scrollTop = $(this).scrollTop();
+			if(lastoffsetTop < winh + scrollTop){//判断最后一块内容大于滚动条高度加可视口的高度
+				$(window).off('scroll');//必须先把滚动条事件解绑了
+				$.ajax({
+					url:'data/list2.json',
+					success:function(data){
+						render(data);
+					}
+				})
+			}
+		})
 	}
 </script>
 </body>

@@ -4,7 +4,7 @@ $.ajaxSettings = $.extend($.ajaxSettings, {
     },
 	success : function(){
 		share.endLoading();
-        new Lazyload({img:document.getElementsByTagName('section')[0].getElementsByTagName('img')})
+        //new Lazyload({img:document.getElementsByTagName('section')[0].getElementsByTagName('img')})
 	},
     error : function(){
     	console.log('网络错误，请重试...');

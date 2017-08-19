@@ -171,6 +171,7 @@ body{
   left:0;
   right:0;
   display:-webkit-flex;
+  z-index:999;
 }
 .header-bar .city{
   width:1.0rem;

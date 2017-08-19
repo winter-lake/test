@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta charset="utf-8">
+	<meta name="referrer" content="never">
+  	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+  	<meta content="yes" name="apple-mobile-web-app-capable"> <!-- ios7.0版本以后，safari上已看不到效果,可以删除-->
+  	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+ 	<meta content="telephone=no" name="format-detection">
+  	<meta content="email=no" name="format-detection">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/download.css">
+</head>
+<body>
+<header class="header-bar">
+	<span class="city">北京</span>
+	<h4 class="header-title">猫眼电影</h4>
+</header>
+<div class="wrapper">
+	<section class="row" id="list">
+		<div class="col-xs-3">
+			<div class="main-left">
+				<img src="img/pic1.jpg" alt="">
+			</div>
+		</div>
+		<div class="col-xs-6">
+			<div class="main-center">
+				<h6>战狼</h6>
+				<h5>战争</h5>
+				<h4>武警</h4>
+				<p>哈哈哈哈或或或或或或或或或</p>
+			</div>
+		</div>
+		<div class="col-xs-3">
+			<div class="main-right">
+				<b class="pf">9.7</b>
+				<button type="button" class="btn btn-danger gp">购票</button>
+			</div>
+		</div>
+	</section>
+</div>
+<script src="js/zepto-v.1.1.6.min.js"></script>
+<script src="js/common.js"></script>	
+<script>
+	$.ajax({
+		url:'data/list1.json',
+		success:function(data){
+			render(data)
+		}
+	})
+	function render(data){
+		var obj = data.cinemas;
+		var html = "";
+		$.each(obj,function(i,v){
+			html+=`
+					<section class="row">
+							<div class="col-xs-3">
+								<div class="main-left">
+									<img src="img/pic1.jpg" alt="">
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="main-center">
+									<h6>${v.nm}</h6>
+									<h5>距离:${v.distance} 价格:${v.price}元</h5>
+									<h4>${v.addr}</h4>
+									<p>${v.promotion.cardPromotionTag ? v.promotion.cardPromotionTag : '没搞活动'}</p>
+								</div>
+							</div>
+							<div class="col-xs-3">
+								<div class="main-right">
+									<b class="pf">9.7</b>
+									<button type="button" class="btn btn-danger gp">购票</button>
+								</div>
+							</div>
+						</section>
+			      `
+		})
+
+		$('#list').html(html)
+	}
+</script>
+</body>
+</html>

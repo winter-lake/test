@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<input type="text" name="" id="text">
+<button type="button" id="search">搜索</button>
+<script src="js/jquery-2.1.4.min.js"></script>	
+<script>
+	$(function(){
+		$('#search').on('click',function(){
+			var text = $('#text').val();
+			$.ajax({
+				url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+				dataType:'jsonp',
+				jsonp:'sug',
+				jsonpCallback:"jsonpCallback",
+				data:{wd:text},
+				success:function(data){
+					//jsonpCallback(data);
+					console.log(data)
+				}
+			})
+
+
+			// function jsonpCallback(data){
+			// 	console.log(data)
+			// }
+		})
+	})
+	
+</script>
+</body>
+</html>

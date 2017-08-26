@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-basewidth="750">
 <head>
 	<meta charset="UTF-8">
 	<meta charset="utf-8">
@@ -10,7 +10,56 @@
  	<meta content="telephone=no" name="format-detection">
   	<meta content="email=no" name="format-detection">
 	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/dropload.css">
 	<link rel="stylesheet" type="text/css" href="css/download.css">
+	<script>
+		(function(win,doc){
+
+    var timer = null,
+        html = doc.documentElement,
+        baseWidth = html.dataset.basewidth*1 || 640,
+        metaEl = document.querySelector('meta[name="viewport"]'),
+        event = 'onorientationchange' in win ? 'onorientationchange' : 'resize';
+
+    if(!metaEl){
+        metaEl = document.createElement('meta');
+        metaEl.setAttribute('name','viewport');
+        metaEl.setAttribute('content','initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0');
+        html.firstElementChild.appendChild(metaEl);
+    }
+
+    function layoutCalc(){
+
+        var width = html.getBoundingClientRect().width,
+            ratio = width / baseWidth * 100,
+            devicePixelRatio = window.devicePixelRatio,
+            rem = ratio < 100 ?  ratio < 50 ? 50 : ratio : 100;
+
+        if(!/\.\d+/.test(devicePixelRatio.toString())){
+            html.dataset.dpr = devicePixelRatio;
+        }
+
+        html.style.fontSize = rem + 'px';
+
+    }
+
+    win.addEventListener(event,function(){
+        clearTimeout(timer);
+        timer = setTimeout(layoutCalc,300);
+    },false);
+
+    win.addEventListener('pageShow',function(e){
+        if(e.persisted){
+            clearTimeout(timer);
+            timer = setTimeout(layoutCalc,300);
+        }
+    },false);
+
+    layoutCalc();
+
+}(window,document));
+	</script>
 </head>
 <body>
 <header class="header-bar">
@@ -18,87 +67,372 @@
 	<h4 class="header-title">猫眼电影</h4>
 </header>
 <div class="wrapper">
-	<section class="row" id="list">
-		<div class="col-xs-3">
-			<div class="main-left">
-				<img src="img/pic1.jpg" alt="">
-			</div>
-		</div>
-		<div class="col-xs-6">
-			<div class="main-center">
-				<h6>战狼</h6>
-				<h5>战争</h5>
-				<h4>武警</h4>
-				<p>哈哈哈哈或或或或或或或或或</p>
-			</div>
-		</div>
-		<div class="col-xs-3">
-			<div class="main-right">
-				<b class="pf">9.7</b>
-				<button type="button" class="btn btn-danger gp">购票</button>
-			</div>
-		</div>
-	</section>
+	<div class="list"></div>
 </div>
 <script src="js/zepto-v.1.1.6.min.js"></script>
-<script src="js/common.js"></script>	
+<script src="js/zepto.dropload.js"></script>
+<!-- <script src="share/ajax.js"></script> -->
+<!-- <script src="js/common.js"></script>	 -->
 <script>
-	$.ajax({
-		url:'data/list1.json',
-		success:function(data){
-			render(data)
-		}
-	})
-	// fetch('http://192.168.0.101:3000/api')
-	// 	.then(function(resp){
-	// 		console.log(resp)
-	// 	})
-	function render(data){
-		var obj = data.cinemas;
-		var html = "";
-		$.each(obj,function(i,v){
-			html+=`
-					<section class="row">
-							<div class="col-xs-3">
-								<div class="main-left">
-									<img src="img/pic1.jpg" alt="">
-								</div>
-							</div>
-							<div class="col-xs-6">
-								<div class="main-center">
-									<h6>${v.nm}</h6>
-									<h5>距离:${v.distance} 价格:${v.price}元</h5>
-									<h4>${v.addr}</h4>
-									<p>${v.promotion.cardPromotionTag ? v.promotion.cardPromotionTag : '没搞活动'}</p>
-								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="main-right">
-									<b class="pf">9.7</b>
-									<button type="button" class="btn btn-danger gp">购票</button>
-								</div>
-							</div>
-						</section>
-			      `
-		})
+	(function(){
+ 		var page = {
+ 			pageNo : 1,
+ 			dropload : function(){
+ 				var self = this;
+ 				$(this.$el).dropload({
+ 					scrollArea : window,
+			        loadUpFn : function(me){
+			        	//重置页面页码
+			        	self.pageNo = 1;
+			        	$.ajax({
+			        		url:'http://169.254.7.10:3000/api/music',
+			        		data:{pageNo:self.pageNo,pageSize:10},
+			        		success:function(data){
+			        			var obj = data.data.list;
+								var html = "";
+								$.each(obj,function(i,v){
+									html+=`
+											<section class="row section">
+													<div class="col-xs-3">
+														<div class="main-left">
+															<img src="img/load.jpg" data-img="${v.dis}" alt="">
+														</div>
+													</div>
+													<div class="col-xs-6">
+														<div class="main-center">
+															<h6>${v.nm}</h6>
+															<h5>距离:${v.distance} 价格:${v.price}元</h5>
+															<h4>${v.addr}</h4>
+															<p>${v.promotion.cardPromotionTag ? v.promotion.cardPromotionTag : '没搞活动'}</p>
+														</div>
+													</div>
+													<div class="col-xs-3">
+														<div class="main-right">
+															<b class="pf">9.7</b>
+															<button type="button" class="btn btn-danger gp">购票</button>
+														</div>
+													</div>
+												</section>
+									      `
+								})
+								setTimeout(function(){
+									$('.list').html(html);
+									//$('img').Lazyload();
+									// 每次数据加载完，必须重置
+					                me.resetload();
+					                // 解锁loadDownFn里锁定的情况
+			                        me.unlock();
+			                        me.noData(false);        
+								},1000)
+			        		},
+			        		error: function(xhr, type){
+			                    // 即使加载出错，也得重置
+			                    me.resetload();
+			                }
+			        	})
+			        },
+			        loadDownFn : function(me){
+			        	self.pageNo++;
+			        	$.ajax({
+			        		url:'http://169.254.7.10:3000/api/music',
+			        		data:{pageNo:self.pageNo,pageSize:10},
+			        		success:function(data){
+			        			if(data.data.list.length > 0){
+			        				//self.render(data,me);
+			        				var obj = data.data.list;
+									var html = "";
+									$.each(obj,function(i,v){
+										html+=`
+												<section class="row section">
+														<div class="col-xs-3">
+															<div class="main-left">
+																<img src="img/load.jpg" data-img="${v.dis}" alt="">
+															</div>
+														</div>
+														<div class="col-xs-6">
+															<div class="main-center">
+																<h6>${v.nm}</h6>
+																<h5>距离:${v.distance} 价格:${v.price}元</h5>
+																<h4>${v.addr}</h4>
+																<p>${v.promotion.cardPromotionTag ? v.promotion.cardPromotionTag : '没搞活动'}</p>
+															</div>
+														</div>
+														<div class="col-xs-3">
+															<div class="main-right">
+																<b class="pf">9.7</b>
+																<button type="button" class="btn btn-danger gp">购票</button>
+															</div>
+														</div>
+													</section>
+										      `
+									})
+			        			}else{
+			        				// 锁定
+			                        me.lock();
+			                        // 无数据
+			                        me.noData(true);
+			        			}
+			        			setTimeout(function(){
+									$('.list').append(html);
+									//$('img').Lazyload();
+									// 每次数据加载完，必须重置
+					                me.resetload();
+								},1000)
+			        		},
+			        		error: function(xhr, type){
+			                    // 即使加载出错，也得重置
+			                    me.resetload();
+			                }
+			        	})
+			        },
+			        threshold : 50
+ 				})
+ 			},
+ 			render : function(data,me){
+ 				var self = this;
+ 				$.ajax({
+	        		url:'http://169.254.7.10:3000/api/music',
+	        		data:{pageNo:self.pageNo,pageSize:10},
+	        		success:function(data){
+	        			//self.render(data,me);
+	        			var obj = data.data.list;
+						var html = "";
+						$.each(obj,function(i,v){
+							html+=`
+									<section class="row section">
+											<div class="col-xs-3">
+												<div class="main-left">
+													<img src="img/load.jpg" data-img="${v.dis}" alt="">
+												</div>
+											</div>
+											<div class="col-xs-6">
+												<div class="main-center">
+													<h6>${v.nm}</h6>
+													<h5>距离:${v.distance} 价格:${v.price}元</h5>
+													<h4>${v.addr}</h4>
+													<p>${v.promotion.cardPromotionTag ? v.promotion.cardPromotionTag : '没搞活动'}</p>
+												</div>
+											</div>
+											<div class="col-xs-3">
+												<div class="main-right">
+													<b class="pf">9.7</b>
+													<button type="button" class="btn btn-danger gp">购票</button>
+												</div>
+											</div>
+										</section>
+							      `
+						})
+						$('.list').html(html);
+						//$('img').Lazyload();
+	        		}
+	        	})
+ 			},
+ 			init : function(){
+ 				this.$el = document.querySelector('.wrapper');
+ 				//默认加载
+ 				this.render();
+ 				this.dropload();
+ 			}
+ 		}
+ 		page.init();
+ 	})()
 
-		$('#list').append(html);
-		var last = $('#list section:last-child');
-		var lastoffsetTop = last.offset().top;
-		var winh = $(window).height();
-		$(window).on('scroll',function(){
-			var scrollTop = $(this).scrollTop();
-			if(lastoffsetTop < winh + scrollTop){//判断最后一块内容大于滚动条高度加可视口的高度
-				$(window).off('scroll');//必须先把滚动条事件解绑了
-				$.ajax({
-					url:'data/list2.json',
-					success:function(data){
-						render(data);
-					}
-				})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 		(function(){
+		var pageNo = 1;
+		$.ajax({
+			url:'http://192.168.0.101:3000/api/music',
+			data : {'pageNo':pageNo,'pageSize':10},	
+			success:function(data){
+				render(data)
 			}
 		})
-	}
+		function render(data){
+			var obj = data.data.list;
+			var html = "";
+			$.each(obj,function(i,v){
+				html+=`
+						<section class="row">
+								<div class="col-xs-3">
+									<div class="main-left">
+										<img src="img/load.jpg" data-img="${v.dis}" alt="">
+									</div>
+								</div>
+								<div class="col-xs-6">
+									<div class="main-center">
+										<h6>${v.nm}</h6>
+										<h5>距离:${v.distance} 价格:${v.price}元</h5>
+										<h4>${v.addr}</h4>
+										<p>${v.promotion.cardPromotionTag ? v.promotion.cardPromotionTag : '没搞活动'}</p>
+									</div>
+								</div>
+								<div class="col-xs-3">
+									<div class="main-right">
+										<b class="pf">9.7</b>
+										<button type="button" class="btn btn-danger gp">购票</button>
+									</div>
+								</div>
+							</section>
+				      `
+			})
+			$('.wrapper').append(html);
+			$('img').Lazyload();
+			var last = $('.wrapper section:last-child');
+			var lastoffsetTop = last.offset().top;
+			var winh = $(window).height();
+			$(window).on('scroll',function(){
+				var scrollTop = $(this).scrollTop();
+				if(lastoffsetTop < winh + scrollTop){//判断最后一块内容大于滚动条高度加可视口的高度
+					pageNo++;
+					$(window).off('scroll');//必须先把滚动条事件解绑了
+					$.ajax({
+						url:'http://192.168.0.101:3000/api/music',
+						data : {'pageNo':pageNo,'pageSize':10},
+						success:function(data){
+							if(pageNo > data.data.totalPages){
+								alert('没有数据了');
+								return;
+							}
+							render(data);
+						}
+					})
+				}
+			})
+		}
+		
+		// var MyModel = {};
+		// // 基本的model, 可用来存储一些页面的数据
+		// MyModel.BaseModel = function(params, view) {
+		//     params = params || {};
+		//     var model = this;
+		//     // 获取某些属性
+		//     this.get = function(key) {
+		//         return model[key];
+		//     }
+		//     // 设置属性
+		//     this.set = function(key, value) {
+		//         if(key) {
+		//             model[key] = value;
+		//             // 执行view对应的change函数
+		//             if(view) {
+		//                 // 转换首字母
+		//                 var formatKey = key.replace(/\b(\w)(\w*)/g, function($0, $1, $2) {
+		//                     return $1.toUpperCase() + $2;
+		//                 });
+		//                 var event_name = 'on' + formatKey + 'Change';
+		//                 if(view[event_name]) {
+		//                     view[event_name](value);
+		//                 }
+		//             }
+		//         }
+		//     }
+		//     this.init = function() {
+		//         for(var key in params) {
+		//             model.set(key, params[key]);
+		//         }
+		//     };
+
+		//     this.init();
+		// };
+
+	    //功能对象
+ //        var page = {
+ //        	pageNo : 1
+ //        };
+ //        page.reset = function(){
+ //        	var view = this;
+ //        	// 初始化下拉刷新
+	//         view.$el.dropload({
+	//             autoLoad:false,
+	//             distance: 50,
+	//             loadUpFn : function(me){
+	//                 view.render();
+	//                 me.resetload();
+ //                    // 重置页数，重新获取loadDownFn的数据
+ //                    page = 0;
+ //                    // 解锁loadDownFn里锁定的情况
+ //                    me.unlock();
+ //                    me.noData(false);
+	//             },
+	//             loadDownFn: function(me) {
+	//                 ++pageNo;
+	//                 view.render()
+	//             }
+	//         });
+ //        }
+       
+ //        //渲染页面
+ //        page.render = function(){
+ //        	$.ajax({
+	// 		url:'http://192.168.0.101:3000/api/music',
+	// 			data : {'pageNo':this.pageNo,'pageSize':10},	
+	// 			success:function(data){
+	// 				var obj = data.data.list;
+	// 				var html = "";
+	// 				$.each(obj,function(i,v){
+	// 					html+=`
+	// 							<section class="row">
+	// 									<div class="col-xs-3">
+	// 										<div class="main-left">
+	// 											<img src="img/load.jpg" data-img="${v.dis}" alt="">
+	// 										</div>
+	// 									</div>
+	// 									<div class="col-xs-6">
+	// 										<div class="main-center">
+	// 											<h6>${v.nm}</h6>
+	// 											<h5>距离:${v.distance} 价格:${v.price}元</h5>
+	// 											<h4>${v.addr}</h4>
+	// 											<p>${v.promotion.cardPromotionTag ? v.promotion.cardPromotionTag : '没搞活动'}</p>
+	// 										</div>
+	// 									</div>
+	// 									<div class="col-xs-3">
+	// 										<div class="main-right">
+	// 											<b class="pf">9.7</b>
+	// 											<button type="button" class="btn btn-danger gp">购票</button>
+	// 										</div>
+	// 									</div>
+	// 								</section>
+	// 					      `
+	// 				})
+	// 				$('.list').append(html);
+	// 				$('img').Lazyload();
+	// 			}
+	// 		})
+ //        }
+ //        page.init = function(){
+ //        	var view = this;
+ //        	this.$el = document.querySelector('.wrapper');
+ //        	//view.reset();
+ //        	view.render();
+ //        }
+ //        page.init();
+	// })();
 </script>
 </body>
 </html>

@@ -1,9 +1,3 @@
-/**
- * dropload
- * 西门(http://ons.me/526.html)
- * 0.9.0(160215)
- */
-
 ;(function($){
     'use strict';
     var win = window;
@@ -36,16 +30,16 @@
         me.opts = $.extend(true, {}, {
             scrollArea : me.$element,                                            // 滑动区域
             domUp : {                                                            // 上方DOM
-                domClass   : 'w_dropload-up',
+                domClass   : 'dropload-up',
                 domRefresh : '<div class="dropload-refresh">↓下拉刷新</div>',
                 domUpdate  : '<div class="dropload-update">↑释放更新</div>',
-                domLoad    : '<div class="dropload-load"><i class="icon-refresh icon-spin"></i> 加载中...</div>'
+                domLoad    : '<div class="dropload-load"><span class="loading"></span>加载中...</div>'
             },
             domDown : {                                                          // 下方DOM
-                domClass   : 'w_dropload-down',
-                domRefresh : '<div class="dropload-refresh"></div>',
-                domLoad    : '<div class="dropload-load"><div class="w_loading"><i class="icon-spinner icon-spin"></i> 正在加载...</div></div>',
-                domNoData  : '<div class="dropload-noData"><div class="w_nomore"><span>没有更多了~</span></div></div>'
+                domClass   : 'dropload-down',
+                domRefresh : '<div class="dropload-refresh">↑上拉加载更多</div>',
+                domLoad    : '<div class="dropload-load"><span class="loading"></span>加载中...</div>',
+                domNoData  : '<div class="dropload-noData">暂无数据</div>'
             },
             autoLoad : true,                                                     // 自动加载
             distance : 50,                                                       // 拉动距离
@@ -84,12 +78,17 @@
 
         // 窗口调整
         $win.on('resize',function(){
-            if(me.opts.scrollArea == win){
+            clearTimeout(me.timer);
+            me.timer = setTimeout(function(){
+                if(me.opts.scrollArea == win){
                 // 重新获取win显示区高度
                 me._scrollWindowHeight = win.innerHeight;
-            }else{
-                me._scrollWindowHeight = me.$element.height();
-            }
+                }else{
+                    me._scrollWindowHeight = me.$element.height();
+                }
+                fnAutoLoad(me);
+            },150);
+            
         });
 
         // 绑定触摸
@@ -203,7 +202,7 @@
 
     // 如果文档高度不大于窗口高度，数据较少，自动加载下方数据
     function fnAutoLoad(me){
-        if(me.opts.autoLoad){
+        if(me.opts.loadDownFn != '' && me.opts.autoLoad){
             if((me._scrollContentHeight - me._threshold) <= me._scrollWindowHeight){
                 loadDown(me);
             }

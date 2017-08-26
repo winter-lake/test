@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var script = document.createElement('script');
+		script.src = 'http://tingapi.ting.baidu.com/v1/restserver/ting?method=baidu.ting.song.getRecommandSongList&song_id=877578&num=6?callback=render';
+
+		function render(data){
+			alert("!")
+			console.log(data)
+		}
+        render()
+	</script>
+</body>
+</html>

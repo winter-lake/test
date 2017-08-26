@@ -1,0 +1,178 @@
+@charset "UTF-8";
+*, *::after, *::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+
+body,h1,h2,h3,h4,p,ul,ol,dl,dt,dd,input,textarea,button {
+  margin:0;
+  padding:0;
+}
+li {
+  list-style:none;
+}
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,li,dl,dt,dd,a,textarea,input,button,span,em,strong,img,div {
+  -webkit-touch-callout:none;
+  -moz-touch-callout:none;
+  -ms-touch-callout:none;
+  touch-callout:none;
+  /*在iOS上，当你触摸并按住触摸的目标，比如一个链接，Safari浏览器将显示链接有关的系统默认菜单。这个属性可以让你禁用系统默认菜单。*/
+}
+input,textarea,button {
+  outline:none;
+}
+textarea {
+  resize:none;
+}
+img {
+  border:none;
+}
+a {
+  text-decoration:none;
+}
+a:hover, a:visited, a:link, a:active {
+    color:#999;
+}
+html,body{
+  width:100%;
+  height:100%;
+  -webkit-text-size-adjust: 100%;/*文字随浏览器发生改变*/
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -o-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -moz-tap-highlight-color: transparent;
+  -ms-tap-highlight-color: transparent;
+  -o-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+  /*当用户点击iOS的Safari浏览器中的链接或JavaScript的可点击的元素时，覆盖显示的高亮颜色。
+该属性可以只设置透明度。如果未设置透明度，iOS Safari使用默认的透明度。当透明度设为0，则会禁用此属性；当透明度设为1，元素在点击时不可见。*/
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  /*auto——默认值，用户可以选中元素中的内容
+none——用户不能选择元素中的任何内容
+text——用户可以选择元素中的文本
+element——文本可选，但仅限元素的边界内(只有IE和FF支持)
+all——在编辑器内，如果双击/上下文点击发生在子元素上，改值的最高级祖先元素将被选中。
+-moz-none——firefox私有，元素和子元素的文本将不可选，但是，子元素可以通过text重设回可选。*/
+  font-family:"Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
+  -webkit-font-smoothing: antialiased; /*抗锯齿*/
+  -moz-osx-font-smoothing:grayscale;/* inherit | *//*抗锯齿*/
+}
+body{
+    font-size:.16rem;
+    -webkit-overflow-scrolling:touch;
+}
+.container{
+  display:-webkit-flex;
+}
+.section{
+  width:100%;
+  display:flex;
+  -webkit-flex: 0 1 auto;/*项目的放大比例为0，不放大；等比缩小；属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。
+                          浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。*/
+  -webkit-flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  margin:0;
+}
+.row{
+    width:100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.col-xs-12 {
+  width: 100%;
+}
+.col-xs-11 {
+  width: 91.66666667%;
+}
+.col-xs-10 {
+  width: 83.33333333%;
+}
+.col-xs-9 {
+  width: 75%;
+}
+.col-xs-8 {
+  width: 66.66666667%;
+}
+.col-xs-7 {
+  width: 58.33333333%;
+}
+.col-xs-6 {
+  width: 50%;
+}
+.col-xs-5 {
+  width: 41.66666667%;
+}
+.col-xs-4 {
+  width: 33.33333333%;
+}
+.col-xs-3 {
+  width: 25%;
+}
+.col-xs-2 {
+  width: 16.66666667%;
+}
+.col-xs-1 {
+  width: 8.33333333%;
+}
+
+/*按钮*/
+
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+.btn-danger:hover {
+  color: #fff;
+  background-color: #c9302c;
+  border-color: #ac2925;
+}
+/*清浮动*/
+.clearfix{
+  zoom:1;
+}
+.clearfix:after{
+  content:"\20";
+  display:block;
+  height:0;
+  clear:both;
+}

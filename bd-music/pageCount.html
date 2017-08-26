@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var page = function(option){
+			this.pagesize = option.pagesize;
+			this.pagenum = option.pagenum;
+			this.pagetotel = option.pagetotal;
+			this.init();
+		}
+		page.prototype = {
+			constructor : page,
+			init : function(){
+				
+			}
+		}
+		//调用插件
+		new page({
+			pagesize : 1,
+			pagenum : 10,
+			pagetotal :100
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="eq"></div>
+	<script>
+		//module模式
+		var Index = function(eq){
+            //这里可以声明私有成员
+            var abc = document.querySelector(eq);
+            //暴露公开的成员
+            return {
+            	add : function(x,y){
+                    var val = x + y;
+                    abc.innerHTML = val;
+            	}
+            }
+		}
+		//调用
+		var ABC = new Index('.eq');
+		ABC.add(1,2);
+
+
+		//不需要传参利用函数自执行
+		var Index1 = function(){
+            var a = 5;
+            return {
+            	add : function(){
+                   return a;
+            	}
+            }
+		}()
+		//调用
+		console.log(Index1.add())
+
+		//匿名函数引用全局变量,引入jquery以及zepto
+		(function(J,Z){
+
+		})(jQuery,Zepto)
+
+		//匿名函数返回全局变量
+		var Model = (function(){
+			var my = {};
+			my.name = 'abc';
+			my.fn = function(){
+				return my.name;
+			}
+			return my;
+		})()
+
+		console.log(Model)
+	</script>
+</body>
+</html>

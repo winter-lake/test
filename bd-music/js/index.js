@@ -202,6 +202,3 @@
 })()
 
 
-document.onload = function(){
-	
-}

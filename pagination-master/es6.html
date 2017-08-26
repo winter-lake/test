@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="ganzwen@gmail.com" />
+	<meta name="keyword" content="page,pagination" />
+	<title>Pagination</title>
+	<link rel="stylesheet" href="dist/pagination.css">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.data-list {
+			list-style: none;
+		}
+		.list-item {
+			padding: 10px;
+		}
+
+	</style>
+</head>
+<body>
+	<div style="width: 700px;margin: 100px auto;">
+		<ul class="data-list">
+		</ul>
+		<div id="pagination" class="pagination"></div>
+	</div>
+	<script src="/js/lib/babel.js"></script>
+	<script src="/js/lib/babel-polyfill.js"></script>
+	<script src="/js/lib/babel-require.js"></script>
+	<script>
+		// require根路径
+		require.config({
+			path: '/'
+		});
+	</script>
+	<!-- <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+	<script type="text/babel" src="js/indexEs6.js" charset="UTF-8"></script>
+</body>
+</html>

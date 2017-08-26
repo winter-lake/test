@@ -73,13 +73,14 @@ body{
 .container{
   display:-webkit-flex;
 }
-.row{
+.section{
   width:100%;
   display:flex;
   -webkit-flex: 0 1 auto;/*项目的放大比例为0，不放大；等比缩小；属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。
                           浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。*/
   -webkit-flex-direction: row;
   -webkit-flex-wrap: wrap;
+  margin:0;
 }
 .col-xs-12 {
   width: 100%;
@@ -205,7 +206,6 @@ body{
 }
 .main-left img{
   width:100%;
-  height:100%;
 }
 .main-center h6,.main-center h5,.main-center h4,.main-center p{
   overflow:hidden;

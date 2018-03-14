@@ -9,7 +9,6 @@
 				var numberDom = target.parentNode.children[1];//数量dom
 				var oneNumber = target.parentNode.children[1].value;
 				oneNumber = Number(oneNumber);//转换为数字
-				//懂得太少，就这个兼容问题，折磨半天，学吧
 				var onePrice = target.parentNode.previousElementSibling.innerText
 				 || target.parentNode.previousSibling.innerText;//.innerText;//单价
 				var xj = target.parentNode.nextElementSibling

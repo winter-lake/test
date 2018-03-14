@@ -87,7 +87,50 @@ push被拒绝
 
 JavaScript   module模式
 
+var Calculator = function (eq) {
+    //这里可以声明私有成员
 
+    var eqCtl = document.getElementById(eq);
+
+    return {
+        // 暴露公开的成员
+        add: function (x, y) {
+            var val = x + y;
+            eqCtl.innerHTML = val;
+        }
+    };
+};
+
+用法：
+var calculator = new Calculator('eq');
+calculator.add(2, 2);
+
+(function ($, YAHOO) {
+    // 这里，我们的代码就可以使用全局的jQuery对象了，YAHOO也是一样
+} (jQuery, YAHOO));
+
+var blogModule = (function () {
+    var my = {}, privateName = "博客园";
+
+    function privateAddTopic(data) {
+        // 这里是内部处理代码
+    }
+
+    my.Name = privateName;
+    my.AddTopic = function (data) {
+        privateAddTopic(data);
+    };
+
+    return my;
+} ());
+
+扩展
+var blogModule = (function (my) {
+    my.AddPhoto = function () {
+        //添加内部代码  
+    };
+    return my;
+} (blogModule));
 
 
 

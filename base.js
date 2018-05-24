@@ -1402,3 +1402,10 @@ var haorooms =
     //抛出你希望抛出去的对象，因为你掌控了所有，哈哈。
     return new outputObj();
 })();
+
+
+
+
+git学习笔记
+
+

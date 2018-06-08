@@ -1406,6 +1406,66 @@ var haorooms =
 
 
 
-git学习笔记
+极简方式实现类与继承
+var Animal = {
+	createFn:function(){
+		var dog = {}
+		dog.name = '小花'
+		dog.handle = function(){
+			console.log('人类的好朋友')
+		}
+		return dog
+	}
+}
+var Dog = {
+	createFn:function(){
+		var dog1 = Animal.createFn();
+		dog1.handle1 = function(){
+			console.log('最好的朋友')
+		}
+		return dog1;
+	}
+}//继承了Animal的方法与属性
 
+//原型链继承
+子类的原型等于父类的实例
+
+//类似继承
+function Parent(age){
+    this.name = ['mike','jack','smith'];
+    this.age = age;
+}
+
+function Child(age){
+    Parent.call(this,age);
+}
+var test = new Child(21);
+alert(test.age);//21
+alert(test.name);//mike,jack,smith
+test.name.push('bill');
+alert(test.name);//mike,jack,smith,bill
+
+//组合继承
+function Parent(age){
+    this.name = ['mike','jack','smith'];
+    this.age = age;
+}
+Parent.prototype.run = function () {
+    return this.name  + ' are both' + this.age;
+};
+function Child(age){
+    Parent.call(this,age);//对象冒充，给超类型传参
+}
+Child.prototype = new Parent();//原型链继承
+var test = new Child(21);//写new Parent(21)也行
+alert(test.run());//mike,jack,smith are both21
+
+//原型式继承
+
+通过Object.create()方式来创建新的类。老式浏览器不支持
+function obj(o){
+     function F(){}
+     F.prototype = o;
+     return new F();
+ }
 

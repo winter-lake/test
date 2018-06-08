@@ -1469,3 +1469,25 @@ function obj(o){
      return new F();
  }
 
+
+//闭包学习
+function A(){
+    function B(){
+       console.log("Hello haorooms!");
+    }
+    return B;
+}
+var c = A();
+c();//Hello haorooms!
+(1)定义了一个普通函数A
+
+(2)在A中定义了普通函数B
+
+(3)在A中返回B（确切的讲，在A中返回B的引用）
+
+(4)执行A(),把A的返回结果赋值给变量 c
+
+(5)执行 c()
+当一个内部函数被其外部函数之外的变量引用时，就形成了一个闭包。
+
+

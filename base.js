@@ -1533,3 +1533,28 @@ class B extends A {
 let b = new B();
 
 
+//二维数组转一维数组
+var arr1 = [[0, 1], [2, 3], [4, 5]];
+var arr2 = arr1.reduce(function (a, b) { return a.concat(b)} );
+// arr2 [0, 1, 2, 3, 4, 5]
+
+var arr1 = [[0, 1], [2, 3], [4, 5]];
+function flatten(arr) { return [].concat( ...arr.map(x => Array.isArray(x) ? flatten(x) : x) ) }
+var arr2 = flatten(arr1); // arr2 [0, 1, 2, 3, 4, 5]
+
+优点: 多维数组也可以
+比如：var arr = [[1,2],3,[[[4], 5]]]
+
+var arr1 = [[0, 1], [2, 3], [4, 5]];
+var arr2 = [].concat.apply([], arr1);
+// arr2 [0, 1, 2, 3, 4, 5]
+
+var arr1 = [[0, 1], [2, 3], [4, 5]];
+
+var arr2 = (arr1 + '').split(',');
+
+var arr2 = arr.toString().split(',');
+
+var arr2 = arr.join().split(',');
+
+// arr2 ["0", "1", "2", "3", "4", "5"]
